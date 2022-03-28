@@ -29,10 +29,6 @@ jobs:
                   echo "::error title="Unwanted file detected:$NOM_VAR"::$NOM_VAR"
               fi
           done
-          if [ $ERRORS = 1 ]
-          then
-              echo "::error title="Checks if the repository is clean and void of any unwanted files(temp files, binary, etc.)"::edd"
-          fi
   cloning_repository:
     needs: check_repository_cleanliness
     runs-on: ubuntu-latest
