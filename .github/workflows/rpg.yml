@@ -1,5 +1,4 @@
 name: Pain-Au-Chocolat
-on: [push, delete]
 env:
   MIRROR_URL: git@github.com:EpitechPromo2026/B-DOP-200-NAN-2-1-bschocolatine-louis.barreteau.git
 on:
