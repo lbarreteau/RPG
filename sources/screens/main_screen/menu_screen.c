@@ -7,7 +7,6 @@
 
 #include "global.h"
 #include "menu_screen.h"
-#include <time.h>
 
 void update_background_pos(screens *screen)
 {
@@ -35,8 +34,6 @@ void main_screen(void)
             free_menu(&screen, &menu);
             return;
         }
-        //time(&menu.ltime);
-        //printf("The time is %s\n", ctime(&menu.ltime));
         update_background_pos(&screen);
         draw_menu(&screen, &menu);
     }

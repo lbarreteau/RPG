@@ -15,7 +15,8 @@ typedef struct menus {
     time_t ltime;
     bool display_time;
     sfColor theme_color;
-    sfCircleShape *options_circles[7];
+    char *name_start_game;
+    struct sprite start_game;
 } menus;
 
 

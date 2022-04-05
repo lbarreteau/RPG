@@ -80,5 +80,6 @@ void init_menu_struct(menus *menu)
         menu->display_time = false;
     }
     menu->theme_color = recognition_color(array_settings[3]);
+    menu->name_start_game = strdup(array_settings[5]);
     free_array(array_settings);
 }

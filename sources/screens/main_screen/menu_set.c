@@ -18,4 +18,5 @@ void set_screen(screens *screen)
 
 void set_menu(menus *menu)
 {
+    menu->start_game = init_sprite(menu->name_start_game, (sfVector2f) {1.5, 1.5}, (sfVector2f) {600, 740});
 }

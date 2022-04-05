@@ -12,5 +12,6 @@ void draw_menu(screens *screen, menus *menu)
 {
     sfRenderWindow_clear(screen->window, sfWhite);
     sfRenderWindow_drawSprite(screen->window, screen->background.sprite, NULL);
+    sfRenderWindow_drawSprite(screen->window, menu->start_game.sprite, NULL);
     sfRenderWindow_display(screen->window);
 }

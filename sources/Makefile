@@ -12,7 +12,6 @@ SRC			=	screens/main_screen/menu_screen.c			\
 				screens/main_screen/menu_set.c 				\
 				screens/main_screen/menu_draw.c 			\
 				screens/main_screen/menu_free.c 			\
-				screens/main_screen/menu_circle_gestion.c	\
 				screens/main_screen/menu_event.c 			\
 				tools/open_and_read_file.c					\
 				tools/str_to_word_array.c					\
