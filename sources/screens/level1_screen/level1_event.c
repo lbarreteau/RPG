@@ -9,11 +9,13 @@
 
 bool event_level1(screens *screen)
 {
+    sfVector2f pos_player;
+
     if (screen->event.type == sfEvtClosed) {
         return (true);
     }
     if (screen->event.type == sfEvtKeyPressed) {
-        sfVector2f pos_player = sfSprite_getPosition(screen->background.sprite);
+        pos_player = sfSprite_getPosition(screen->background.sprite);
         if (screen->event.key.code == sfKeyRight) {
             pos_player.x -= 3;
         }

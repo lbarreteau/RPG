@@ -17,7 +17,7 @@ int is_alnum(char c)
     return (1);
 }
 
-int	word_count(char *str)
+int word_count(char *str)
 {
     int i = 0;
     int word = 0;
