@@ -20,13 +20,16 @@ struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos)
     return (background);
 }
 
-sfText *init_text(sfText *text, int size, sfVector2f pos, sfColor theme_color)
+struct text init_text(int size, sfVector2f pos, sfColor theme_color)
 {
-    text = sfText_create();
-    sfText_setFont(text, sfFont_createFromFile("assets/families/global_font.ttf"));
-    sfText_setCharacterSize(text, size);
-    sfText_setColor(text, theme_color);
-    sfText_setPosition(text, pos);
-    sfText_setString(text, " ");
+    struct text text;
+
+    text.font = sfFont_createFromFile("assets/families/global_font.ttf");
+    text.text = sfText_create();
+    sfText_setFont(text.text, text.font);
+    sfText_setCharacterSize(text.text, size);
+    sfText_setColor(text.text, theme_color);
+    sfText_setPosition(text.text, pos);
+    sfText_setString(text.text, " ");
     return (text);
 }

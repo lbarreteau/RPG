@@ -24,7 +24,8 @@ void free_sprite(menus *menu)
     for (int i = 0; i < 4; i++) {
         sfTexture_destroy(menu->signs[i].texture);
         sfSprite_destroy(menu->signs[i].sprite);
-        //sfText_destroy(menu->name_options[i]);
+        sfFont_destroy(menu->name_options[i].font);
+        sfText_destroy(menu->name_options[i].text);
     }
 }
 

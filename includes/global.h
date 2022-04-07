@@ -23,6 +23,11 @@ struct sprite {
     sfTexture *texture;
 };
 
+struct text {
+    sfText *text;
+    sfFont *font;
+};
+
 typedef struct screens {
     unsigned int size_screen_length;
     unsigned int size_screen_width;
