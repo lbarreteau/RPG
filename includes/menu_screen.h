@@ -16,6 +16,7 @@ typedef struct menus {
     bool display_time;
     sfColor theme_color;
     char *name_sign;
+    char *name_sign_dark;
     struct sprite signs[4];
     struct text name_options[4];
 } menus;
