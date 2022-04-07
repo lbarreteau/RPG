@@ -17,6 +17,7 @@ typedef struct menus {
     sfColor theme_color;
     char *name_sign;
     char *name_sign_dark;
+    sfVector2u size_screen;
     struct sprite signs[4];
     struct text name_options[4];
 } menus;

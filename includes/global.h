@@ -21,6 +21,7 @@
 struct sprite {
     sfSprite *sprite;
     sfTexture *texture;
+    sfTexture *texture_dark;
 };
 
 struct text {
