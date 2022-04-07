@@ -20,7 +20,7 @@ typedef struct menus {
     sfText *name_options[4];
 } menus;
 
-sfText *init_text(sfText *text, char *label, int size, sfVector2f pos);
+sfText *init_text(sfText *text, int size, sfVector2f pos, sfColor theme_color);
 void init_menu_struct(menus *menu);
 void set_menu(menus *menu);
 void draw_menu(screens *screen, menus *menu);
