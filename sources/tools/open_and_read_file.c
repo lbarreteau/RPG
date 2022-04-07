@@ -28,13 +28,11 @@ char *open_and_read_file(char *filepath)
 
     if (fd == -1) {
         free(buffer);
-        //global->error_selection = 1;
         return (NULL);
     }
     ret = read(fd, buffer, size);
     if (ret == -1) {
         free(buffer);
-        //global->error_selection = 2;
         return (NULL);
     }
     buffer[size] = '\0';

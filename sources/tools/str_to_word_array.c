@@ -23,9 +23,10 @@ int	word_count(char *str)
     int word = 0;
 
     while (str != NULL && str[i]) {
-      if (is_alnum(str[i]) == 1 && is_alnum(str[i + 1]) == 0)
-        word = word + 1;
-      i = i + 1;
+        if (is_alnum(str[i]) == 1 && is_alnum(str[i + 1]) == 0) {
+            word = word + 1;
+        }
+        i = i + 1;
     }
     return (word);
 }
@@ -40,7 +41,7 @@ char **str_to_word_array(char *str)
     wordtab = malloc((word_count(str) + 1) * sizeof(char *));
     while (str != NULL && str[i]) {
         if (is_alnum(str[i]))
-        len = len + 1;
+            len = len + 1;
         if (is_alnum(str[i]) == 1 && is_alnum(str[i + 1]) == 0) {
             wordtab[j] = malloc(len + 1);
             strncpy(wordtab[j], &str[i - len + 1], len);
@@ -48,7 +49,7 @@ char **str_to_word_array(char *str)
             len = 0;
             j++;
         }
-    i++;
+        i++;
     }
     wordtab[j] = NULL;
     return (wordtab);

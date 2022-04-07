@@ -20,7 +20,8 @@ struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos)
     return (background);
 }
 
-sfCircleShape *init_circle(sfCircleShape *circle, unsigned int radius, sfVector2f pos, menus *menu)
+sfCircleShape *init_circle(sfCircleShape *circle, unsigned int radius,
+sfVector2f pos, menus *menu)
 {
     circle = sfCircleShape_create();
     sfCircleShape_setFillColor(circle, menu->theme_color);

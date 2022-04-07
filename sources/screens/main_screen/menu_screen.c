@@ -10,10 +10,12 @@
 
 void update_background_pos(screens *screen)
 {
-    sfVector2f pos_background = sfSprite_getPosition(screen->background.sprite);
+    sfVector2f pos_bkd = sfSprite_getPosition(screen->background.sprite);
 
-    pos_background.y -= 0.5;
-    sfSprite_setPosition(screen->background.sprite, pos_background);
+    if (pos_bkd.y >= -3900) {
+        pos_bkd.y -= 0.5;
+    }
+    sfSprite_setPosition(screen->background.sprite, pos_bkd);
 }
 
 void main_screen(void)

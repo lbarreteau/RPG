@@ -23,6 +23,9 @@ void free_sprite(menus *menu)
     free(menu->name_start_game);
     sfTexture_destroy(menu->start_game.texture);
     sfSprite_destroy(menu->start_game.sprite);
+    free(menu->name_settings);
+    sfTexture_destroy(menu->settings.texture);
+    sfSprite_destroy(menu->settings.sprite);
 }
 
 void free_menu(screens *screen, menus *menu)

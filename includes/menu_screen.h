@@ -17,10 +17,12 @@ typedef struct menus {
     sfColor theme_color;
     char *name_start_game;
     struct sprite start_game;
+    char *name_settings;
+    struct sprite settings;
 } menus;
 
-
-sfCircleShape *init_circle(sfCircleShape *circle, unsigned int radius, sfVector2f pos, menus *menu);
+sfCircleShape *init_circle(sfCircleShape *circle, unsigned int radius,
+sfVector2f pos, menus *menu);
 void init_menu_struct(menus *menu);
 void set_menu(menus *menu);
 void draw_menu(screens *screen, menus *menu);
