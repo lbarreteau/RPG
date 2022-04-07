@@ -12,7 +12,9 @@ void draw_menu(screens *screen, menus *menu)
 {
     sfRenderWindow_clear(screen->window, sfWhite);
     sfRenderWindow_drawSprite(screen->window, screen->background.sprite, NULL);
-    sfRenderWindow_drawSprite(screen->window, menu->start_game.sprite, NULL);
-    sfRenderWindow_drawSprite(screen->window, menu->settings.sprite, NULL);
+    for (int i = 0; i < 4; i++) {
+        sfRenderWindow_drawSprite(screen->window, menu->signs[i].sprite, NULL);
+        //sfRenderWindow_drawText(screen->window, menu->name_options[i], NULL);
+    }
     sfRenderWindow_display(screen->window);
 }

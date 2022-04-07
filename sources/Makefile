@@ -24,7 +24,7 @@ NAME   		=	my_rpg
 
 CC			=	gcc
 
-CFLAGS		+=	-Wall -Wextra -Wshadow -I../includes
+CFLAGS		+=	-Wall -Wextra -Wshadow -I../includes -g
 
 LDFLAGS		+=	-lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window
 

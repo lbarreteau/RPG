@@ -15,14 +15,12 @@ typedef struct menus {
     time_t ltime;
     bool display_time;
     sfColor theme_color;
-    char *name_start_game;
-    struct sprite start_game;
-    char *name_settings;
-    struct sprite settings;
+    char *name_sign;
+    struct sprite signs[4];
+    sfText *name_options[4];
 } menus;
 
-sfCircleShape *init_circle(sfCircleShape *circle, unsigned int radius,
-sfVector2f pos, menus *menu);
+sfText *init_text(sfText *text, char *label, int size, sfVector2f pos);
 void init_menu_struct(menus *menu);
 void set_menu(menus *menu);
 void draw_menu(screens *screen, menus *menu);

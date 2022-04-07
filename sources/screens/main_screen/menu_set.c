@@ -19,8 +19,8 @@ void set_screen(screens *screen)
 
 void set_menu(menus *menu)
 {
-    menu->start_game = init_sprite(menu->name_start_game,
-    (sfVector2f) {1.5, 1.5}, (sfVector2f) {600, 740});
-    menu->settings = init_sprite(menu->name_start_game,
-    (sfVector2f) {0.5, 1}, (sfVector2f) {1650, 20});
+    for (int i = 0, x = 425; i < 4; i++, x += 150) {
+        menu->signs[i] = init_sprite(menu->name_sign, (sfVector2f) {1, 1}, (sfVector2f) {704, x});
+        //menu->name_options[i] = init_text(menu->name_options[i], "test", 50, (sfVector2f) {100, 100});
+    }
 }

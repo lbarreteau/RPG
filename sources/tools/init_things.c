@@ -20,13 +20,13 @@ struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos)
     return (background);
 }
 
-sfCircleShape *init_circle(sfCircleShape *circle, unsigned int radius,
-sfVector2f pos, menus *menu)
+sfText *init_text(sfText *text, char *label, int size, sfVector2f pos)
 {
-    circle = sfCircleShape_create();
-    sfCircleShape_setFillColor(circle, menu->theme_color);
-    sfCircleShape_setPosition(circle, pos);
-    sfCircleShape_setRadius(circle, radius);
-    sfCircleShape_setOutlineColor(circle, menu->theme_color);
-    return (circle);
+    text = sfText_create();
+    sfText_setFont(text, sfFont_createFromFile("assets/families/global_font.ttf"));
+    sfText_setCharacterSize(text, size);
+    sfText_setColor(text, sfWhite);
+    sfText_setPosition(text, pos);
+    sfText_setString(text, label);
+    return (text);
 }
