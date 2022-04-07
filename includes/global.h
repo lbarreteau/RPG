@@ -45,6 +45,7 @@ struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos);
 
 char *open_and_read_file(char *filepath);
 char **str_to_word_array(char *str);
+sfColor recognition_color(char *color);
 void free_array(char **array);
 
 void init_screen_struct(screens *screen);
