@@ -20,7 +20,7 @@ void level1_screen(void)
     set_level1(&game);
     while (sfRenderWindow_isOpen(screen.window)) {
         while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
-            exit = event_menu(&screen, &game);
+            exit = event_level1(&screen);
         }
         if (exit == true) {
             free_level1(&screen, &game);

@@ -26,7 +26,7 @@ void mouse_on_button(screens *screen, sfSprite *sign, menus *menu, int i)
 {
     sfVector2i pos_mouse = sfMouse_getPositionRenderWindow(screen->window);
     sfVector2f pos_button = sfSprite_getPosition(sign);
-    float size = 1920/ 1080;
+    float size = 1920 / 1080;
     float real_size = menu->size_screen.x / menu->size_screen.y;
 
     if (pos_mouse.x >= pos_button.x && pos_mouse.x <= pos_button.x + (512 *

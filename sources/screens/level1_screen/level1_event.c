@@ -7,10 +7,26 @@
 
 #include "level1_screen.h"
 
-bool event_level1(screens *screen, level1 *game)
+bool event_level1(screens *screen)
 {
     if (screen->event.type == sfEvtClosed) {
         return (true);
+    }
+    if (screen->event.type == sfEvtKeyPressed) {
+        sfVector2f pos_player = sfSprite_getPosition(screen->background.sprite);
+        if (screen->event.key.code == sfKeyRight) {
+            pos_player.x -= 3;
+        }
+        if (screen->event.key.code == sfKeyLeft) {
+            pos_player.x += 3;
+        }
+        if (screen->event.key.code == sfKeyUp) {
+            pos_player.y += 3;
+        }
+        if (screen->event.key.code == sfKeyDown) {
+            pos_player.y -= 3;
+        }
+        sfSprite_setPosition(screen->background.sprite, pos_player);
     }
     return (false);
 }

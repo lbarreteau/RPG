@@ -20,6 +20,8 @@ static void free_screen(screens *screen)
 
 static void free_sprite(level1 *game)
 {
+    sfTexture_destroy(game->player.texture);
+    sfSprite_destroy(game->player.sprite);
 }
 
 void free_level1(screens *screen, level1 *game)

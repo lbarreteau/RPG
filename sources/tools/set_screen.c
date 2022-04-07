@@ -13,5 +13,5 @@ void set_screen(screens *screen)
     sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(screen->window, screen->fps);
     screen->background = init_sprite(screen->name_background,
-    (sfVector2f) {2.5, 2.5}, (sfVector2f) {0, 0});
+    (sfVector2f) {4.5, 4.5}, (sfVector2f) {0, 0});
 }
