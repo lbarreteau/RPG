@@ -53,3 +53,4 @@ void init_screen_struct(screens *screen);
 void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(void);
+void settings_screen(void);
