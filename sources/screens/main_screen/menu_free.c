@@ -21,8 +21,10 @@ void free_screen(screens *screen)
 void free_sprite(menus *menu)
 {
     free(menu->name_sign);
+    free(menu->name_sign_dark);
     for (int i = 0; i < 4; i++) {
         sfTexture_destroy(menu->signs[i].texture);
+        sfTexture_destroy(menu->signs[i].texture_dark);
         sfSprite_destroy(menu->signs[i].sprite);
         sfFont_destroy(menu->name_options[i].font);
         sfText_destroy(menu->name_options[i].text);
