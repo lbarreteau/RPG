@@ -8,29 +8,30 @@
 #include "global.h"
 #include "menu_screen.h"
 
-static void redirection_screen(int nb_screen, screens *screen)
+static bool redirection_screen(int nb_screen, screens *screen)
 {
-    //free_sprite(menu);
     switch (nb_screen) {
         case 0:
             level1_screen(screen);
-            exit(0);
+            return (true);
             break;
         case 1:
             
             break;
         case 2:
-            
+            how_to_play_screen(screen);
+            return (true);
             break;
         case 3:
-            exit(0);
+            return (true);
             break;
         default:
+            return (false);
             break;
     }
 }
 
-static void mouse_clicked_on_button(screens *screen, sfSprite *sign, menus *menu,
+static bool mouse_clicked_on_button(screens *screen, sfSprite *sign, menus *menu,
     int i)
 {
     sfVector2i pos_mouse = sfMouse_getPositionRenderWindow(screen->window);
@@ -42,7 +43,7 @@ static void mouse_clicked_on_button(screens *screen, sfSprite *sign, menus *menu
             real_size / size) && pos_mouse.y >= pos_button.y && pos_mouse.y <=
         pos_button.y + (116 * real_size / size)) {
         sfSprite_setTexture(sign, menu->signs[i].texture_dark, sfFalse);
-        redirection_screen(i, screen);
+        return (redirection_screen(i, screen));
     }
 }
 
@@ -65,6 +66,7 @@ static void mouse_on_button(screens *screen, sfSprite *sign, menus *menu, int i)
 
 bool event_menu(screens *screen, menus *menu)
 {
+    bool exit = false;
 
     if (screen->event.type == sfEvtClosed) {
         return (true);
@@ -75,9 +77,9 @@ bool event_menu(screens *screen, menus *menu)
         }
     }
     if (screen->event.type == sfEvtMouseButtonPressed) {
-        for (int i = 0; i < 4; i++) {
-            mouse_clicked_on_button(screen, menu->signs[i].sprite, menu, i);
+        for (int i = 0; i < 4 && exit != true; i++) {
+            exit = mouse_clicked_on_button(screen, menu->signs[i].sprite, menu, i);
         }
     }
-    return (false);
+    return (exit);
 }

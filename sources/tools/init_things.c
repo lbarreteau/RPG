@@ -35,3 +35,10 @@ struct text init_text(int size, sfVector2f pos, sfColor theme_color)
     sfText_setString(text.text, " ");
     return (text);
 }
+
+sfMusic *init_music(sfMusic *background_music, char *filepath)
+{
+    background_music = sfMusic_createFromFile(filepath);
+    sfMusic_setLoop(background_music, sfTrue);
+    return (background_music);
+}

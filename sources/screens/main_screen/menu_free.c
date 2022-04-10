@@ -22,6 +22,7 @@ void free_sprite(menus *menu)
 {
     free(menu->name_sign);
     free(menu->name_sign_dark);
+    free(menu->name_music);
     for (int i = 0; i < 4; i++) {
         sfTexture_destroy(menu->signs[i].texture);
         sfTexture_destroy(menu->signs[i].texture_dark);
@@ -33,6 +34,10 @@ void free_sprite(menus *menu)
 
 void free_menu(screens *screen, menus *menu)
 {
+    sfFont_destroy(menu->title.font);
+    sfText_destroy(menu->title.text);
+    sfMusic_stop(menu->background_music);
+    sfMusic_destroy(menu->background_music);
     free_sprite(menu);
     free_screen(screen);
 }

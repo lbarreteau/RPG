@@ -11,7 +11,7 @@
 
 int is_alnum(char c)
 {
-    if (c <= ' ' || c == ':' || c >= 127) {
+    if (c <= '\n' || c == ':' || c >= 127) {
         return (0);
     }
     return (1);
