@@ -26,6 +26,7 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/settings_screen/settings_event.c 						\
 				screens/settings_screen/settings_init_struct.c					\
 				screens/settings_screen/volume_settings/volume_events.c 		\
+				screens/settings_screen/fps_settings/fps_events.c 				\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\
