@@ -10,7 +10,6 @@
 #include "global.h"
 
 typedef struct level1 {
-    sfColor theme_color;
     struct sprite player;
 } level1;
 

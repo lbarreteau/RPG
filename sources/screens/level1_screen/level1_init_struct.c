@@ -27,6 +27,5 @@ void init_level1_struct(level1 *game)
 {
     char **array_settings = find_menu_properties_from_file();
 
-    game->theme_color = recognition_color(array_settings[1]);
     free_array(array_settings);
 }

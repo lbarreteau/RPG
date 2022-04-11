@@ -20,7 +20,7 @@ void how_to_play_screen(screens *screen)
             exit = event_how_to_play(screen);
         }
         if (exit == true) {
-            free_level1(&game);
+            free_how_to_play(&game);
             return;
         }
         draw_how_to_play(screen, &game);

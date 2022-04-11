@@ -40,6 +40,7 @@ typedef struct screens {
     sfRenderWindow *window;
     sfEvent event;
     struct sprite background;
+    sfColor theme_color;
 } screens;
 
 struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos);

@@ -14,7 +14,6 @@
 typedef struct menus {
     time_t ltime;
     bool display_time;
-    sfColor theme_color;
     char *name_sign;
     char *name_sign_dark;
     sfVector2u size_screen;

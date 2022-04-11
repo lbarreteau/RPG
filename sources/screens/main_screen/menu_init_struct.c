@@ -27,14 +27,8 @@ void init_menu_struct(menus *menu)
 {
     char **array_settings = find_menu_properties_from_file();
 
-    if (strcmp("ON", array_settings[1]) == 0) {
-        menu->display_time = true;
-    } else {
-        menu->display_time = false;
-    }
-    menu->theme_color = recognition_color(array_settings[3]);
-    menu->name_sign = strdup(array_settings[5]);
-    menu->name_sign_dark = strdup(array_settings[9]);
-    menu->name_music = strdup(array_settings[11]);
+    menu->name_sign = strdup(array_settings[1]);
+    menu->name_sign_dark = strdup(array_settings[3]);
+    menu->name_music = strdup(array_settings[5]);
     free_array(array_settings);
 }
