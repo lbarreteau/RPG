@@ -22,6 +22,8 @@ typedef struct menus {
     char *name_music;
     sfMusic *background_music;
     struct text title;
+    char *name_music_click;
+    sfMusic *music_click;
 } menus;
 
 void init_menu_struct(menus *menu);
