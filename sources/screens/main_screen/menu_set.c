@@ -30,7 +30,7 @@ static void set_sprite(screens *global, menus *menu)
 
 static void set_text(screens *global, menus *menu)
 {
-    menu->title = init_text(75, (sfVector2f) {275, 100}, global->theme_color);
+    menu->title = init_text(75, (sfVector2f) {275, 125}, global->theme_color);
     sfText_setString(menu->title.text, global->name_screen);
     sfText_setString(menu->name_options[0].text, "      START");
     sfText_setString(menu->name_options[1].text, "  SETTINGS");

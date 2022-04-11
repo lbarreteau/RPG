@@ -6,12 +6,13 @@
 */
 
 #include "global.h"
-#include "level1_screen.h"
+#include "how_to_play.h"
 
-void draw_how_to_play(screens *screen, level1 *game)
+void draw_how_to_play(screens *screen, how_to_play *game)
 {
     sfRenderWindow_clear(screen->window, sfWhite);
-    sfRenderWindow_drawSprite(screen->window, screen->background.sprite, NULL);
+    sfRenderWindow_drawSprite(screen->window, game->exemple_map.sprite, NULL);
+    sfRenderWindow_drawSprite(screen->window, game->how_to_play_sign.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, game->player.sprite, NULL);
     sfRenderWindow_display(screen->window);
 }

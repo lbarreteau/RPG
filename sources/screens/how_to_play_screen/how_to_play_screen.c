@@ -6,11 +6,11 @@
 */
 
 #include "global.h"
-#include "level1_screen.h"
+#include "how_to_play.h"
 
 void how_to_play_screen(screens *screen)
 {
-    struct level1 game;
+    struct how_to_play game;
     bool exit = false;
 
     init_how_to_play_struct(&game);

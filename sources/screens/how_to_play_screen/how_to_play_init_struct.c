@@ -6,7 +6,7 @@
 */
 
 #include "global.h"
-#include "level1_screen.h"
+#include "how_to_play.h"
 
 static char **find_how_to_play_properties_from_file(void)
 {
@@ -23,9 +23,12 @@ static char **find_how_to_play_properties_from_file(void)
     return (array);
 }
 
-void init_how_to_play_struct(level1 *game)
+void init_how_to_play_struct(how_to_play *game)
 {
     char **array_settings = find_how_to_play_properties_from_file();
 
+    game->name_player_sprite = strdup(array_settings[1]);
+    game->name_background_sign = strdup(array_settings[3]);
+    game->name_exemple_map = strdup(array_settings[5]);
     free_array(array_settings);
 }
