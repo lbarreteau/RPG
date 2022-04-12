@@ -38,5 +38,6 @@ bool event_settings(screens *screen, settings *setting)
         return (true);
     }
     volume_events(screen, setting);
+    fps_events(screen, setting);
     return (false);
 }
