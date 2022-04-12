@@ -15,5 +15,10 @@ void set_how_to_play(how_to_play *game)
     game->how_to_play_sign = init_sprite(game->name_background_sign,
     (sfVector2f) {2, 2}, (sfVector2f) {130, 40});
     game->exemple_map = init_sprite(game->name_exemple_map,
-    (sfVector2f) {3, 3}, (sfVector2f) {0, 0});
+    (sfVector2f) {3, 3}, (sfVector2f) {-500, -450});
+    game->title = init_sprite(game->name_title,
+    (sfVector2f) {1, 1}, (sfVector2f) {1100, 200});
+    game->next_step = init_sprite(game->name_title,
+    (sfVector2f) {1, 1}, (sfVector2f) {1100, 800});
+    game->step = 0;
 }

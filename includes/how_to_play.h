@@ -16,6 +16,10 @@ typedef struct how_to_play {
     struct sprite how_to_play_sign;
     struct sprite exemple_map;
     char *name_exemple_map;
+    char *name_title;
+    struct sprite title;
+    struct sprite next_step;
+    unsigned short step;
 } how_to_play;
 
 void how_to_play_screen(screens *screen);

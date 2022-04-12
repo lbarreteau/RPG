@@ -30,5 +30,6 @@ void init_how_to_play_struct(how_to_play *game)
     game->name_player_sprite = strdup(array_settings[1]);
     game->name_background_sign = strdup(array_settings[3]);
     game->name_exemple_map = strdup(array_settings[5]);
+    game->name_title = strdup(array_settings[7]);
     free_array(array_settings);
 }
