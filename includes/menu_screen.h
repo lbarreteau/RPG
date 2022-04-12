@@ -24,6 +24,8 @@ typedef struct menus {
     struct text title;
     char *name_music_click;
     sfMusic *music_click;
+    sfTexture *texture_dark;
+    sfTexture *texture_click;
 } menus;
 
 void init_menu_struct(menus *menu);
