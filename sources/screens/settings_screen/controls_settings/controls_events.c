@@ -19,32 +19,55 @@ const char *keycode[] = {
     "F15", "Pause", "Count"
 };
 
-void change_controls(screens *screen, settings *setting)
+bool check_other_key(settings *setting, const char *str_keycode)
+{
+    for (int i = 0; i < 5; i++) {
+        if (strcmp(sfText_getString(setting->controls.text[i].text),
+            str_keycode) == 0)
+            return (true);
+    }
+    return (false);
+}
+
+void change_controls(screens *screen, settings *setting, int i)
 {
     char *temp = NULL;
 
     if (screen->event.type == sfEvtKeyPressed) {
-        if (screen->event.key.code != -1) {
+        if (screen->event.key.code != -1 &&
+        check_other_key(setting, keycode[screen->event.key.code]) == false) {
             temp = strdup(keycode[screen->event.key.code]);
-            sfText_setString(setting->controls.text->text, temp);
-            sfText_setPosition(setting->controls.text->text, (sfVector2f){550 - strlen(temp) / 2 * 20, 500});
-            setting->controls.wait_key = false;
+            sfText_setString(setting->controls.text[i].text, temp);
+            sfText_setPosition(setting->controls.text[i].text,
+                (sfVector2f){550 - strlen(temp) / 2 * 20, 500 + i * 100});
+            setting->controls.wait_key[i] = false;
         }
     }
     if (temp != NULL)
         free(temp);
 }
 
-void controls_events(screens *screen, settings *setting)
+void click_button_controls(screens *screen, settings *setting, int i)
 {
     if (screen->event.type == sfEvtMouseButtonPressed &&
         screen->event.mouseButton.button == sfMouseLeft) {
-        if (mouse_clicked_button(screen, setting->controls.sprite[0].sprite,
+        if (mouse_clicked_button(screen, setting->controls.sprite[i * 2].sprite,
             (sfVector2f){256, 116}) == true) {
-            setting->controls.wait_key = true;
-            change_controls(screen, setting);
+            setting->controls.wait_key[i] = true;
         }
     }
-    if (setting->controls.wait_key == true)
-        change_controls(screen, setting);
+}
+
+void controls_events(screens *screen, settings *setting)
+{
+    for (int i = 0; i < 5; i++) {
+        if (setting->controls.wait_key[0] == false &&
+        setting->controls.wait_key[1] == false &&
+        setting->controls.wait_key[2] == false &&
+        setting->controls.wait_key[3] == false &&
+        setting->controls.wait_key[4] == false)
+            click_button_controls(screen, setting, i);
+        if (setting->controls.wait_key[i] == true)
+            change_controls(screen, setting, i);
+    }
 }

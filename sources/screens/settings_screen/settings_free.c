@@ -40,14 +40,17 @@ void free_fps(settings *setting)
 
 void free_controls(settings *setting)
 {
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 10; i++) {
         sfTexture_destroy(setting->controls.sprite[i].texture);
         sfTexture_destroy(setting->controls.sprite[i].texture_dark);
         sfSprite_destroy(setting->controls.sprite[i].sprite);
-        free(setting->asset_btn[i + 7]);
     }
-    sfText_destroy(setting->controls.text->text);
-    sfFont_destroy(setting->controls.text->font);
+    for (int i = 0; i < 5; i++) {
+        sfText_destroy(setting->controls.text[i].text);
+        sfFont_destroy(setting->controls.text[i].font);
+    }
+    free(setting->asset_btn[7]);
+    free(setting->asset_btn[8]);
     free(setting->asset_btn[9]);
 }
 

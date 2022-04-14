@@ -10,9 +10,9 @@
 #include "global.h"
 
 typedef struct controls {
-    struct sprite sprite[2];
-    struct text text[1];
-    bool wait_key;
+    struct sprite sprite[10];
+    struct text text[5];
+    bool wait_key[5];
 } controls;
 
 typedef struct volume {

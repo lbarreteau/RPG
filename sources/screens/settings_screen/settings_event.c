@@ -23,10 +23,8 @@ bool mouse_clicked_button(screens *screen,
     sfVector2f pos_mouse = set_pos_mouse_f(screen);
     sfVector2f pos_button = sfSprite_getPosition(sprite);
 
-    if (pos_mouse.x >= pos_button.x && pos_mouse.x <=
-    pos_button.x + size.x
-    && pos_mouse.y >= pos_button.y && pos_mouse.y <=
-    pos_button.y + size.y) {
+    if (pos_mouse.x >= pos_button.x && pos_mouse.x <= pos_button.x + size.x
+    && pos_mouse.y >= pos_button.y && pos_mouse.y <= pos_button.y + size.y) {
         return (true);
     }
     return (false);
@@ -37,7 +35,11 @@ bool event_settings(screens *screen, settings *setting)
     if (screen->event.type == sfEvtClosed) {
         return (true);
     }
-    if (setting->controls.wait_key == false) {
+    if (setting->controls.wait_key[0] == false &&
+        setting->controls.wait_key[1] == false &&
+        setting->controls.wait_key[2] == false &&
+        setting->controls.wait_key[3] == false &&
+        setting->controls.wait_key[4] == false) {
         volume_events(screen, setting);
         fps_events(screen, setting);
     }

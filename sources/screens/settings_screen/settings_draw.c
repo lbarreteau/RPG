@@ -7,6 +7,21 @@
 
 #include "settings_screen.h"
 
+void draw_controls(screens *screen, settings *setting)
+{
+    for (int i = 0; i < 5; i++) {
+        if (setting->controls.wait_key[i] == false) {
+            sfRenderWindow_drawSprite(screen->window,
+                setting->controls.sprite[i * 2].sprite, NULL);
+        } else {
+            sfRenderWindow_drawSprite(screen->window,
+                setting->controls.sprite[i * 2 + 1].sprite, NULL);
+        }
+        sfRenderWindow_drawText(screen->window,
+            setting->controls.text[i].text, NULL);
+    }
+}
+
 void draw_settings(screens *screen, settings *setting)
 {
     sfRenderWindow_clear(screen->window, sfWhite);
@@ -19,14 +34,6 @@ void draw_settings(screens *screen, settings *setting)
         sfRenderWindow_drawSprite(screen->window,
             setting->fps.sprite[i].sprite, NULL);
     }
-    if (setting->controls.wait_key == false) {
-        sfRenderWindow_drawSprite(screen->window,
-            setting->controls.sprite[0].sprite, NULL);
-    } else {
-        sfRenderWindow_drawSprite(screen->window,
-            setting->controls.sprite[1].sprite, NULL);
-    }
-    sfRenderWindow_drawText(screen->window,
-        setting->controls.text->text, NULL);
+    draw_controls(screen, setting);
     sfRenderWindow_display(screen->window);
 }

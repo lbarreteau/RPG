@@ -40,17 +40,19 @@ void set_fps_settings(settings *setting)
 
 void set_controls_settings(settings *setting)
 {
-    setting->controls.text->font = sfFont_createFromFile(setting->asset_btn[7]);
-    setting->controls.text->text = sfText_create();
-    sfText_setFont(setting->controls.text->text, setting->controls.text->font);
-    sfText_setPosition(setting->controls.text->text, (sfVector2f){450, 500});
-    sfText_setCharacterSize(setting->controls.text->text, 20);
-    sfText_setString(setting->controls.text->text, "\0");
-    setting->controls.sprite[0] = init_sprite(setting->asset_btn[8],
-        (sfVector2f) {1, 1}, (sfVector2f) {650, 450});
-    setting->controls.sprite[1] = init_sprite(setting->asset_btn[9],
-        (sfVector2f) {1, 1}, (sfVector2f) {650, 450});
-    setting->controls.wait_key = false;
+    for (int i = 0; i < 5; i++) {
+        setting->controls.text[i].font = sfFont_createFromFile(setting->asset_btn[7]);
+        setting->controls.text[i].text = sfText_create();
+        sfText_setFont(setting->controls.text[i].text, setting->controls.text->font);
+        sfText_setPosition(setting->controls.text[i].text, (sfVector2f){450, 500 + i * 100});
+        sfText_setCharacterSize(setting->controls.text[i].text, 20);
+        sfText_setString(setting->controls.text[i].text, "\0");
+        setting->controls.sprite[i * 2] = init_sprite(setting->asset_btn[8],
+            (sfVector2f) {1, 1}, (sfVector2f) {650, 450 + i * 100});
+        setting->controls.sprite[i * 2 + 1] = init_sprite(setting->asset_btn[9],
+            (sfVector2f) {1, 1}, (sfVector2f) {650, 450 + i * 100});
+        setting->controls.wait_key[i] = false;
+    }
 }
 
 void set_settings(settings *setting)
