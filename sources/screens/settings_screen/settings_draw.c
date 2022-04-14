@@ -19,5 +19,14 @@ void draw_settings(screens *screen, settings *setting)
         sfRenderWindow_drawSprite(screen->window,
             setting->fps.sprite[i].sprite, NULL);
     }
+    if (setting->controls.wait_key == false) {
+        sfRenderWindow_drawSprite(screen->window,
+            setting->controls.sprite[0].sprite, NULL);
+    } else {
+        sfRenderWindow_drawSprite(screen->window,
+            setting->controls.sprite[1].sprite, NULL);
+    }
+    sfRenderWindow_drawText(screen->window,
+        setting->controls.text->text, NULL);
     sfRenderWindow_display(screen->window);
 }

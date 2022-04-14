@@ -37,7 +37,10 @@ bool event_settings(screens *screen, settings *setting)
     if (screen->event.type == sfEvtClosed) {
         return (true);
     }
-    volume_events(screen, setting);
-    fps_events(screen, setting);
+    if (setting->controls.wait_key == false) {
+        volume_events(screen, setting);
+        fps_events(screen, setting);
+    }
+    controls_events(screen, setting);
     return (false);
 }

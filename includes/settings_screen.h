@@ -9,6 +9,12 @@
 
 #include "global.h"
 
+typedef struct controls {
+    struct sprite sprite[2];
+    struct text text[1];
+    bool wait_key;
+} controls;
+
 typedef struct volume {
     struct sprite sprite[4];
     sfVector2f pos_btn_vlm;
@@ -23,9 +29,10 @@ typedef struct fps {
 
 typedef struct settings {
     sfColor theme_color;
-    char *asset_btn[7];
+    char *asset_btn[10];
     struct volume vlm;
     struct fps fps;
+    struct controls controls;
 } settings;
 
 void init_settings_struct(settings *setting);
@@ -39,3 +46,4 @@ void check_volume_box(settings *setting, sfVector2f set_pos_sprite);
 bool mouse_clicked_button(screens *screen, sfSprite *sprite, sfVector2f size);
 
 void fps_events(screens *screen, settings *setting);
+void controls_events(screens *screen, settings *setting);
