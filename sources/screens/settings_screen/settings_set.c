@@ -55,9 +55,34 @@ void set_controls_settings(settings *setting)
     }
 }
 
+void set_color_text(settings *setting)
+{
+    setting->color_text.color[0] = sfWhite;
+    setting->color_text.color[1] = sfBlack;
+    setting->color_text.color[2] = sfRed;
+    setting->color_text.color[3] = sfBlue;
+    setting->color_text.color[4] = sfGreen;
+    setting->color_text.color[5] = sfYellow;
+    for (int i = 0; i < 6; i++) {
+        setting->color_text.rect[i] = sfRectangleShape_create();
+        sfRectangleShape_setFillColor(setting->color_text.rect[i],
+            setting->color_text.color[i]);
+        sfRectangleShape_setPosition(setting->color_text.rect[i],
+            (sfVector2f){1200 + i * 100, 850});
+        sfRectangleShape_setSize(setting->color_text.rect[i],
+            (sfVector2f){80, 80});
+        sfRectangleShape_setOutlineColor(setting->color_text.rect[i], sfBlack);
+        sfRectangleShape_setOutlineThickness(setting->color_text.rect[i], 3);
+    }
+    sfRectangleShape_setSize(setting->color_text.rect[5], (sfVector2f){30, 30});
+    sfRectangleShape_setPosition(setting->color_text.rect[5],
+        (sfVector2f){1225 , 875});
+}
+
 void set_settings(settings *setting)
 {
     set_volume_settings(setting);
     set_fps_settings(setting);
     set_controls_settings(setting);
+    set_color_text(setting);
 }

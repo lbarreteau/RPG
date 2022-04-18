@@ -9,6 +9,11 @@
 
 #include "global.h"
 
+typedef struct color_text {
+    sfRectangleShape *rect[6];
+    sfColor color[6];
+} color_text;
+
 typedef struct controls {
     struct sprite sprite[10];
     struct text text[5];
@@ -33,6 +38,7 @@ typedef struct settings {
     struct volume vlm;
     struct fps fps;
     struct controls controls;
+    struct color_text color_text;
 } settings;
 
 void init_settings_struct(settings *setting);
@@ -47,3 +53,4 @@ bool mouse_clicked_button(screens *screen, sfSprite *sprite, sfVector2f size);
 
 void fps_events(screens *screen, settings *setting);
 void controls_events(screens *screen, settings *setting);
+void color_text_events(screens *screen, settings *setting);

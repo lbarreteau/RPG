@@ -35,5 +35,8 @@ void draw_settings(screens *screen, settings *setting)
             setting->fps.sprite[i].sprite, NULL);
     }
     draw_controls(screen, setting);
+    for (int i = 0; i < 6; i++) {
+        sfRenderWindow_drawRectangleShape(screen->window, setting->color_text.rect[i], NULL);
+    }
     sfRenderWindow_display(screen->window);
 }

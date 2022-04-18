@@ -44,5 +44,6 @@ bool event_settings(screens *screen, settings *setting)
         fps_events(screen, setting);
     }
     controls_events(screen, setting);
+    color_text_events(screen, setting);
     return (false);
 }
