@@ -27,9 +27,8 @@ void init_settings_struct(settings *setting)
 {
     char **array_settings = find_settings_properties_from_file();
 
-    setting->theme_color = recognition_color(array_settings[1]);
     for (int i = 0; i < 11; i++) {
-        setting->asset_btn[i] = strdup(array_settings[i * 2 + 3]);
+        setting->asset_btn[i] = strdup(array_settings[i * 2 + 1]);
     }
     free_array(array_settings);
 }

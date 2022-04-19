@@ -33,7 +33,6 @@ typedef struct fps {
 } fps;
 
 typedef struct settings {
-    sfColor theme_color;
     sfSprite *background;
     sfTexture *background_texture;
     char *asset_btn[11];

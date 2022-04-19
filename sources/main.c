@@ -9,5 +9,5 @@
 
 int main(void)
 {
-    settings_screen();
+    main_screen();
 }

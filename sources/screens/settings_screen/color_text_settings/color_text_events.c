@@ -34,7 +34,7 @@ void click_button_color(screens *screen, settings *setting, int i)
         if (mouse_click_color(screen, setting->color_text.rect[i]) == true) {
             sfRectangleShape_setPosition(setting->color_text.rect[5],
                 pos_rect);
-            //change color text
+            screen->theme_color = setting->color_text.color[i];
         }
     }
 }
