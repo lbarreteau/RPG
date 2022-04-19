@@ -13,8 +13,6 @@ struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos)
     struct sprite background;
 
     background.texture = sfTexture_createFromFile(filepath, NULL);
-    background.texture_dark = sfTexture_createFromFile(
-        "assets/pictures/long_sign_dark.png", NULL);
     background.sprite = sfSprite_create();
     sfSprite_setPosition(background.sprite, pos);
     sfSprite_setScale(background.sprite, size);
@@ -34,4 +32,11 @@ struct text init_text(int size, sfVector2f pos, sfColor theme_color)
     sfText_setPosition(text.text, pos);
     sfText_setString(text.text, " ");
     return (text);
+}
+
+sfMusic *init_music(sfMusic *background_music, char *filepath)
+{
+    background_music = sfMusic_createFromFile(filepath);
+    sfMusic_setLoop(background_music, sfTrue);
+    return (background_music);
 }

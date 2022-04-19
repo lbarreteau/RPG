@@ -12,6 +12,7 @@ void draw_menu(screens *screen, menus *menu)
 {
     sfRenderWindow_clear(screen->window, sfWhite);
     sfRenderWindow_drawSprite(screen->window, screen->background.sprite, NULL);
+    sfRenderWindow_drawText(screen->window, menu->title.text, NULL);
     for (int i = 0; i < 4; i++) {
         sfRenderWindow_drawSprite(screen->window, menu->signs[i].sprite, NULL);
         sfRenderWindow_drawText(screen->window,

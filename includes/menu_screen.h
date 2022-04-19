@@ -14,17 +14,22 @@
 typedef struct menus {
     time_t ltime;
     bool display_time;
-    sfColor theme_color;
     char *name_sign;
     char *name_sign_dark;
     sfVector2u size_screen;
     struct sprite signs[4];
     struct text name_options[4];
+    char *name_music;
+    sfMusic *background_music;
+    struct text title;
+    char *name_music_click;
+    sfMusic *music_click;
+    sfTexture *texture_dark;
+    sfTexture *texture_click;
 } menus;
 
-struct text init_text(int size, sfVector2f pos, sfColor theme_color);
 void init_menu_struct(menus *menu);
-void set_menu(menus *menu);
+void set_menu(screens *global, menus *menu);
 void draw_menu(screens *screen, menus *menu);
 bool event_menu(screens *screen, menus *menu);
 void free_menu(screens *screen, menus *menu);

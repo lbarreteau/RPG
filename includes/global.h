@@ -21,7 +21,6 @@
 struct sprite {
     sfSprite *sprite;
     sfTexture *texture;
-    sfTexture *texture_dark;
 };
 
 struct text {
@@ -40,9 +39,12 @@ typedef struct screens {
     sfRenderWindow *window;
     sfEvent event;
     struct sprite background;
+    sfColor theme_color;
 } screens;
 
 struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos);
+struct text init_text(int size, sfVector2f pos, sfColor theme_color);
+sfMusic *init_music(sfMusic *background_music, char *filepath);
 
 char *open_and_read_file(char *filepath);
 char **str_to_word_array(char *str);
@@ -52,5 +54,5 @@ void free_array(char **array);
 void init_screen_struct(screens *screen);
 void set_screen(screens *screen);
 void main_screen(void);
-void level1_screen(void);
-void settings_screen(void);
+void level1_screen(screens *screen);
+void how_to_play_screen(screens *screen);

@@ -27,7 +27,7 @@ void main_screen(void)
     init_screen_struct(&screen);
     init_menu_struct(&menu);
     set_screen(&screen);
-    set_menu(&menu);
+    set_menu(&screen, &menu);
     menu.size_screen = sfRenderWindow_getSize(screen.window);
     while (sfRenderWindow_isOpen(screen.window)) {
         while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
