@@ -25,7 +25,7 @@ void draw_controls(screens *screen, settings *setting)
 void draw_settings(screens *screen, settings *setting)
 {
     sfRenderWindow_clear(screen->window, sfWhite);
-    sfRenderWindow_drawSprite(screen->window, screen->background.sprite, NULL);
+    sfRenderWindow_drawSprite(screen->window, setting->background, NULL);
     for (int i = 0; i < 4; i++) {
         sfRenderWindow_drawSprite(screen->window,
             setting->vlm.sprite[i].sprite, NULL);

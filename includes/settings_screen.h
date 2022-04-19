@@ -34,7 +34,9 @@ typedef struct fps {
 
 typedef struct settings {
     sfColor theme_color;
-    char *asset_btn[10];
+    sfSprite *background;
+    sfTexture *background_texture;
+    char *asset_btn[11];
     struct volume vlm;
     struct fps fps;
     struct controls controls;
