@@ -17,16 +17,16 @@ bool event_level1(screens *screen)
     if (screen->event.type == sfEvtKeyPressed) {
         pos_player = sfSprite_getPosition(screen->background.sprite);
         if (screen->event.key.code == sfKeyRight) {
-            pos_player.x -= 3;
+            pos_player.x -= 10;
         }
         if (screen->event.key.code == sfKeyLeft) {
-            pos_player.x += 3;
+            pos_player.x += 10;
         }
         if (screen->event.key.code == sfKeyUp) {
-            pos_player.y += 3;
+            pos_player.y += 10;
         }
         if (screen->event.key.code == sfKeyDown) {
-            pos_player.y -= 3;
+            pos_player.y -= 10;
         }
         sfSprite_setPosition(screen->background.sprite, pos_player);
     }

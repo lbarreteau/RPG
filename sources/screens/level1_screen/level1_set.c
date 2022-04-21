@@ -10,6 +10,6 @@
 
 void set_level1(level1 *game)
 {
-    game->player = init_sprite("assets/pictures/long_sign.png",
+    game->player = init_sprite("assets/pictures/sign/long_sign.png",
     (sfVector2f) {1, 1}, (sfVector2f) {0, 0});
 }
