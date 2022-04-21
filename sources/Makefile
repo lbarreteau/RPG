@@ -17,9 +17,10 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/level1_screen/level1_set.c 								\
 				screens/level1_screen/level1_free.c 							\
 				screens/level1_screen/level1_init_struct.c 						\
+				screens/level1_screen/move_player.c								\
 				screens/level1_screen/level1_event.c 							\
 				screens/level1_screen/level1_draw.c 							\
-        screens/how_to_play_screen/how_to_play_screen.c 		\
+        		screens/how_to_play_screen/how_to_play_screen.c 		\
 				screens/how_to_play_screen/how_to_play_set.c 			\
 				screens/how_to_play_screen/how_to_play_free.c 			\
 				screens/how_to_play_screen/how_to_play_init_struct.c 	\

@@ -10,7 +10,7 @@
 
 void draw_level1(screens *screen, level1 *game)
 {
-    sfRenderWindow_clear(screen->window, sfWhite);
+    sfRenderWindow_clear(screen->window, sfBlack);
     sfRenderWindow_drawSprite(screen->window, screen->background.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, game->player.sprite, NULL);
     sfRenderWindow_display(screen->window);
