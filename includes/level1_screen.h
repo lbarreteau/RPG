@@ -8,9 +8,9 @@
 #pragma once
 
 #include "global.h"
+#include "player.h"
 
 typedef struct level1 {
-    struct sprite player;
     struct sprite map;
     sfClock *clock;
     sfTime time;
@@ -21,6 +21,6 @@ typedef struct level1 {
 void init_level1_struct(level1 *game);
 void set_level1(level1 *game);
 void free_level1(level1 *game);
-void draw_level1(screens *screen, level1 *game);
+void draw_level1(screens *screen, level1 *game, player *player1);
 bool event_level1(screens *screen, level1 *game);
-void move_player(level1 *game, screens *screen);
+void move_player(level1 *game, screens *screen, player *player1);

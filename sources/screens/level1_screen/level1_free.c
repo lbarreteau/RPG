@@ -10,8 +10,8 @@
 
 static void free_sprite(level1 *game)
 {
-    sfTexture_destroy(game->player.texture);
-    sfSprite_destroy(game->player.sprite);
+    sfTexture_destroy(game->map.texture);
+    sfSprite_destroy(game->map.sprite);
 }
 
 void free_level1(level1 *game)
