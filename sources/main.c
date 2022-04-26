@@ -9,5 +9,5 @@
 
 int main(void)
 {
-    main_screen();
+    inventory_screen();
 }

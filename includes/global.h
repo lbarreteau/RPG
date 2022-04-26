@@ -56,3 +56,4 @@ void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(screens *screen);
 void how_to_play_screen(screens *screen);
+void inventory_screen(void);

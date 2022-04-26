@@ -19,12 +19,12 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/level1_screen/level1_init_struct.c 						\
 				screens/level1_screen/level1_event.c 							\
 				screens/level1_screen/level1_draw.c 							\
-        screens/how_to_play_screen/how_to_play_screen.c 		\
-				screens/how_to_play_screen/how_to_play_set.c 			\
-				screens/how_to_play_screen/how_to_play_free.c 			\
-				screens/how_to_play_screen/how_to_play_init_struct.c 	\
-				screens/how_to_play_screen/how_to_play_event.c 			\
-				screens/how_to_play_screen/how_to_play_draw.c 			\
+        		screens/how_to_play_screen/how_to_play_screen.c 				\
+				screens/how_to_play_screen/how_to_play_set.c 					\
+				screens/how_to_play_screen/how_to_play_free.c 					\
+				screens/how_to_play_screen/how_to_play_init_struct.c 			\
+				screens/how_to_play_screen/how_to_play_event.c 					\
+				screens/how_to_play_screen/how_to_play_draw.c 					\
 				screens/settings_screen/settings_screen.c 						\
 				screens/settings_screen/settings_set.c 							\
 				screens/settings_screen/settings_draw.c 						\
@@ -35,6 +35,12 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/settings_screen/fps_settings/fps_events.c 				\
 				screens/settings_screen/controls_settings/controls_events.c		\
 				screens/settings_screen/color_text_settings/color_text_events.c \
+				screens/inventory_screen/inventory_screen.c 					\
+				screens/inventory_screen/inventory_set.c 						\
+				screens/inventory_screen/inventory_free.c 						\
+				screens/inventory_screen/inventory_init_struct.c 				\
+				screens/inventory_screen/inventory_event.c 						\
+				screens/inventory_screen/inventory_draw.c 						\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\
