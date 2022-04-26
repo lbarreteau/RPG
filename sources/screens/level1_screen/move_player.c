@@ -19,6 +19,7 @@ void move_right(level1 *game, screens *screen, player *player1)
 
     pos_player.x -= 4;
     sfSprite_setPosition(game->map.sprite, pos_player);
+    modif_collisions_pos(game[0], (sfVector2f){-4, 0});
     player1->rect.top = 144;
 }
 
@@ -28,6 +29,7 @@ void move_left(level1 *game, screens *screen, player *player1)
 
     pos_player.x += 4;
     sfSprite_setPosition(game->map.sprite, pos_player);
+    modif_collisions_pos(game[0], (sfVector2f){4, 0});
     player1->rect.top = 72;
 }
 
@@ -37,6 +39,7 @@ void move_up(level1 *game, screens *screen, player *player1)
 
     pos_player.y += 4;
     sfSprite_setPosition(game->map.sprite, pos_player);
+    modif_collisions_pos(game[0], (sfVector2f){0, 4});
     player1->rect.top = 216;
 }
 
@@ -46,6 +49,7 @@ void move_down(level1 *game, screens *screen, player *player1)
 
     pos_player.y -= 4;
     sfSprite_setPosition(game->map.sprite, pos_player);
+    modif_collisions_pos(game[0], (sfVector2f){0, -4});
     player1->rect.top = 0;
 }
 
