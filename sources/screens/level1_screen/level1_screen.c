@@ -18,6 +18,7 @@ void level1_screen(screens *screen)
     init_level1_struct(&game);
     set_player(&player1);
     set_level1(&game);
+    init_all_collisions(&game);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
             exit = event_level1(screen, &game);
