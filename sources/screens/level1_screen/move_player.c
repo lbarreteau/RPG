@@ -49,9 +49,11 @@ void move_down(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    pos_player.y -= 4;
-    sfSprite_setPosition(game->map.sprite, pos_player);
-    modif_collisions_pos(game[0], (sfVector2f){0, -4});
+    if (there_is_collision_down(game, player1) == false) {
+        modif_collisions_pos(game[0], (sfVector2f){0, -4});
+        pos_player.y -= 4;
+        sfSprite_setPosition(game->map.sprite, pos_player);
+    }
     player1->rect.top = 0;
 }
 
