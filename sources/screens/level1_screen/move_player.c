@@ -15,37 +15,37 @@ void static_position(level1 *game, screens *screen, player *player1)
 
 void move_right(level1 *game, screens *screen, player *player1)
 {
-    sfVector2f pos_player = sfSprite_getPosition(screen->background.sprite);
+    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
     pos_player.x -= 4;
-    sfSprite_setPosition(screen->background.sprite, pos_player);
+    sfSprite_setPosition(game->map.sprite, pos_player);
     player1->rect.top = 144;
 }
 
 void move_left(level1 *game, screens *screen, player *player1)
 {
-    sfVector2f pos_player = sfSprite_getPosition(screen->background.sprite);
+    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
     pos_player.x += 4;
-    sfSprite_setPosition(screen->background.sprite, pos_player);
+    sfSprite_setPosition(game->map.sprite, pos_player);
     player1->rect.top = 72;
 }
 
 void move_up(level1 *game, screens *screen, player *player1)
 {
-    sfVector2f pos_player = sfSprite_getPosition(screen->background.sprite);
+    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
     pos_player.y += 4;
-    sfSprite_setPosition(screen->background.sprite, pos_player);
+    sfSprite_setPosition(game->map.sprite, pos_player);
     player1->rect.top = 216;
 }
 
 void move_down(level1 *game, screens *screen, player *player1)
 {
-    sfVector2f pos_player = sfSprite_getPosition(screen->background.sprite);
+    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
     pos_player.y -= 4;
-    sfSprite_setPosition(screen->background.sprite, pos_player);
+    sfSprite_setPosition(game->map.sprite, pos_player);
     player1->rect.top = 0;
 }
 

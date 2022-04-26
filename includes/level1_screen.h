@@ -10,12 +10,19 @@
 #include "global.h"
 #include "player.h"
 
+typedef struct collisions_s {
+    sfRectangleShape *border;
+    sfVector2f border_pos;
+    sfVector2f border_size;
+} collision_t;
 typedef struct level1 {
     struct sprite map;
     sfClock *clock;
     sfTime time;
     int move_direction;
     float seconds;
+    char *name_screen_background;
+    struct sprite background;
 } level1;
 
 void init_level1_struct(level1 *game);
