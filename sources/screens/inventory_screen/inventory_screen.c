@@ -16,8 +16,7 @@ void inventory_screen(void)
 
     init_screen_struct(&screen);
 
-    screen.window = sfRenderWindow_create(screen.mode, screen.name_screen,
-        sfResize | sfClose, NULL);
+    screen.window = sfRenderWindow_create(screen.mode, screen.name_screen, sfClose, NULL);
     sfRenderWindow_setFramerateLimit(screen.window, screen.fps);
 
     init_inventory_struct(&stock);

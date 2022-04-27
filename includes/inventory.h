@@ -9,18 +9,30 @@
 
 #include "global.h"
 
+typedef enum {ARMOR, WEAPON, ARTEFACT, ALL} TYPE;
+
+typedef struct items {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfIntRect rect;
+    TYPE type;
+} items;
+
 typedef struct box {
     sfVector2f pos;
-    sfRectangleShape *rect;
-    struct sprite items;
+    sfRectangleShape *slot;
+    sfIntRect rect;
+    struct items item;
+    TYPE type;
     bool is_empty;
 } box;
 
 typedef struct inventory {
     struct sprite background;
-    char *asset[7];
+    char *asset[9];
     struct box spot[20];
     struct box equipment[6];
+    int nb_slot;
 } inventory;
 
 bool event_inventory(screens *screen, inventory *box);
