@@ -17,9 +17,11 @@ void move_right(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    pos_player.x -= 4;
-    sfSprite_setPosition(game->map.sprite, pos_player);
-    modif_collisions_pos(game[0], (sfVector2f){-4, 0});
+    if (there_is_collision_right(game, player1) == false) {
+        pos_player.x -= 4;
+        sfSprite_setPosition(game->map.sprite, pos_player);
+        modif_collisions_pos(game[0], (sfVector2f){-4, 0});
+    }
     player1->rect.top = 144;
 }
 
@@ -27,9 +29,11 @@ void move_left(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    pos_player.x += 4;
-    sfSprite_setPosition(game->map.sprite, pos_player);
-    modif_collisions_pos(game[0], (sfVector2f){4, 0});
+    if (there_is_collision_left(game, player1) == false) {
+        pos_player.x += 4;
+        sfSprite_setPosition(game->map.sprite, pos_player);
+        modif_collisions_pos(game[0], (sfVector2f){4, 0});
+    }
     player1->rect.top = 72;
 }
 
@@ -59,7 +63,8 @@ void move_down(level1 *game, screens *screen, player *player1)
 
 void move_player(level1 *game, screens *screen, player *player1)
 {
-    void (*orientation[5])(level1 *, screens *, player *) = {&static_position, &move_right, &move_left, &move_up, &move_down};
+    void (*orientation[5])(level1 *, screens *, player *) = {&static_position,
+        &move_right, &move_left, &move_up, &move_down};
 
     game->time = sfClock_getElapsedTime(game->clock);
     game->seconds = game->time.microseconds / 1000000.0;

@@ -40,6 +40,7 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/level1_screen/init_collisions.c      					\
 				screens/level1_screen/modif_collisions_pos.c 					\
 				screens/level1_screen/collisions_up_and_down.c 					\
+				screens/level1_screen/collisions_left_and_right.c 				\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\

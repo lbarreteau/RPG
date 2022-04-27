@@ -44,8 +44,8 @@ bool there_is_collision_up(level1 *game, player *player1)
     bool check_x = false;
     bool check_y = false;
 
-    check_x = verif_collision_y_up(game, player1);
-    check_y = verif_collision_x_up_and_down(game, player1);
+    check_y = verif_collision_y_up(game, player1);
+    check_x = verif_collision_x_up_and_down(game, player1);
     if (check_x == true && check_y == true)
         return (true);
     return (false);
@@ -56,8 +56,8 @@ bool there_is_collision_down(level1 *game, player *player1)
     bool check_x = false;
     bool check_y = false;
 
-    check_x = verif_collision_y_down(game, player1);
-    check_y = verif_collision_x_up_and_down(game, player1);
+    check_y = verif_collision_y_down(game, player1);
+    check_x = verif_collision_x_up_and_down(game, player1);
     if (check_x == true && check_y == true)
         return (true);
     return (false);
