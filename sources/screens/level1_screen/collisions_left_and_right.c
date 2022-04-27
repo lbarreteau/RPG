@@ -13,7 +13,7 @@ static bool verif_collision_y_left_and_right(level1 *game, player *player1)
         if (player1->position.y >
         game->collisions[i].border_pos.y &&
         player1->position.y + player1->rect.height <
-        (game->collisions[i].border_pos.y + 16 + game->collisions->border_size.y)) {
+        (game->collisions[i].border_pos.y - 16 + game->collisions->border_size.y)) {
             return (true);
         }
     }

@@ -10,7 +10,7 @@
 static bool verif_collision_y_up(level1 *game, player *player1)
 {
     for (int i = 0; i < 20; i++) {
-        if (player1->position.y == game->collisions[i].border_pos.y +
+        if (player1->position.y - 4 == game->collisions[i].border_pos.y +
             game->collisions->border_size.y) {
             return (true);
         }
