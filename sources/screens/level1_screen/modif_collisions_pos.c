@@ -14,5 +14,7 @@ void modif_collisions_pos(level1 game, sfVector2f movement)
         game.collisions[i].border_pos.y += movement.y;
         sfRectangleShape_setPosition(game.collisions[i].border,
             game.collisions[i].border_pos);
+        game.collisions[i].border_rect.left = game.collisions[i].border_pos.x;
+        game.collisions[i].border_rect.top = game.collisions[i].border_pos.y;
     }
 }

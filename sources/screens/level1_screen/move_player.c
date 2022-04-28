@@ -17,11 +17,14 @@ void move_right(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    if (there_is_collision_right(game, player1) == false) {
-        pos_player.x -= 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
-        modif_collisions_pos(game[0], (sfVector2f){-4, 0});
+    player1->hitbox.width += 4;
+    if (sfIntRect_intersects(&player1->hitbox, &game->collisions[0].border_rect,
+        NULL) == sfFalse) {
+       modif_collisions_pos(game[0], (sfVector2f){-4, 0});
+       pos_player.x -= 4;
+       sfSprite_setPosition(game->map.sprite, pos_player);
     }
+    player1->hitbox.width -= 4;
     player1->rect.top = 144;
 }
 
@@ -29,11 +32,14 @@ void move_left(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    if (there_is_collision_left(game, player1) == false) {
-        pos_player.x += 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
-        modif_collisions_pos(game[0], (sfVector2f){4, 0});
+    player1->hitbox.left -= 4;
+    if (sfIntRect_intersects(&player1->hitbox, &game->collisions[0].border_rect,
+        NULL) == sfFalse) {
+       modif_collisions_pos(game[0], (sfVector2f){4, 0});
+       pos_player.x += 4;
+       sfSprite_setPosition(game->map.sprite, pos_player);
     }
+    player1->hitbox.left += 4;
     player1->rect.top = 72;
 }
 
@@ -41,11 +47,14 @@ void move_up(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    if (there_is_collision_up(game, player1) == false) {
-        modif_collisions_pos(game[0], (sfVector2f){0, 4});
-        pos_player.y += 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
+    player1->hitbox.top -= 4;
+    if (sfIntRect_intersects(&player1->hitbox, &game->collisions[0].border_rect,
+        NULL) == sfFalse) {
+       modif_collisions_pos(game[0], (sfVector2f){0, 4});
+       pos_player.y += 4;
+       sfSprite_setPosition(game->map.sprite, pos_player);
     }
+    player1->hitbox.top += 4;
     player1->rect.top = 216;
 }
 
@@ -53,11 +62,14 @@ void move_down(level1 *game, screens *screen, player *player1)
 {
     sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
 
-    if (there_is_collision_down(game, player1) == false) {
+    player1->hitbox.height += 4;
+    if (sfIntRect_intersects(&player1->hitbox, &game->collisions[0].border_rect,
+        NULL) == sfFalse) {
         modif_collisions_pos(game[0], (sfVector2f){0, -4});
         pos_player.y -= 4;
         sfSprite_setPosition(game->map.sprite, pos_player);
     }
+    player1->hitbox.height -= 4;
     player1->rect.top = 0;
 }
 

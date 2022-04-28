@@ -12,6 +12,7 @@
 
 typedef struct collisions_s {
     sfRectangleShape *border;
+    sfIntRect border_rect;
     sfVector2f border_pos;
     sfVector2f border_size;
 } collision_t;
