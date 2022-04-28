@@ -9,7 +9,7 @@
 
 #include "global.h"
 
-typedef enum {ARMOR, WEAPON, ARTEFACT, ALL} TYPE;
+typedef enum {NOTHING = -1, HELMET, CHESTPLATE, LEGGINGS, BOOTS, WEAPON, ARTEFACT, ALL} TYPE;
 
 typedef struct items {
     sfSprite *sprite;
@@ -30,8 +30,7 @@ typedef struct box {
 typedef struct inventory {
     struct sprite background;
     char *asset[9];
-    struct box spot[20];
-    struct box equipment[6];
+    struct box spot[26];
     int nb_slot;
 } inventory;
 
@@ -40,3 +39,4 @@ void draw_inventory(screens *screen, inventory *stock);
 void init_inventory_struct(inventory *stock);
 void set_inventory(screens *global, inventory *stock);
 void free_inventory(screens *screen, inventory *stock);
+void check_good_move(screens *screen, inventory *stock);

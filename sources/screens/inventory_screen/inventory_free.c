@@ -11,13 +11,7 @@
 void free_inventory(screens *screen, inventory *stock)
 {
     for (int i = 0; i < 26; i++) {
-        if (i < 20) {
-            sfRectangleShape_destroy(stock->spot[i].slot);
-        } else {
-            sfTexture_destroy(stock->equipment[i - 20].item.texture);
-            sfSprite_destroy(stock->equipment[i - 20].item.sprite);
-            sfRectangleShape_destroy(stock->equipment[i - 20].slot);
-        }
+        sfRectangleShape_destroy(stock->spot[i].slot);
     }
     for (int i = 0; i < 7; i++) {
         free(stock->asset[i]);

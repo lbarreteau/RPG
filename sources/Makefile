@@ -41,6 +41,7 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/inventory_screen/inventory_init_struct.c 				\
 				screens/inventory_screen/inventory_event.c 						\
 				screens/inventory_screen/inventory_draw.c 						\
+				screens/inventory_screen/events/move_items.c 					\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\
