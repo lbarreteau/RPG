@@ -19,7 +19,7 @@ void move_right(level1 *game, screens *screen, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.width += 4;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 21; i++) {
         if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
             NULL) == sfTrue) {
             coll = sfTrue;
@@ -41,7 +41,7 @@ void move_left(level1 *game, screens *screen, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.left -= 4;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 21; i++) {
         if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
             NULL) == sfTrue) {
                 coll = sfTrue;
@@ -63,7 +63,7 @@ void move_up(level1 *game, screens *screen, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.top -= 4;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 21; i++) {
         if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
             NULL) == sfTrue) {
             coll = sfTrue;
@@ -85,7 +85,7 @@ void move_down(level1 *game, screens *screen, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.height += 4;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 21; i++) {
         if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
             NULL) == sfTrue) {
             coll = sfTrue;

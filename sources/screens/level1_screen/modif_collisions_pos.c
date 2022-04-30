@@ -9,7 +9,7 @@
 
 void modif_collisions_pos(level1 game, sfVector2f movement)
 {
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 21; i++) {
         game.collisions[i].border_pos.x += movement.x;
         game.collisions[i].border_pos.y += movement.y;
         sfRectangleShape_setPosition(game.collisions[i].border,

@@ -19,6 +19,6 @@ void draw_level1(screens *screen, level1 *game, player *player1)
     sfRenderWindow_drawSprite(screen->window, player1->sprite, NULL);
     //sfRenderWindow_drawRectangleShape(screen->window, game->collisions[0].border, NULL);
     //sfRenderWindow_drawRectangleShape(screen->window, game->collisions[1].border, NULL);
-    sfRenderWindow_drawRectangleShape(screen->window, game->collisions[14].border, NULL);
+    sfRenderWindow_drawRectangleShape(screen->window, game->collisions[20].border, NULL);
     sfRenderWindow_display(screen->window);
 }
