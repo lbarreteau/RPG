@@ -27,6 +27,30 @@ sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i)
     return (game->collisions[i].border_rect);
 }
 
+void create_first_five_collisions(level1 *game)
+{
+    game->collisions[0] = create_border(game, (sfVector2f){141, 400},
+        (sfVector2f){727, 89}, 0);
+    game->collisions[0].border_rect = create_border_intrect(game,
+        (sfIntRect){727, 89, 141, 400}, 0);
+    game->collisions[1].border_rect = create_border_intrect(game,
+        (sfIntRect){1053, 25, 141, 475}, 1);
+    game->collisions[1] = create_border(game,
+        (sfVector2f){141, 475}, (sfVector2f){1053, -25}, 1);
+    game->collisions[2].border_rect = create_border_intrect(game,
+        (sfIntRect){0, 0, 776, 172}, 2);
+    game->collisions[2] = create_border(game,
+        (sfVector2f){776, 172}, (sfVector2f){95, -100}, 2);
+    game->collisions[3].border_rect = create_border_intrect(game,
+        (sfIntRect){0, 0, 370, 1710}, 3);
+    game->collisions[3] = create_border(game,
+        (sfVector2f){370, 1710}, (sfVector2f){95, -100}, 3);
+    game->collisions[4].border_rect = create_border_intrect(game,
+        (sfIntRect){0, 0, 600, 400}, 4);
+    game->collisions[4] = create_border(game,
+        (sfVector2f){600, 400}, (sfVector2f){640, 600}, 4);
+}
+
 void init_all_collisions(level1 *game)
 {
     game->collisions = malloc(sizeof(collision_t) * 20);
@@ -37,9 +61,29 @@ void init_all_collisions(level1 *game)
         game->collisions[i].border_size = (sfVector2f){0.0, 0.0};
         game->collisions[i].border_rect = (sfIntRect){0.0, 0.0, 0.0, 0.0};
     }
-    game->collisions[0] = create_border(game, (sfVector2f){141, 400}, (sfVector2f){727, 89}, 0);
-    game->collisions[0].border_rect = create_border_intrect(game, (sfIntRect){727, 89, 141, 400}, 0);
-    game->collisions[1].border_rect = create_border_intrect(game, (sfIntRect){1053, 25, 141, 475}, 1);
-    game->collisions[1] = create_border(game,
-        (sfVector2f){141, 475}, (sfVector2f){1053, 25}, 1);
+    create_first_five_collisions(game);
+    game->collisions[5].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 776, 172}, 5);
+    game->collisions[5] = create_border(game,
+        (sfVector2f){776, 172}, (sfVector2f){1050, -100}, 5);
+    game->collisions[6].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 776, 1}, 6);
+    game->collisions[6] = create_border(game,
+        (sfVector2f){776, 1}, (sfVector2f){500, -30}, 6);
+    game->collisions[7].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 370, 1710}, 7);
+    game->collisions[7] = create_border(game,
+        (sfVector2f){370, 1710}, (sfVector2f){1440, -100}, 7);
+    game->collisions[8].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 355, 499}, 8);
+    game->collisions[8] = create_border(game,
+        (sfVector2f){355, 499}, (sfVector2f){500, 1110}, 8);
+    game->collisions[9].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 355, 499}, 9);
+    game->collisions[9] = create_border(game,
+        (sfVector2f){355, 499}, (sfVector2f){1045, 1110}, 9);
+    game->collisions[10].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 1000, 400}, 10);
+    game->collisions[10] = create_border(game,
+        (sfVector2f){1000, 400}, (sfVector2f){1128, 1310}, 10);
+    game->collisions[11].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 1400, 400}, 11);
+    game->collisions[11] = create_border(game,
+        (sfVector2f){1400, 400}, (sfVector2f){1728, 1310}, 11);
+    game->collisions[12].border_rect = create_border_intrect(game, (sfIntRect){0, 0, 1000, 200}, 12);
+    game->collisions[12] = create_border(game,
+        (sfVector2f){1000, 200}, (sfVector2f){2050, 1710}, 12);
 }
