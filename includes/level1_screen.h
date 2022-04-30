@@ -46,3 +46,5 @@ collision_t create_border(level1 *game, sfVector2f size,
 void create_map_border_collisions(level1 *game);
 void create_first_five_collisions(level1 *game);
 void create_ten_collisions(level1 *game);
+void create_fifteen_collisions(level1 *game);
+void create_twenty_collisions(level1 *game);
