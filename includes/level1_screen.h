@@ -39,3 +39,9 @@ void modif_collisions_pos(level1 game, sfVector2f movement);
 void draw_level1(screens *screen, level1 *game, player *player1);
 bool event_level1(screens *screen, level1 *game);
 void move_player(level1 *game, screens *screen, player *player1);
+sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
+sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
+collision_t create_border(level1 *game, sfVector2f size,
+                sfVector2f pos, int i);
+void create_map_border_collisions(level1 *game);
+void create_first_five_collisions(level1 *game);
