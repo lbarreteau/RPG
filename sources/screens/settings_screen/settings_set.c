@@ -33,20 +33,24 @@ void set_fps_settings(settings *setting)
     for (int i = 0; i < 3; i++) {
         setting->fps.sprite[i] = init_sprite(setting->asset_btn[i + 4],
             (sfVector2f) {1, 1}, (sfVector2f) {1200 + i * 200, 555});
+        if (i == 1)
+            setting->fps.rect.left += 118;
         sfSprite_setTextureRect(setting->fps.sprite[i].sprite,
             setting->fps.rect);
+        setting->fps.rect.left = 0;
     }
 }
 
-void set_controls_settings(settings *setting)
+void set_controls_settings(screens *screen, settings *setting)
 {
     for (int i = 0; i < 5; i++) {
         setting->controls.text[i].font = sfFont_createFromFile(setting->asset_btn[7]);
         setting->controls.text[i].text = sfText_create();
         sfText_setFont(setting->controls.text[i].text, setting->controls.text->font);
-        sfText_setPosition(setting->controls.text[i].text, (sfVector2f){450, 490 + i * 100});
+        sfText_setPosition(setting->controls.text[i].text,
+        (sfVector2f){540 - strlen(screen->list_key[0]) * 20 / 2, 490 + i * 100});
         sfText_setCharacterSize(setting->controls.text[i].text, 20);
-        sfText_setString(setting->controls.text[i].text, "\0");
+        sfText_setString(setting->controls.text[i].text, screen->list_key[i]);
         setting->controls.sprite[i * 2] = init_sprite(setting->asset_btn[8],
             (sfVector2f) {1, 1}, (sfVector2f) {650, 450 + i * 100});
         setting->controls.sprite[i * 2 + 1] = init_sprite(setting->asset_btn[9],
@@ -79,7 +83,7 @@ void set_color_text(settings *setting)
         (sfVector2f){1225 , 875});
 }
 
-void set_settings(settings *setting)
+void set_settings(screens *screen, settings *setting)
 {
     setting->background_texture = sfTexture_createFromFile(setting->asset_btn[10], NULL);
     setting->background = sfSprite_create();
@@ -87,6 +91,6 @@ void set_settings(settings *setting)
     sfSprite_setTexture(setting->background, setting->background_texture, sfFalse);
     set_volume_settings(setting);
     set_fps_settings(setting);
-    set_controls_settings(setting);
+    set_controls_settings(screen, setting);
     set_color_text(setting);
 }

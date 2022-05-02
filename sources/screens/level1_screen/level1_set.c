@@ -10,6 +10,8 @@
 
 void set_level1(level1 *game)
 {
-    game->player = init_sprite("assets/pictures/long_sign.png",
-    (sfVector2f) {1, 1}, (sfVector2f) {0, 0});
+    game->map = init_sprite("assets/pictures/map/map_spawn.png",
+    (sfVector2f) {4, 4}, (sfVector2f) {-1175, -900});
+    game->clock = sfClock_create();
+    game->move_direction = 0;
 }

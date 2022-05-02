@@ -16,7 +16,8 @@ static bool redirection_screen(int nb_screen, screens *screen)
             return (true);
             break;
         case 1:
-            
+            settings_screen(screen);
+            return (true);
             break;
         case 2:
             how_to_play_screen(screen);

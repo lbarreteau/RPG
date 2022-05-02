@@ -55,7 +55,6 @@ void free_settings(screens *screen, settings *setting)
     free_volume(setting);
     free_fps(setting);
     free_controls(setting);
-    free_screen(screen);
     for (int i = 0; i < 6; i++) {
         sfRectangleShape_destroy(setting->color_text.rect[i]);
     }
