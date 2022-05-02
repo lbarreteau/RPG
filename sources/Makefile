@@ -37,6 +37,11 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/settings_screen/fps_settings/fps_events.c 				\
 				screens/settings_screen/controls_settings/controls_events.c		\
 				screens/settings_screen/color_text_settings/color_text_events.c \
+				screens/level1_screen/init_collisions.c      					\
+				screens/level1_screen/modif_collisions_pos.c 					\
+				screens/level1_screen/collisions_up_and_down.c 					\
+				screens/level1_screen/collisions_left_and_right.c 				\
+				screens/level1_screen/all_collisions.c 							\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\

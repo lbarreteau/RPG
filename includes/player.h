@@ -15,6 +15,7 @@ typedef struct player {
     sfIntRect rect;
     int status;
     sfVector2f position;
+    sfIntRect hitbox;
     sfVector2f scale;
 } player;
 
