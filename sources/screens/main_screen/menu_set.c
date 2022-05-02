@@ -21,9 +21,9 @@ static void set_music(menus *menu)
 static void set_sprite(screens *global, menus *menu)
 {
     menu->texture_dark = sfTexture_createFromFile(
-        "assets/pictures/long_sign_dark.png", NULL);
+        "assets/pictures/sign/long_sign_dark.png", NULL);
     menu->texture_click = sfTexture_createFromFile(
-        "assets/pictures/long_sign_click.png", NULL);
+        "assets/pictures/sign/long_sign_click.png", NULL);
     for (int i = 0, x = 425; i < 4; i++, x += 150) {
         menu->signs[i] = init_sprite(menu->name_sign, (sfVector2f) {1, 1},
         (sfVector2f) {704, x});
