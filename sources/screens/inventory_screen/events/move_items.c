@@ -15,11 +15,10 @@ int set_item_in_new_slot(int i, inventory *stock)
         sfSprite_getTexture(stock->spot[stock->nb_slot].item.sprite), sfFalse);
         if (stock->nb_slot > 19) {
             sfSprite_setTexture(stock->spot[stock->nb_slot].item.sprite,
-            sfTexture_createFromFile(
-            stock->asset[stock->nb_slot - 19], NULL), sfFalse);
+            stock->texture[stock->nb_slot - 20], sfFalse);
         } else {
             sfSprite_setTexture(stock->spot[stock->nb_slot].item.sprite,
-            sfTexture_createFromFile(stock->asset[7], NULL), sfFalse);
+            stock->texture[6], sfFalse);
         }
         sfSprite_setPosition(stock->spot[stock->nb_slot].item.sprite,
         (sfVector2f){stock->spot[stock->nb_slot].item.rect.left,

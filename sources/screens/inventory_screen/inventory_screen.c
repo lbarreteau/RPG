@@ -20,7 +20,7 @@ void inventory_screen(void)
     sfRenderWindow_setFramerateLimit(screen.window, screen.fps);
 
     init_inventory_struct(&stock);
-    set_inventory(&screen, &stock);
+    set_inventory(&stock);
     while (sfRenderWindow_isOpen(screen.window)) {
         while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
             exit = event_inventory(&screen, &stock);
