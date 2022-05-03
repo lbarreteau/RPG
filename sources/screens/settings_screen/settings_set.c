@@ -89,6 +89,10 @@ void set_color_text(settings *setting)
 
 void set_settings(screens *screen, settings *setting)
 {
+    setting->exit.texture = sfTexture_createFromFile(setting->asset_btn[1], NULL);
+    setting->exit.sprite = sfSprite_create();
+    sfSprite_setPosition(setting->exit.sprite, (sfVector2f){125, 125});
+    sfSprite_setTexture(setting->exit.sprite, setting->exit.texture, sfFalse);
     setting->background_texture = sfTexture_createFromFile(setting->asset_btn[10], NULL);
     setting->background = sfSprite_create();
     sfSprite_setPosition(setting->background, (sfVector2f){0, 0});

@@ -36,6 +36,7 @@ typedef struct settings {
     sfSprite *background;
     sfTexture *background_texture;
     char *asset_btn[11];
+    struct sprite exit;
     struct volume vlm;
     struct fps fps;
     struct controls controls;
