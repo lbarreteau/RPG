@@ -25,7 +25,7 @@ typedef struct fight_screen
     struct protection bull;
 } fight_screen;
 
-void init_level1_struct(fight_screen *fight);
+void fight_scrn(screens *screen);
 void free_fight_screen(fight_screen *fight);
 void set_fight_screen(fight_screen *fight);
 void init_fight_screen_struct(fight_screen *fight);

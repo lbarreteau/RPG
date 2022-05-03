@@ -21,7 +21,7 @@ void level1_screen(screens *screen)
     init_all_collisions(&game);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
-            exit = event_level1(screen, &game);
+            exit = event_level1(screen, &game, &player1);
         }
         if (exit == true) {
             free_level1(&game);
