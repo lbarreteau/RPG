@@ -32,8 +32,8 @@ static bool redirection_screen(int nb_screen, screens *screen)
     }
 }
 
-static bool mouse_clicked_on_button(screens *screen, sfSprite *sign, menus *menu,
-    int i)
+static bool mouse_clicked_on_button(screens *screen, sfSprite *sign,
+    menus *menu, int i)
 {
     sfVector2i pos_mouse = sfMouse_getPositionRenderWindow(screen->window);
     sfVector2f pos_button = sfSprite_getPosition(sign);
@@ -47,6 +47,7 @@ static bool mouse_clicked_on_button(screens *screen, sfSprite *sign, menus *menu
         sfSprite_setTexture(sign, menu->texture_dark, sfFalse);
         return (redirection_screen(i, screen));
     }
+    return (false);
 }
 
 static void mouse_on_button(screens *screen, sfSprite *sign, menus *menu, int i)
@@ -80,7 +81,8 @@ bool event_menu(screens *screen, menus *menu)
     }
     if (screen->event.type == sfEvtMouseButtonPressed) {
         for (int i = 0; i < 4 && exit != true; i++) {
-            exit = mouse_clicked_on_button(screen, menu->signs[i].sprite, menu, i);
+            exit = mouse_clicked_on_button(screen, menu->signs[i].sprite,
+                                            menu, i);
         }
     }
     return (exit);
