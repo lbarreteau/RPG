@@ -84,5 +84,5 @@ void volume_events(screens *screen, settings *setting)
         setting->vlm.vlm_is_click = false;
     }
     check_volume_slidebar(screen, setting);
-    // change_volume(music, setting);
+    change_volume(screen->music[0], setting);
 }

@@ -19,16 +19,12 @@ typedef struct menus {
     sfVector2u size_screen;
     struct sprite signs[4];
     struct text name_options[4];
-    char *name_music;
-    sfMusic *background_music;
     struct text title;
-    char *name_music_click;
-    sfMusic *music_click;
     sfTexture *texture_dark;
     sfTexture *texture_click;
 } menus;
 
-void init_menu_struct(menus *menu);
+void init_menu_struct(screens *global, menus *menu);
 void set_menu(screens *global, menus *menu);
 void draw_menu(screens *screen, menus *menu);
 bool event_menu(screens *screen, menus *menu);

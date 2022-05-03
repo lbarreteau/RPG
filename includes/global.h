@@ -38,6 +38,8 @@ typedef struct screens {
     sfKeyCode list_key[5];
     char *name_screen;
     char *name_background;
+    char *name_music[2];
+    sfMusic *music[2];
     sfVideoMode mode;
     sfRenderWindow *window;
     sfEvent event;
@@ -60,4 +62,4 @@ void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(screens *screen);
 void how_to_play_screen(screens *screen);
-void settings_screen(screens *screen);
+bool settings_screen(screens *screen);

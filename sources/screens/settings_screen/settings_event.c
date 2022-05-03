@@ -30,10 +30,15 @@ bool mouse_clicked_button(screens *screen,
     return (false);
 }
 
-bool event_settings(screens *screen, settings *setting)
+int event_settings(screens *screen, settings *setting)
 {
     if (screen->event.type == sfEvtClosed) {
-        return (true);
+        return (1);
+    }
+    if (screen->event.type == sfEvtKeyReleased) {
+        if (screen->event.key.code == sfKeyB) {
+            return (2);
+        }
     }
     if (setting->controls.wait_key[0] == false &&
         setting->controls.wait_key[1] == false &&
@@ -45,5 +50,5 @@ bool event_settings(screens *screen, settings *setting)
     }
     controls_events(screen, setting);
     color_text_events(screen, setting);
-    return (false);
+    return (0);
 }

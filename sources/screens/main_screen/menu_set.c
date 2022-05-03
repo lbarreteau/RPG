@@ -8,14 +8,14 @@
 #include "global.h"
 #include "menu_screen.h"
 
-static void set_music(menus *menu)
+static void set_music(screens *global)
 {
-    menu->background_music = init_music(menu->background_music,
-    menu->name_music);
-    menu->music_click = init_music(menu->music_click,
-    menu->name_music_click);
-    sfMusic_play(menu->background_music);
-    sfMusic_setLoop(menu->music_click, sfFalse);
+    global->music[0] = init_music(global->music[0],
+    global->name_music[0]);
+    global->music[1] = init_music(global->music[1],
+    global->name_music[1]);
+    sfMusic_play(global->music[0]);
+    sfMusic_setLoop(global->music[1], sfFalse);
 }
 
 static void set_sprite(screens *global, menus *menu)
@@ -49,7 +49,7 @@ static void set_text(screens *global, menus *menu)
 
 void set_menu(screens *global, menus *menu)
 {
-    set_music(menu);
+    set_music(global);
     set_sprite(global, menu);
     set_text(global, menu);
     global->inv_is_set = false;

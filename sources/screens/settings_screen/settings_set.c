@@ -9,21 +9,23 @@
 
 extern const char *keycode[];
 
-void set_volume_settings(settings *setting)
+void set_volume_settings(screens *screen, settings *setting)
 {
+    float music_vol = sfMusic_getVolume(screen->music[0]);
+
     setting->vlm.sprite[0] = init_sprite(setting->asset_btn[0],
         (sfVector2f) {1, 1}, (sfVector2f) {1200, 350});
     setting->vlm.sprite[1] = init_sprite(setting->asset_btn[1],
-        (sfVector2f) {1, 1}, (sfVector2f) {1200, 350});
+        (sfVector2f) {1, 1}, (sfVector2f) {1200 + 480 * music_vol / 100, 350});
     setting->vlm.sprite[2] = init_sprite(setting->asset_btn[2],
         (sfVector2f) {0.75, 0.75}, (sfVector2f) {1070, 355});
     setting->vlm.sprite[3] = init_sprite(setting->asset_btn[3],
         (sfVector2f) {0.75, 0.75}, (sfVector2f) {1070, 355});
     setting->vlm.size_btn = (sfVector2f) {80, 80};
     setting->vlm.pos_btn_vlm = (sfVector2f) {1200, 350};
-    sfSprite_setColor(setting->vlm.sprite[2].sprite,
+    sfSprite_setColor(setting->vlm.sprite[3].sprite,
         sfTransparent);
-    setting->vlm.vlm_is_click = false;
+    setting->vlm.vlm_is_click = true;
 }
 
 void set_fps_settings(settings *setting)
@@ -91,7 +93,7 @@ void set_settings(screens *screen, settings *setting)
     setting->background = sfSprite_create();
     sfSprite_setPosition(setting->background, (sfVector2f){0, 0});
     sfSprite_setTexture(setting->background, setting->background_texture, sfFalse);
-    set_volume_settings(setting);
+    set_volume_settings(screen, setting);
     set_fps_settings(setting);
     set_controls_settings(screen, setting);
     set_color_text(setting);

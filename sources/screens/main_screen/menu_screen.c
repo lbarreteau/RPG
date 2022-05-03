@@ -25,7 +25,7 @@ void main_screen(void)
     bool exit = false;
 
     init_screen_struct(&screen);
-    init_menu_struct(&menu);
+    init_menu_struct(&screen, &menu);
     set_screen(&screen);
     set_menu(&screen, &menu);
     menu.size_screen = sfRenderWindow_getSize(screen.window);
@@ -33,10 +33,10 @@ void main_screen(void)
         while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
             exit = event_menu(&screen, &menu);
         }
-        if (exit == true) {
-            free_menu(&screen, &menu);
-            return;
-        }
+        // if (exit == true) {
+        //     free_menu(&screen, &menu);
+        //     return;
+        // }
         update_background_pos(&screen);
         draw_menu(&screen, &menu);
     }
