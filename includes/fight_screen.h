@@ -23,6 +23,7 @@ typedef struct fight_screen
     struct sprite player;
     struct sprite map;
     struct protection bull;
+    sfFont *font;
 } fight_screen;
 
 void fight_scrn(screens *screen);

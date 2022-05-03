@@ -18,4 +18,5 @@ void set_fight_screen(fight_screen *fight)
     fight->bull.sprite = init_sprite("assets/pictures/sprite/bull.png", (sfVector2f) {0.7, 0.7}, (sfVector2f) {600, 300});
     fight->bull.clock = sfClock_create();
     fight->bull.is_activ = false;
+    fight->font = sfFont_createFromFile("assets/families/font.ttf");
 }
