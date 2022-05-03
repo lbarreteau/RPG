@@ -27,7 +27,8 @@ void change_fps(screens *screen, settings *setting)
                 setting->fps.rect);
             setting->fps.rect.left = 0;
             check_fps_is_click(i, setting);
-            sfRenderWindow_setFramerateLimit(screen->window, i * 30);
+            sfRenderWindow_setFramerateLimit(screen->window, (i + 1) * 30);
+            screen->fps = (i + 1) * 30;
         }
     }
 }

@@ -28,7 +28,7 @@ void set_volume_settings(screens *screen, settings *setting)
     setting->vlm.vlm_is_click = true;
 }
 
-void set_fps_settings(settings *setting)
+void set_fps_settings(settings *setting, unsigned short fps_nb)
 {
     setting->fps.rect.height = 118;
     setting->fps.rect.width = 118;
@@ -37,7 +37,7 @@ void set_fps_settings(settings *setting)
     for (int i = 0; i < 3; i++) {
         setting->fps.sprite[i] = init_sprite(setting->asset_btn[i + 4],
             (sfVector2f) {1, 1}, (sfVector2f) {1200 + i * 200, 555});
-        if (i == 1)
+        if (i == (fps_nb / 30 - 1))
             setting->fps.rect.left += 118;
         sfSprite_setTextureRect(setting->fps.sprite[i].sprite,
             setting->fps.rect);
@@ -94,7 +94,7 @@ void set_settings(screens *screen, settings *setting)
     sfSprite_setPosition(setting->background, (sfVector2f){0, 0});
     sfSprite_setTexture(setting->background, setting->background_texture, sfFalse);
     set_volume_settings(screen, setting);
-    set_fps_settings(setting);
+    set_fps_settings(setting, screen->fps);
     set_controls_settings(screen, setting);
     set_color_text(setting);
 }
