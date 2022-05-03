@@ -43,7 +43,7 @@ typedef struct settings {
 } settings;
 
 void init_settings_struct(settings *setting);
-void set_settings(settings *setting);
+void set_settings(screens *screen, settings *setting);
 bool event_settings(screens *screen, settings *setting);
 void free_settings(screens *screen, settings *setting);
 void draw_settings(screens *screen, settings *setting);

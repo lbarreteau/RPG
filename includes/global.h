@@ -18,6 +18,8 @@
 #include <SFML/System.h>
 #include <SFML/Audio.h>
 
+typedef enum {LEFT, RIGHT, DOWN, UP, INVENTORY} key_name;
+
 struct sprite {
     sfSprite *sprite;
     sfTexture *texture;
@@ -33,6 +35,7 @@ typedef struct screens {
     unsigned int size_screen_width;
     unsigned short bits_per_pixel;
     unsigned short fps;
+    char *list_key[5];
     char *name_screen;
     char *name_background;
     sfVideoMode mode;
@@ -56,3 +59,5 @@ void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(screens *screen);
 void how_to_play_screen(screens *screen);
+void inventory_screen(void);
+void settings_screen(screens *screen);
