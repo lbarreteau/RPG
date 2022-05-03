@@ -28,9 +28,9 @@ bool event_management_fight_screen(screens *screen, fight_screen *fight)
         sfText_setFont(key_to_pressed, fight->font);
         sfRenderWindow_drawText(screen->window, press_key, NULL);
         sfRenderWindow_drawText(screen->window, key_to_pressed, NULL);
-        if (screen->event.key.code == keytape[random] && fight->bull.is_activ == false) {
-            sfClock_restart(fight->bull.clock);
-            fight->bull.is_activ = true;
+        if (screen->event.key.code == keytape[random] && fight->bubble.is_activ == false) {
+            sfClock_restart(fight->bubble.clock);
+            fight->bubble.is_activ = true;
         }
     }
     return (false);

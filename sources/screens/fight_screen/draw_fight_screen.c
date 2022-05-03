@@ -12,13 +12,14 @@ void draw_fight_screen(screens *screen, fight_screen *fight)
 {
     sfRenderWindow_clear(screen->window, sfBlack);
     sfRenderWindow_drawSprite(screen->window, fight->map.sprite, NULL);
-    fight->bull.time = sfClock_getElapsedTime(fight->bull.clock);
-    fight->bull.seconds = fight->bull.time.microseconds / 1000000.0;
-    if (fight->bull.seconds > 2) {
-        fight->bull.is_activ = false;
+    sfRenderWindow_drawSprite(screen->window, fight->player_fight.sprite, NULL);
+    fight->bubble.time = sfClock_getElapsedTime(fight->bubble.clock);
+    fight->bubble.seconds = fight->bubble.time.microseconds / 1000000.0;
+    if (fight->bubble.seconds > 2) {
+        fight->bubble.is_activ = false;
     }
-    if (fight->bull.is_activ == true && fight->bull.seconds < 1) {
-        sfRenderWindow_drawSprite(screen->window, fight->bull.sprite.sprite, NULL);
+    if (fight->bubble.is_activ == true && fight->bubble.seconds < 1) {
+        sfRenderWindow_drawSprite(screen->window, fight->bubble.sprite.sprite, NULL);
     }
     sfRenderWindow_display(screen->window);
 }

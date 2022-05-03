@@ -20,8 +20,8 @@ void fight_scrn(screens *screen)
     struct fight_screen fight;
     bool exit = false;
 
-    //init_fight_screen_struct(&fight);
     set_fight_screen(&fight);
+    set_player_fight(&fight);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
             exit = event_management_fight_screen(screen, &fight);
