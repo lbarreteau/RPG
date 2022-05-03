@@ -9,6 +9,7 @@
 
 #include "global.h"
 #include "player.h"
+#include "inventory.h"
 
 typedef struct collisions_s {
     sfRectangleShape *border;
@@ -37,7 +38,7 @@ bool there_is_collision_right(level1 *game, player *player1);
 bool there_is_collision_left(level1 *game, player *player1);
 void modif_collisions_pos(level1 game, sfVector2f movement);
 void draw_level1(screens *screen, level1 *game, player *player1);
-bool event_level1(screens *screen, level1 *game);
+bool event_level1(screens *screen, level1 *game, inventory *stock);
 void move_player(level1 *game, screens *screen, player *player1);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);

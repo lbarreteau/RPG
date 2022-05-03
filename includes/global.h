@@ -43,6 +43,7 @@ typedef struct screens {
     sfEvent event;
     struct sprite background;
     sfColor theme_color;
+    bool inv_is_set;
 } screens;
 
 struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos);
@@ -59,5 +60,4 @@ void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(screens *screen);
 void how_to_play_screen(screens *screen);
-void inventory_screen(void);
 void settings_screen(screens *screen);

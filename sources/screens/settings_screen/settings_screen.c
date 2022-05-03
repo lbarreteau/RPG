@@ -19,7 +19,7 @@ void settings_screen(screens *screen)
             exit = event_settings(screen, &setting);
         }
         if (exit == true) {
-            free_settings(screen, &setting);
+            free_settings(&setting);
             return;
         }
         draw_settings(screen, &setting);

@@ -52,4 +52,5 @@ void set_menu(screens *global, menus *menu)
     set_music(menu);
     set_sprite(global, menu);
     set_text(global, menu);
+    global->inv_is_set = false;
 }
