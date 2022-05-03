@@ -35,7 +35,7 @@ typedef struct screens {
     unsigned int size_screen_width;
     unsigned short bits_per_pixel;
     unsigned short fps;
-    char *list_key[5];
+    sfKeyCode list_key[5];
     char *name_screen;
     char *name_background;
     sfVideoMode mode;

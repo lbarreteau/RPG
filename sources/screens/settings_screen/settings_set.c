@@ -7,6 +7,8 @@
 
 #include "settings_screen.h"
 
+extern const char *keycode[];
+
 void set_volume_settings(settings *setting)
 {
     setting->vlm.sprite[0] = init_sprite(setting->asset_btn[0],
@@ -48,9 +50,9 @@ void set_controls_settings(screens *screen, settings *setting)
         setting->controls.text[i].text = sfText_create();
         sfText_setFont(setting->controls.text[i].text, setting->controls.text->font);
         sfText_setPosition(setting->controls.text[i].text,
-        (sfVector2f){540 - strlen(screen->list_key[0]) * 20 / 2, 490 + i * 100});
+        (sfVector2f){540 - strlen(keycode[screen->list_key[i]]) * 20 / 2, 490 + i * 100});
         sfText_setCharacterSize(setting->controls.text[i].text, 20);
-        sfText_setString(setting->controls.text[i].text, screen->list_key[i]);
+        sfText_setString(setting->controls.text[i].text, keycode[screen->list_key[i]]);
         setting->controls.sprite[i * 2] = init_sprite(setting->asset_btn[8],
             (sfVector2f) {1, 1}, (sfVector2f) {650, 450 + i * 100});
         setting->controls.sprite[i * 2 + 1] = init_sprite(setting->asset_btn[9],

@@ -17,6 +17,7 @@ typedef struct collisions_s {
     sfVector2f border_pos;
     sfVector2f border_size;
 } collision_t;
+
 typedef struct level1 {
     struct sprite map;
     struct collisions_s *collisions;

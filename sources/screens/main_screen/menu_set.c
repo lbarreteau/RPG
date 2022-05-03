@@ -40,11 +40,11 @@ static void set_text(screens *global, menus *menu)
     sfText_setString(menu->name_options[1].text, "  SETTINGS");
     sfText_setString(menu->name_options[2].text, "HOW TO PLAY");
     sfText_setString(menu->name_options[3].text, "       QUIT");
-    global->list_key[0] = "Q";
-    global->list_key[1] = "D";
-    global->list_key[2] = "Z";
-    global->list_key[3] = "S";
-    global->list_key[4] = "I";
+    global->list_key[0] = sfKeyQ;
+    global->list_key[1] = sfKeyD;
+    global->list_key[2] = sfKeyZ;
+    global->list_key[3] = sfKeyS;
+    global->list_key[4] = sfKeyI;
 }
 
 void set_menu(screens *global, menus *menu)
