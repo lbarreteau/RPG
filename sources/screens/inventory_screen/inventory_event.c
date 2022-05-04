@@ -28,14 +28,11 @@ void add_item(inventory *stock, sfTexture *texture)
     stock->spot[i].is_empty = false;
 }
 
-bool event_inventory(screens *screen, inventory *stock)
+void event_inventory(screens *screen, inventory *stock)
 {
-    if (screen->event.type == sfEvtClosed) {
-        return (true);
-    }
     change_rect(screen, stock);
     if (screen->event.key.type == sfEvtKeyPressed) {
-        if (sfKeyboard_isKeyPressed(sfKeyI) == true) {
+        if (sfKeyboard_isKeyPressed(sfKeyP) == true) {
             add_item(stock, sfTexture_createFromFile(stock->asset[8], NULL));
         }
     }
@@ -49,5 +46,4 @@ bool event_inventory(screens *screen, inventory *stock)
         stock->nb_slot = -1;
     }
     move_in_inventory(screen, stock);
-    return (false);
 }

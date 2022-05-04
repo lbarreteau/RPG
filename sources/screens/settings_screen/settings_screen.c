@@ -7,10 +7,10 @@
 
 #include "settings_screen.h"
 
-void settings_screen(screens *screen)
+bool settings_screen(screens *screen)
 {
     struct settings setting;
-    bool exit = false;
+    int exit = 0;
 
     init_settings_struct(&setting);
     set_settings(screen, &setting);
@@ -18,10 +18,14 @@ void settings_screen(screens *screen)
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
             exit = event_settings(screen, &setting);
         }
-        if (exit == true) {
-            free_settings(screen, &setting);
-            return;
+        if (exit == 1) {
+            free_settings(&setting);
+            return (true);
+        }
+        if (exit == 2) {
+            return (false);
         }
         draw_settings(screen, &setting);
     }
+    return (false);
 }

@@ -25,7 +25,7 @@ void main_screen(void)
     bool exit = false;
 
     init_screen_struct(&screen);
-    init_menu_struct(&menu);
+    init_menu_struct(&screen, &menu);
     set_screen(&screen);
     set_menu(&screen, &menu);
     menu.size_screen = sfRenderWindow_getSize(screen.window);

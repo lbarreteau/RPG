@@ -35,14 +35,17 @@ typedef struct screens {
     unsigned int size_screen_width;
     unsigned short bits_per_pixel;
     unsigned short fps;
-    char *list_key[5];
+    sfKeyCode list_key[5];
     char *name_screen;
     char *name_background;
+    char *name_music[2];
+    sfMusic *music[2];
     sfVideoMode mode;
     sfRenderWindow *window;
     sfEvent event;
     struct sprite background;
     sfColor theme_color;
+    bool inv_is_set;
 } screens;
 
 struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos);
@@ -59,5 +62,4 @@ void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(screens *screen);
 void how_to_play_screen(screens *screen);
-void inventory_screen(void);
-void settings_screen(screens *screen);
+bool settings_screen(screens *screen);

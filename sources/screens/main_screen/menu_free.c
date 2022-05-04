@@ -22,8 +22,6 @@ void free_sprite(menus *menu)
 {
     free(menu->name_sign);
     free(menu->name_sign_dark);
-    free(menu->name_music);
-    free(menu->name_music_click);
     sfTexture_destroy(menu->texture_dark);
     sfTexture_destroy(menu->texture_click);
     for (int i = 0; i < 4; i++) {
@@ -38,10 +36,12 @@ void free_menu(screens *screen, menus *menu)
 {
     sfFont_destroy(menu->title.font);
     sfText_destroy(menu->title.text);
-    sfMusic_stop(menu->background_music);
-    sfMusic_destroy(menu->background_music);
-    sfMusic_stop(menu->music_click);
-    sfMusic_destroy(menu->music_click);
+    free(screen->name_music[0]);
+    free(screen->name_music[1]);
+    sfMusic_stop(screen->music[0]);
+    sfMusic_destroy(screen->music[0]);
+    sfMusic_stop(screen->music[1]);
+    sfMusic_destroy(screen->music[1]);
     free_sprite(menu);
     free_screen(screen);
 }

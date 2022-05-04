@@ -14,21 +14,15 @@ static bool redirection_screen(int nb_screen, screens *screen)
         case 0:
             level1_screen(screen);
             return (true);
-            break;
         case 1:
-            settings_screen(screen);
-            return (true);
-            break;
+            return (settings_screen(screen));
         case 2:
             how_to_play_screen(screen);
             return (true);
-            break;
         case 3:
             return (true);
-            break;
         default:
             return (false);
-            break;
     }
 }
 
@@ -43,7 +37,7 @@ static bool mouse_clicked_on_button(screens *screen, sfSprite *sign,
     if (pos_mouse.x >= pos_button.x && pos_mouse.x <= pos_button.x + (512 *
         real_size / size) && pos_mouse.y >= pos_button.y && pos_mouse.y <=
         pos_button.y + (116 * real_size / size)) {
-        sfMusic_play(menu->music_click);
+        sfMusic_play(screen->music[1]);
         sfSprite_setTexture(sign, menu->texture_dark, sfFalse);
         return (redirection_screen(i, screen));
     }
