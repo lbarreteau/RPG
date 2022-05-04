@@ -21,7 +21,7 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/level1_screen/level1_event.c 							\
 				screens/level1_screen/level1_draw.c 							\
 				screens/level1_screen/set_player.c								\
-        		screens/how_to_play_screen/how_to_play_screen.c 				\
+        screens/how_to_play_screen/how_to_play_screen.c 				\
 				screens/how_to_play_screen/how_to_play_set.c 					\
 				screens/how_to_play_screen/how_to_play_free.c 					\
 				screens/how_to_play_screen/how_to_play_init_struct.c 			\
@@ -50,6 +50,13 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/level1_screen/collisions_up_and_down.c 					\
 				screens/level1_screen/collisions_left_and_right.c 				\
 				screens/level1_screen/all_collisions.c 							\
+				screens/fight_screen/fight_screen.c 							\
+				screens/fight_screen/init_fight_screen_struct.c					\
+				screens/fight_screen/set_fight_screen.c 						\
+				screens/fight_screen/set_player_fight.c							\
+				screens/fight_screen/free_fight_screen.c 						\
+				screens/fight_screen/event_management_fight_screen.c 			\
+				screens/fight_screen/draw_fight_screen.c 						\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\

@@ -30,7 +30,7 @@ void level1_screen(screens *screen)
     set_all(&game, &player1, &stock);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
-            exit = event_level1(screen, &game, &stock);
+            exit = event_level1(screen, &game, &player1, &stock);
         }
         if (exit == true) {
             free_level1(&game);
