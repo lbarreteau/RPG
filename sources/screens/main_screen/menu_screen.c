@@ -33,10 +33,10 @@ void main_screen(void)
         while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
             exit = event_menu(&screen, &menu);
         }
-        // if (exit == true) {
-        //     free_menu(&screen, &menu);
-        //     return;
-        // }
+        if (exit == true) {
+            free_menu(&screen, &menu);
+            return;
+        }
         update_background_pos(&screen);
         draw_menu(&screen, &menu);
     }

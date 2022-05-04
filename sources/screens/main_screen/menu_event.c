@@ -15,8 +15,7 @@ static bool redirection_screen(int nb_screen, screens *screen)
             level1_screen(screen);
             return (true);
         case 1:
-            settings_screen(screen);
-            return (true);
+            return (settings_screen(screen));
         case 2:
             how_to_play_screen(screen);
             return (true);
@@ -42,6 +41,7 @@ static bool mouse_clicked_on_button(screens *screen, sfSprite *sign, menus *menu
         sfSprite_setTexture(sign, menu->texture_dark, sfFalse);
         return (redirection_screen(i, screen));
     }
+    return (false);
 }
 
 static void mouse_on_button(screens *screen, sfSprite *sign, menus *menu, int i)
