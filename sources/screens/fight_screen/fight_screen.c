@@ -11,10 +11,6 @@
 //#include "enemy.h
 #include <unistd.h>
 
-void my_putchar(char c) {
-    write(1, &c, 1);
-}
-
 void fight_scrn(screens *screen)
 {
     struct fight_screen fight;

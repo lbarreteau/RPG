@@ -19,11 +19,28 @@ typedef struct protection
     float seconds;
 } protection;
 
+typedef struct attack_s {
+    struct sprite sprite;
+    bool is_activ;
+    sfClock *clock;
+    sfTime time;
+    float seconds;
+} attack_t;
+
+typedef struct ennemies_s {
+    struct sprite sprite;
+    sfClock *clock;
+    sfTime time;
+    float seconds;
+} ennemies_t;
+
 typedef struct fight_screen
 {
     struct player player_fight;
     struct sprite map;
     struct protection bubble;
+    struct ennemies_s ennemi[3];
+    struct attack_s attack[3];
     sfFont *font;
     sfText *key_press;
     sfText *key_to_press;
