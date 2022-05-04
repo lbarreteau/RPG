@@ -33,8 +33,10 @@ int set_item_in_new_slot(int i, inventory *stock)
 
 int check_in_slot(int i, inventory *stock, sfVector2i pos_mouse)
 {
+    printf("- %d -\n", i);
     if (sfIntRect_contains(&stock->spot[i].item.rect,
     pos_mouse.x, pos_mouse.y) && stock->spot[i].is_empty) {
+        printf("JJ\n");
         if (set_item_in_new_slot(i, stock) == 1)
             return (1);
     }

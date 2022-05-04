@@ -18,6 +18,7 @@ void set_all(level1 *game, player *player1, inventory *stock)
     init_all_collisions(game);
     init_inventory_struct(stock);
     set_inventory(stock);
+    set_items(game, stock);
 }
 
 void level1_screen(screens *screen)
@@ -37,10 +38,8 @@ void level1_screen(screens *screen)
             return;
         }
         move_player(&game, screen, &player1);
-        draw_level1(screen, &game, &player1);
-        if (screen->inv_is_set == true)
-            draw_inventory(screen, &stock);
-        sfRenderWindow_display(screen->window);
+        pick_up_item(&game, &player1, &stock);
+        draw_level1(screen, &game, &player1, &stock);
     }
     free_level1(&game);
 }

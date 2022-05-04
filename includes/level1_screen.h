@@ -20,6 +20,7 @@ typedef struct collisions_s {
 } collision_t;
 
 typedef struct level1 {
+    struct items item[1];
     struct sprite map;
     struct player *player1;
     struct collisions_s *collisions;
@@ -39,7 +40,7 @@ bool there_is_collision_down(level1 *game, player *player1);
 bool there_is_collision_right(level1 *game, player *player1);
 bool there_is_collision_left(level1 *game, player *player1);
 void modif_collisions_pos(level1 game, sfVector2f movement);
-void draw_level1(screens *screen, level1 *game, player *player1);
+void draw_level1(screens *screen, level1 *game, player *player1, inventory *stock);
 bool event_level1(screens *screen, level1 *game, player *player1, inventory *stock);
 void move_player(level1 *game, screens *screen, player *player1);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
@@ -52,3 +53,6 @@ void create_ten_collisions(level1 *game);
 void create_fifteen_collisions(level1 *game);
 void create_twenty_collisions(level1 *game);
 void battle_screen(screens *screen, level1 *game);
+void set_items(level1 *game, inventory *stock);
+void move_items(level1 *game, sfVector2f movement);
+void pick_up_item(level1 *game, player *player1, inventory *stock);
