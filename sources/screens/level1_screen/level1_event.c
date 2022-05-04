@@ -10,16 +10,16 @@
 
 static void movement_redirection(screens *screen, level1 *game)
 {
-    if (screen->event.key.code == sfKeyRight) {
+    if (screen->event.key.code == screen->list_key[1]) {
         game->move_direction = 1;
     }
-    if (screen->event.key.code == sfKeyLeft) {
+    if (screen->event.key.code == screen->list_key[0]) {
         game->move_direction = 2;
     }
-    if (screen->event.key.code == sfKeyUp) {
+    if (screen->event.key.code == screen->list_key[2]) {
         game->move_direction = 3;
     }
-    if (screen->event.key.code == sfKeyDown) {
+    if (screen->event.key.code == screen->list_key[3]) {
         game->move_direction = 4;
     }
 }
@@ -52,7 +52,10 @@ bool event_level1(screens *screen, level1 *game, inventory *stock)
         scroll(screen, game);
     }
     if (screen->event.type == sfEvtKeyReleased) {
-        if (screen->event.key.code == sfKeyDown || screen->event.key.code == sfKeyUp || screen->event.key.code == sfKeyLeft || screen->event.key.code == sfKeyRight) {
+        if (screen->event.key.code == screen->list_key[0]
+        || screen->event.key.code == screen->list_key[1]
+        || screen->event.key.code == screen->list_key[2]
+        || screen->event.key.code == screen->list_key[3]) {
             game->move_direction = 0;
         }
     }
