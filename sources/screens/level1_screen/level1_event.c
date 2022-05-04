@@ -43,7 +43,7 @@ bool event_level1(screens *screen, level1 *game, inventory *stock)
         return (true);
     }
     if (screen->event.type == sfEvtKeyPressed) {
-        if (screen->event.key.code == sfKeyI) {
+        if (screen->event.key.code == screen->list_key[4]) {
             screen->inv_is_set = !screen->inv_is_set;
         }
         movement_redirection(screen, game);
