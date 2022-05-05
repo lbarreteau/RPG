@@ -30,6 +30,15 @@ typedef struct level1 {
     char *name_screen_background;
 } level1;
 
+typedef struct frame_buffer {
+    unsigned int width;
+    unsigned int height;
+    sfUint8 *pixels;
+    sfTexture *texture;
+    sfSprite *sprite;
+} frame_buffer;
+
+
 void init_level1_struct(level1 *game);
 void set_level1(level1 *game);
 void free_level1(level1 *game);
@@ -39,7 +48,7 @@ bool there_is_collision_down(level1 *game, player *player1);
 bool there_is_collision_right(level1 *game, player *player1);
 bool there_is_collision_left(level1 *game, player *player1);
 void modif_collisions_pos(level1 game, sfVector2f movement);
-void draw_level1(screens *screen, level1 *game, player *player1);
+void draw_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
 bool event_level1(screens *screen, level1 *game, player *player1, inventory *stock);
 void move_player(level1 *game, screens *screen, player *player1);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
@@ -51,4 +60,7 @@ void create_first_five_collisions(level1 *game);
 void create_ten_collisions(level1 *game);
 void create_fifteen_collisions(level1 *game);
 void create_twenty_collisions(level1 *game);
+void create_water(frame_buffer *buffer);
+void put_pixel_line(sfColor color, frame_buffer *frame, int i);
+void remove_water(frame_buffer *buffer);
 void battle_screen(screens *screen, level1 *game);

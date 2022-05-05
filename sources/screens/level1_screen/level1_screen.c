@@ -10,7 +10,7 @@
 #include "player.h"
 #include "inventory.h"
 
-void set_all(level1 *game, player *player1, inventory *stock)
+void set_all(level1 *game, player *player1, inventory *stock, frame_buffer *buffer)
 {
     init_level1_struct(game);
     set_player(player1);
@@ -25,9 +25,12 @@ void level1_screen(screens *screen)
     struct level1 game;
     struct inventory stock;
     struct player player1;
+    struct frame_buffer *buffer;
     bool exit = false;
 
-    set_all(&game, &player1, &stock);
+    srand(time(NULL));
+    set_all(&game, &player1, &stock, &buffer);
+    buffer = create_buffer(1920, 1080);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
             exit = event_level1(screen, &game, &player1, &stock);
@@ -36,8 +39,10 @@ void level1_screen(screens *screen)
             free_level1(&game);
             return;
         }
+        sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
+        create_water(buffer);
         move_player(&game, screen, &player1);
-        draw_level1(screen, &game, &player1);
+        draw_level1(screen, &game, &player1, buffer);
         if (screen->inv_is_set == true)
             draw_inventory(screen, &stock);
         sfRenderWindow_display(screen->window);

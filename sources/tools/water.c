@@ -7,7 +7,7 @@
 
 #include "level1_screen.h"
 
-void remove_water(buffer_t *frame, level1 *game)
+void remove_water(frame_buffer *frame)
 {
     static float e = 0;
 
@@ -17,11 +17,11 @@ void remove_water(buffer_t *frame, level1 *game)
         if (e >= 400)
             e = 400;
     }
-    sfTexture_updateFromPixels(game->texture, frame->pixels,
+    sfTexture_updateFromPixels(frame->texture, frame->pixels,
     1920, 1080, 0, 0);
 }
 
-void create_water(buffer_t *frame, level1 *game)
+void create_water(frame_buffer *frame)
 {
     static float e = 0;
 
@@ -36,6 +36,6 @@ void create_water(buffer_t *frame, level1 *game)
         if (e >= 400)
             e = 400;
     }
-    sfTexture_updateFromPixels(game->texture, frame->pixels,
+    sfTexture_updateFromPixels(frame->texture, frame->pixels,
     1920, 1080, 0, 0);
 }
