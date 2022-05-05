@@ -40,6 +40,7 @@ void change_controls(screens *screen, settings *setting, int i)
             sfText_setString(setting->controls.text[i].text, temp);
             sfText_setPosition(setting->controls.text[i].text,
                 (sfVector2f){540 - strlen(temp) * 20 / 2, 490 + i * 100});
+            screen->list_key[i] = screen->event.key.code;
             setting->controls.wait_key[i] = false;
         }
     }

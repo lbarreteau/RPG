@@ -20,6 +20,7 @@ void draw_controls(screens *screen, settings *setting)
         sfRenderWindow_drawText(screen->window,
             setting->controls.text[i].text, NULL);
     }
+    sfRenderWindow_drawSprite(screen->window, setting->exit.sprite, NULL);
 }
 
 void draw_settings(screens *screen, settings *setting)

@@ -16,5 +16,4 @@ void draw_level1(screens *screen, level1 *game, player *player1)
     sfSprite_setTexture(player1->sprite, player1->texture, sfFalse);
     sfSprite_setTextureRect(player1->sprite, player1->rect);
     sfRenderWindow_drawSprite(screen->window, player1->sprite, NULL);
-    sfRenderWindow_display(screen->window);
 }

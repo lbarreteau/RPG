@@ -7,24 +7,25 @@
 
 #include "settings_screen.h"
 
-void settings_screen(void)
+bool settings_screen(screens *screen)
 {
-    struct screens screen;
     struct settings setting;
-    bool exit = false;
+    int exit = 0;
 
-    init_screen_struct(&screen);
     init_settings_struct(&setting);
-    set_screen(&screen);
-    set_settings(&setting);
-    while (sfRenderWindow_isOpen(screen.window)) {
-        while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
-            exit = event_settings(&screen, &setting);
+    set_settings(screen, &setting);
+    while (sfRenderWindow_isOpen(screen->window)) {
+        while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
+            exit = event_settings(screen, &setting);
         }
-        if (exit == true) {
-            free_settings(&screen, &setting);
-            return;
+        if (exit == 1) {
+            free_settings(&setting);
+            return (true);
         }
-        draw_settings(&screen, &setting);
+        if (exit == 2) {
+            return (false);
+        }
+        draw_settings(screen, &setting);
     }
+    return (false);
 }

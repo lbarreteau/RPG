@@ -21,12 +21,12 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/level1_screen/level1_event.c 							\
 				screens/level1_screen/level1_draw.c 							\
 				screens/level1_screen/set_player.c								\
-        		screens/how_to_play_screen/how_to_play_screen.c 		\
-				screens/how_to_play_screen/how_to_play_set.c 			\
-				screens/how_to_play_screen/how_to_play_free.c 			\
-				screens/how_to_play_screen/how_to_play_init_struct.c 	\
-				screens/how_to_play_screen/how_to_play_event.c 			\
-				screens/how_to_play_screen/how_to_play_draw.c 			\
+        screens/how_to_play_screen/how_to_play_screen.c 				\
+				screens/how_to_play_screen/how_to_play_set.c 					\
+				screens/how_to_play_screen/how_to_play_free.c 					\
+				screens/how_to_play_screen/how_to_play_init_struct.c 			\
+				screens/how_to_play_screen/how_to_play_event.c 					\
+				screens/how_to_play_screen/how_to_play_draw.c 					\
 				screens/settings_screen/settings_screen.c 						\
 				screens/settings_screen/settings_set.c 							\
 				screens/settings_screen/settings_draw.c 						\
@@ -37,11 +37,26 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/settings_screen/fps_settings/fps_events.c 				\
 				screens/settings_screen/controls_settings/controls_events.c		\
 				screens/settings_screen/color_text_settings/color_text_events.c \
+				screens/inventory_screen/inventory_set.c 						\
+				screens/inventory_screen/inventory_free.c 						\
+				screens/inventory_screen/inventory_init_struct.c 				\
+				screens/inventory_screen/inventory_event.c 						\
+				screens/inventory_screen/inventory_draw.c 						\
+				screens/inventory_screen/events/move_items.c 					\
+				screens/inventory_screen/events/mouse_events.c 					\
+				screens/inventory_screen/inventory_set_slot.c 					\
 				screens/level1_screen/init_collisions.c      					\
 				screens/level1_screen/modif_collisions_pos.c 					\
 				screens/level1_screen/collisions_up_and_down.c 					\
 				screens/level1_screen/collisions_left_and_right.c 				\
 				screens/level1_screen/all_collisions.c 							\
+				screens/fight_screen/fight_screen.c 							\
+				screens/fight_screen/init_fight_screen_struct.c					\
+				screens/fight_screen/set_fight_screen.c 						\
+				screens/fight_screen/set_player_fight.c							\
+				screens/fight_screen/free_fight_screen.c 						\
+				screens/fight_screen/event_management_fight_screen.c 			\
+				screens/fight_screen/draw_fight_screen.c 						\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\

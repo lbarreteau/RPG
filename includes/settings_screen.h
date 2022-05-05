@@ -36,6 +36,7 @@ typedef struct settings {
     sfSprite *background;
     sfTexture *background_texture;
     char *asset_btn[11];
+    struct sprite exit;
     struct volume vlm;
     struct fps fps;
     struct controls controls;
@@ -43,9 +44,9 @@ typedef struct settings {
 } settings;
 
 void init_settings_struct(settings *setting);
-void set_settings(settings *setting);
-bool event_settings(screens *screen, settings *setting);
-void free_settings(screens *screen, settings *setting);
+void set_settings(screens *screen, settings *setting);
+int event_settings(screens *screen, settings *setting);
+void free_settings(settings *setting);
 void draw_settings(screens *screen, settings *setting);
 void volume_events(screens *screen, settings *setting);
 sfVector2f set_pos_mouse_f(screens *screen);
