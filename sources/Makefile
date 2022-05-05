@@ -59,6 +59,7 @@ SRC			=	screens/main_screen/menu_screen.c								\
 				screens/fight_screen/event_management_fight_screen.c 			\
 				screens/fight_screen/draw_fight_screen.c 						\
 				screens/fight_screen/set_attack.c 								\
+				screens/fight_screen/check_collisions_fireball.c 				\
 				tools/init_screen_struct.c 										\
 				tools/color_gestion.c 											\
 				tools/set_screen.c 												\

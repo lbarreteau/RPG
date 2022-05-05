@@ -12,7 +12,7 @@
 
 typedef struct protection {
     struct sprite sprite;
-    sfIntRect rect;
+    sfIntRect hitbox;
     bool is_activ;
     sfClock *clock;
     sfTime time;
@@ -22,6 +22,7 @@ typedef struct protection {
 typedef struct attack_s {
     struct sprite sprite;
     sfIntRect rect;
+    sfIntRect hitbox;
     bool is_activ;
     sfClock *animation;
     sfClock *movement;
@@ -62,3 +63,4 @@ void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
                         char *str);
 void set_attack(attack_t *attack, sfIntRect rect);
 void fireball_animation(attack_t *fireball);
+bool check_collisions_fireball_player(fight_screen *fight);

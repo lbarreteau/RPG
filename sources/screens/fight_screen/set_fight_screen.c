@@ -42,7 +42,9 @@ void set_fight_screen(fight_screen *fight)
     fight->key_press = sfText_create();
     fight->key_to_press = sfText_create();
     fight->random = 0;
+    fight->bubble.hitbox = (sfIntRect) {0, 0, 208.6, 208.6};
     fight->check_rand = false;
     init_text_to_display(fight, fight->key_press, (sfVector2f) {500, 500},
                                     "Press key ");
+    set_attack(&fight->attack[0], (sfIntRect){0, 0, 64, 64});
 }

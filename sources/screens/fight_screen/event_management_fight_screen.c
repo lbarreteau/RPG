@@ -42,14 +42,14 @@ bool event_management_fight_screen(screens *screen, fight_screen *fight)
         if (screen->event.key.code == sfKeyA) {
             fight->attack[0].is_activ = true;
         }
-        if (screen->event.key.code == keytape[fight->random] && fight->bubble.is_activ
-                                                                    == false) {
+        if (screen->event.key.code == keytape[fight->random]
+        && fight->bubble.is_activ == false) {
             sfClock_restart(fight->bubble.clock);
             fight->bubble.is_activ = true;
         } else if (fight->bubble.is_activ == false) {
             fight->random = rand() % 26;
             init_key_to_press(fight, fight->key_to_press,
-                (sfVector2f) {1100, 500}, conv_nbr_into_key(fight->random + 97));
+            (sfVector2f) {1100, 500}, conv_nbr_into_key(fight->random + 97));
         }
     }
     return (false);

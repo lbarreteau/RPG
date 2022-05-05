@@ -17,7 +17,6 @@ void fight_scrn(screens *screen)
 
     set_fight_screen(&fight);
     set_player_fight(&fight);
-    set_attack(&fight.attack[0], (sfIntRect){0, 0, 64, 64});
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
             exit = event_management_fight_screen(screen, &fight);
@@ -26,7 +25,9 @@ void fight_scrn(screens *screen)
             free_fight_screen(&fight);
             return;
         }
+        check_collisions_fireball_player(&fight);
         draw_fight_screen(screen, &fight);
+        printf("%d\n", fight.player_fight.life);
     }
     free_fight_screen(&fight);
 }

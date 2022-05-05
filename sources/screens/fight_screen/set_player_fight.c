@@ -30,9 +30,10 @@ void set_player_fight(fight_screen *fight)
     fight->player_fight.status = 0;
     fight->player_fight.scale.x = 1.7;
     fight->player_fight.scale.y = 1.7;
-    fight->player_fight.hitbox.left = 935;
-    fight->player_fight.hitbox.top = 480;
-    fight->player_fight.hitbox.width = 51;
-    fight->player_fight.hitbox.height = 25;
+    fight->player_fight.life = 3;
+    fight->player_fight.hitbox.left = 676;
+    fight->player_fight.hitbox.top = 350;
+    fight->player_fight.hitbox.width = 86.7;
+    fight->player_fight.hitbox.height = 42.5;
     set_sprite(fight);
 }
