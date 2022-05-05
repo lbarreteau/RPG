@@ -18,6 +18,16 @@ char *conv_nbr_into_key(int key)
 
 }
 
+void display_first_key(fight_screen *fight)
+{
+    if (fight->check_rand == false) {
+    fight->random = rand() % 26;
+    fight->check_rand = true;
+    init_key_to_press(fight, fight->key_to_press, (sfVector2f) {1100, 500},
+                            conv_nbr_into_key(fight->random + 97));
+    }
+}
+
 bool event_management_fight_screen(screens *screen, fight_screen *fight)
 {
     int keytape[26] = {sfKeyA, sfKeyB, sfKeyC, sfKeyD, sfKeyE, sfKeyF, sfKeyG,
@@ -27,13 +37,11 @@ bool event_management_fight_screen(screens *screen, fight_screen *fight)
     if (screen->event.type == sfEvtClosed || screen->event.key.code == sfKeyEscape) {
         return (true);
     }
-    if (fight->check_rand == false) {
-    fight->random = rand() % 26;
-    fight->check_rand = true;
-    init_key_to_press(fight, fight->key_to_press, (sfVector2f) {1100, 500},
-                            conv_nbr_into_key(fight->random + 97));
-    }
+    display_first_key(fight);
     if (screen->event.type == sfEvtKeyPressed) {
+        if (screen->event.key.code == sfKeyA) {
+            fight->attack[0].is_activ = true;
+        }
         if (screen->event.key.code == keytape[fight->random] && fight->bubble.is_activ
                                                                     == false) {
             sfClock_restart(fight->bubble.clock);

@@ -9,6 +9,14 @@
 #include "fight_screen.h"
 #include "player.h"
 
+static set_sprite(fight_screen *fight)
+{
+    sfSprite_setScale(fight->player_fight.sprite, fight->player_fight.scale);
+    sfSprite_setPosition(fight->player_fight.sprite, fight->player_fight.position);
+    sfSprite_setTexture(fight->player_fight.sprite, fight->player_fight.texture, sfFalse);
+    sfSprite_setTextureRect(fight->player_fight.sprite, fight->player_fight.rect);
+}
+
 void set_player_fight(fight_screen *fight)
 {
     fight->player_fight.texture = sfTexture_createFromFile("assets/pictures/sprite/npc_sprite.png", NULL);
@@ -26,9 +34,5 @@ void set_player_fight(fight_screen *fight)
     fight->player_fight.hitbox.top = 480;
     fight->player_fight.hitbox.width = 51;
     fight->player_fight.hitbox.height = 25;
-
-    sfSprite_setScale(fight->player_fight.sprite, fight->player_fight.scale);
-    sfSprite_setPosition(fight->player_fight.sprite, fight->player_fight.position);
-    sfSprite_setTexture(fight->player_fight.sprite, fight->player_fight.texture, sfFalse);
-    sfSprite_setTextureRect(fight->player_fight.sprite, fight->player_fight.rect);
+    set_sprite(fight);
 }

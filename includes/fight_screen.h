@@ -10,9 +10,9 @@
 #include "global.h"
 #include "player.h"
 
-typedef struct protection
-{
+typedef struct protection {
     struct sprite sprite;
+    sfIntRect rect;
     bool is_activ;
     sfClock *clock;
     sfTime time;
@@ -21,8 +21,11 @@ typedef struct protection
 
 typedef struct attack_s {
     struct sprite sprite;
+    sfIntRect rect;
     bool is_activ;
-    sfClock *clock;
+    sfClock *animation;
+    sfClock *movement;
+    sfVector2f pos;
     sfTime time;
     float seconds;
 } attack_t;
@@ -57,3 +60,5 @@ void draw_fight_screen(screens *screen, fight_screen *fight);
 void set_player_fight(fight_screen *fight);
 void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
                         char *str);
+void set_attack(attack_t *attack, sfIntRect rect);
+void fireball_animation(attack_t *fireball);

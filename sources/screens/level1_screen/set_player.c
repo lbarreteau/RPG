@@ -25,6 +25,9 @@ void set_player(player *player1)
     player1->hitbox.top = 480;
     player1->hitbox.width = 51;
     player1->hitbox.height = 25;
+    player1->dommage = 1;
+    player1->life = 3;
+    player1->experience = 0;
 
     sfSprite_setScale(player1->sprite, player1->scale);
     sfSprite_setPosition(player1->sprite, player1->position);
