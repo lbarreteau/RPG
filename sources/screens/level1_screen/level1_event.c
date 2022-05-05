@@ -61,6 +61,15 @@ static void scroll(screens *screen, level1 *game, player *player1)
     sfSprite_setPosition(game->map.sprite, pos);
 }
 
+static void reset_zoom(level1 *game)
+{
+    sfVector2f scale = sfSprite_getScale(game->map.sprite);
+
+    scale.x = 4;
+    scale.y = 4;
+    sfSprite_setScale(game->map.sprite, scale);
+}
+
 bool event_level1(screens *screen, level1 *game, player *player1, inventory *stock)
 {
 
@@ -72,6 +81,9 @@ bool event_level1(screens *screen, level1 *game, player *player1, inventory *sto
             screen->inv_is_set = !screen->inv_is_set;
         }
         movement_redirection(screen, game);
+    }
+    if (sfMouse_isButtonPressed(sfMouseMiddle) == true) {
+        reset_zoom(game);
     }
     if (screen->event.type == sfEvtMouseWheelScrolled) {
         scroll(screen, game, player1);
