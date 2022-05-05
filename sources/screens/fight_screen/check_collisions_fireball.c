@@ -10,7 +10,6 @@
 
 bool check_collisions_fireball_player(fight_screen *fight)
 {
-    printf("%d\n", fight->player_fight.life);
     for (int i = 0; i < 3; i++) {
         if (sfIntRect_intersects(&fight->attack[i].hitbox,
         &fight->player_fight.hitbox, NULL) == sfTrue &&
