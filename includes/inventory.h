@@ -16,6 +16,7 @@ typedef struct items {
     sfTexture *texture;
     sfIntRect rect;
     TYPE type;
+    bool is_pick;
 } items;
 
 typedef struct box {
@@ -35,7 +36,7 @@ typedef struct inventory {
     int nb_slot;
 } inventory;
 
-bool event_inventory(screens *screen, inventory *box);
+void event_inventory(screens *screen, inventory *box);
 void draw_inventory(screens *screen, inventory *stock);
 void init_inventory_struct(inventory *stock);
 void set_inventory(inventory *stock);
