@@ -48,8 +48,9 @@ typedef struct fight_screen
     struct player player_fight;
     struct sprite map;
     struct protection bubble;
-    struct ennemies_s ennemi[3];
-    struct attack_s attack[10];
+    struct ennemies_s ennemy[3];
+    struct attack_s attack_ennemy[10];
+    struct attack_s attack_player[3];
     sfFont *font;
     sfText *key_press;
     sfText *key_to_press;
@@ -70,7 +71,8 @@ void set_player_fight(fight_screen *fight);
 void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
                         char *str);
 void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i);
-void fireball_animation(attack_t *fireball);
+void fireball_animation(attack_t *fireball, int movement);
 bool check_collisions_fireball_player(fight_screen *fight);
 void destroy_attack(attack_t *attack);
 void set_ennemy_fight(fight_screen *fight);
+void set_attack_player(attack_t *attack, sfIntRect rect, int i);
