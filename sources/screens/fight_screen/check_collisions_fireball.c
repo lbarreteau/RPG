@@ -38,11 +38,33 @@ bool check_collisions_fireball_player(fight_screen *fight)
         if (sfIntRect_intersects(&fight->attack_ennemy[i].hitbox,
         &fight->player_fight.hitbox, NULL) == sfTrue &&
         fight->bubble.is_activ == true) {
-            printf("%d", fight->player_fight.life);
             fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
             fight->attack_ennemy[i].is_activ = false;
         }
         if (fight->player_fight.life == 0) {
+            return (true);
+        }
+    }
+    return (false);
+}
+
+bool check_collisions_fireball_ennemy(fight_screen *fight)
+{
+    for (int i = 0; i < 3; i++) {
+        if (sfIntRect_intersects(&fight->attack_player[i].hitbox,
+        &fight->ennemy[0].hitbox, NULL) == sfTrue &&
+        fight->bubble.is_activ == false) {
+            fight->attack_player[i].is_activ = false;
+            fight->attack_player[i].hitbox = (sfIntRect){0, 0, 0, 0};
+            fight->ennemy[0].life -= 1;
+        }
+        if (sfIntRect_intersects(&fight->attack_player[i].hitbox,
+        &fight->ennemy[0].hitbox, NULL) == sfTrue &&
+        fight->bubble.is_activ == true) {
+            fight->attack_player[i].hitbox = (sfIntRect){0, 0, 0, 0};
+            fight->attack_player[i].is_activ = false;
+        }
+        if (fight->ennemy[0].life == 0) {
             return (true);
         }
     }

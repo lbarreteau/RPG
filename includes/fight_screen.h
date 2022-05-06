@@ -27,6 +27,7 @@ typedef struct attack_s {
     bool exist;
     sfClock *animation;
     sfClock *movement;
+    sfClock *reload;
     sfVector2f pos;
     sfTime time;
     float seconds;

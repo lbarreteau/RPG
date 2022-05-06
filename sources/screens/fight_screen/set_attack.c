@@ -50,7 +50,7 @@ void set_attack_player(attack_t *attack, sfIntRect rect, int i)
     attack->rect.left = rect.left;
     attack->rect.width = rect.width;
     attack->rect.height = rect.height;
-    attack->pos = (sfVector2f){700, 300};
+    attack->pos = (sfVector2f){650, 300};
     attack->hitbox = (sfIntRect){700, 300, 64, 64};
     sfSprite_setTexture(attack->sprite.sprite, attack->sprite.texture, sfTrue);
     sfSprite_setTextureRect(attack->sprite.sprite, attack->rect);
@@ -60,6 +60,7 @@ void set_attack_player(attack_t *attack, sfIntRect rect, int i)
     attack->exist = false;
     attack->animation = sfClock_create();
     attack->movement = sfClock_create();
+    attack->reload = sfClock_create();
 }
 
 void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i)
@@ -81,4 +82,5 @@ void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i)
     attack->exist = false;
     attack->animation = sfClock_create();
     attack->movement = sfClock_create();
+    attack->reload = sfClock_create();
 }

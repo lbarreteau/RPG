@@ -8,7 +8,7 @@
 #include "global.h"
 #include "fight_screen.h"
 
-static set_sprite(fight_screen *fight)
+static void set_sprite(fight_screen *fight)
 {
     sfSprite_setScale(fight->ennemy[0].sprite, fight->ennemy[0].scale);
     sfSprite_setPosition(fight->ennemy[0].sprite,

@@ -31,11 +31,20 @@ void draw_fight_screen(screens *screen, fight_screen *fight)
     }
     sfRenderWindow_drawText(screen->window, fight->key_press, NULL);
     sfRenderWindow_drawText(screen->window, fight->key_to_press, NULL);
+    //animation de l'attaque de l'ennemi
     for (int i = 0; i < 10; i++) {
         if (fight->attack_ennemy[i].is_activ == true) {
             fireball_animation(&fight->attack_ennemy[i], -20);
             sfRenderWindow_drawSprite(screen->window,
                 fight->attack_ennemy[i].sprite.sprite, NULL);
+        }
+    }
+    // animation de l'attaque du joueur
+    for (int i = 0; i < 3; i++) {
+        if (fight->attack_player[i].is_activ == true) {
+            fireball_animation(&fight->attack_player[i], 20);
+            sfRenderWindow_drawSprite(screen->window,
+                fight->attack_player[i].sprite.sprite, NULL);
         }
     }
     sfRenderWindow_display(screen->window);
