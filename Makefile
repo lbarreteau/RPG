@@ -21,6 +21,9 @@ clean:
 	make -C sources/ clean
 	make -C tests/ clean
 
+debug : all
+		make -C sources/ debug
+
 fclean: 	clean
 	make -C sources/ fclean
 	make -C tests/ fclean

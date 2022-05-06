@@ -26,6 +26,9 @@ typedef struct player {
     sfSprite *sprite;
     sfTexture *texture;
     sfIntRect rect;
+    int dommage;
+    int life;
+    int experience;
     int status;
     sfVector2f position;
     sfIntRect hitbox;

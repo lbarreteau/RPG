@@ -30,6 +30,16 @@ void init_key_to_press(fight_screen *fight, sfText *text, sfVector2f pos,
     sfText_setPosition(fight->key_to_press, pos);
 }
 
+static void init_attack_fight(fight_screen *fight)
+{
+    for (int i = 0; i < 10; i++)
+        set_attack_ennemy(&fight->attack_ennemy[i], (sfIntRect){0, 0, 64, 64},
+        0);
+    for (int i = 0; i < 3; i++)
+        set_attack_player(&fight->attack_player, (sfIntRect){0, 256, 64, 64},
+        0);
+}
+
 void set_fight_screen(fight_screen *fight)
 {
     fight->map = init_sprite("assets/pictures/map/map_fight.png",
@@ -42,7 +52,10 @@ void set_fight_screen(fight_screen *fight)
     fight->key_press = sfText_create();
     fight->key_to_press = sfText_create();
     fight->random = 0;
+    fight->bubble.hitbox = (sfIntRect) {0, 0, 208.6, 208.6};
     fight->check_rand = false;
+    fight->attack_clock = sfClock_create();
     init_text_to_display(fight, fight->key_press, (sfVector2f) {500, 500},
                                     "Press key ");
+    init_attack_fight(fight);
 }
