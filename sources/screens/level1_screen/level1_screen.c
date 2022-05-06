@@ -45,9 +45,8 @@ void level1_screen(screens *screen)
         move_player(&game, screen, &player1);
         pick_up_item(&game, &player1, &game.stock);
         check_health(&player1);
+        check_dammage(&player1);
         draw_level1(screen, &game, &player1, buffer);
-        if (screen->inv_is_set == true)
-            draw_inventory(screen, &game.stock);
         sfRenderWindow_display(screen->window);
     }
     free_level1(&game);

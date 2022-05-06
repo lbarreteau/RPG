@@ -13,10 +13,10 @@ typedef struct stats {
     sfSprite *sprite[2];
     sfTexture *texture[2];
     sfIntRect rect[2];
-    sfText *text;
+    struct text text_dammage;
     int max_health;
     int health;
-    int damage;
+    int dammage;
     int xp;
 } stats;
 
@@ -34,3 +34,4 @@ typedef struct player {
 void set_player(player *player1);
 void set_health_bar(stats *stat, sfVector2f pos_bar);
 void check_health(player *player1);
+void check_dammage(player *player1);

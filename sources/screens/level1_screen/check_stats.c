@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** check_health
+** check_stats
 ** File description:
-** check_health
+** check_stats
 */
 
 #include "player.h"
@@ -15,4 +15,13 @@ void check_health(player *player1)
     sfSprite_setTextureRect(player1->stat.sprite[1], player1->stat.rect[1]);
     sfSprite_setPosition(player1->stat.sprite[1],
     (sfVector2f) {50 + 60 * player1->stat.health, 50});
+}
+
+void check_dammage(player *player1)
+{
+    char number[2];
+
+    number[0] = '0' + player1->stat.dammage;
+    number[1] = '\0';
+    sfText_setString(player1->stat.text_dammage.text, number);
 }
