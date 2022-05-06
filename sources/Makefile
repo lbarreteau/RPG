@@ -52,6 +52,8 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			screens/level1_screen/all_collisions.c 							\
 			screens/level1_screen/pick_up_item.c 							\
 			screens/level1_screen/set_items.c 								\
+			screens/level1_screen/set_health.c 								\
+			screens/level1_screen/check_health.c 							\
 			screens/fight_screen/fight_screen.c 							\
 			screens/fight_screen/init_fight_screen_struct.c					\
 			screens/fight_screen/set_fight_screen.c 						\
