@@ -29,11 +29,12 @@ void set_items(level1 *game, inventory *stock)
     game->item[0].texture = sfTexture_createFromFile(stock->asset[8], NULL);
     game->item[0].sprite = sfSprite_create();
     sfSprite_setTexture(game->item[0].sprite, game->item[0].texture, sfFalse);
-    sfSprite_setPosition(game->item[0].sprite, (sfVector2f){600, 300});
+    sfSprite_setPosition(game->item[0].sprite, (sfVector2f){600, 2000});
+    sfSprite_setScale(game->item[0].sprite, (sfVector2f){0.5, 0.5});
     game->item[0].rect.height = sfTexture_getSize(game->item[0].texture).y;
     game->item[0].rect.width = sfTexture_getSize(game->item[0].texture).x;
     game->item[0].rect.top = 600;
-    game->item[0].rect.left = 300;
+    game->item[0].rect.left = 2000;
     game->item[0].type = WEAPON;
     game->item[0].is_pick = false;
 }

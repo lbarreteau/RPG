@@ -20,6 +20,7 @@ void add_item(inventory *stock, struct items item)
         return;
     sfSprite_setPosition(item.sprite, stock->spot[i].pos);
     stock->spot[i].item.sprite = item.sprite;
+    sfSprite_setScale(stock->spot[i].item.sprite, (sfVector2f){1, 1});
     stock->spot[i].item.type = item.type;
     stock->spot[i].item.texture = item.texture;
     stock->spot[i].is_empty = false;
