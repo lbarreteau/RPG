@@ -62,13 +62,13 @@ typedef struct fight_screen
     float seconds;
 } fight_screen;
 
-void fight_scrn(screens *screen);
+void fight_scrn(screens *screen, player *player1);
 void free_fight_screen(fight_screen *fight);
 void set_fight_screen(fight_screen *fight);
 void init_fight_screen_struct(fight_screen *fight);
 bool event_management_fight_screen(screens *screen, fight_screen *fight);
 void draw_fight_screen(screens *screen, fight_screen *fight);
-void set_player_fight(fight_screen *fight);
+void set_player_fight(fight_screen *fight, player *player1);
 void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
                         char *str);
 void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i);

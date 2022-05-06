@@ -14,10 +14,9 @@ void set_all(level1 *game, player *player1, inventory *stock, frame_buffer *buff
 {
     init_level1_struct(game);
     set_player(player1);
-    set_level1(game);
+    set_level1(game, player1);
     init_all_collisions(game);
     init_inventory_struct(stock);
-    set_stats(&player1->stat);
     set_inventory(stock);
     set_items(game, stock);
 }

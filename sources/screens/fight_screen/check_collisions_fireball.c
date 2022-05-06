@@ -33,7 +33,7 @@ bool check_collisions_fireball_player(fight_screen *fight)
         fight->bubble.is_activ == false) {
             fight->attack_ennemy[i].is_activ = false;
             fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
-            fight->player_fight.life -= 1;
+            fight->player_fight.stat.health -= 1;
         }
         if (sfIntRect_intersects(&fight->attack_ennemy[i].hitbox,
         &fight->player_fight.hitbox, NULL) == sfTrue &&
@@ -41,7 +41,7 @@ bool check_collisions_fireball_player(fight_screen *fight)
             fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
             fight->attack_ennemy[i].is_activ = false;
         }
-        if (fight->player_fight.life == 0) {
+        if (fight->player_fight.stat.health == 0) {
             return (true);
         }
     }

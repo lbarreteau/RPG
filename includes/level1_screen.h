@@ -42,7 +42,7 @@ typedef struct frame_buffer {
 
 
 void init_level1_struct(level1 *game);
-void set_level1(level1 *game);
+void set_level1(level1 *game, player *player1);
 void free_level1(level1 *game);
 void init_all_collisions(level1 *game);
 bool there_is_collision_up(level1 *game, player *player1);

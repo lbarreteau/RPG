@@ -20,7 +20,7 @@ static set_sprite(fight_screen *fight)
     fight->player_fight.rect);
 }
 
-void set_player_fight(fight_screen *fight)
+void set_player_fight(fight_screen *fight, player *player1)
 {
     fight->player_fight.texture = sfTexture_createFromFile(
         "assets/pictures/sprite/npc_sprite.png", NULL);
@@ -34,7 +34,7 @@ void set_player_fight(fight_screen *fight)
     fight->player_fight.status = 0;
     fight->player_fight.scale.x = 1.7;
     fight->player_fight.scale.y = 1.7;
-    fight->player_fight.life = 3;
+    fight->player_fight.stat.health = player1->stat.health;
     fight->player_fight.hitbox.left = 676;
     fight->player_fight.hitbox.top = 350;
     fight->player_fight.hitbox.width = 86.7;
