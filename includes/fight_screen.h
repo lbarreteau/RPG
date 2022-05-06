@@ -24,6 +24,7 @@ typedef struct attack_s {
     sfIntRect rect;
     sfIntRect hitbox;
     bool is_activ;
+    bool exist;
     sfClock *animation;
     sfClock *movement;
     sfVector2f pos;
@@ -44,12 +45,15 @@ typedef struct fight_screen
     struct sprite map;
     struct protection bubble;
     struct ennemies_s ennemi[3];
-    struct attack_s attack[3];
+    struct attack_s attack[10];
     sfFont *font;
     sfText *key_press;
     sfText *key_to_press;
     int random;
     bool check_rand;
+    sfClock *attack_clock;
+    sfTime time;
+    float seconds;
 } fight_screen;
 
 void fight_scrn(screens *screen);
@@ -61,6 +65,7 @@ void draw_fight_screen(screens *screen, fight_screen *fight);
 void set_player_fight(fight_screen *fight);
 void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
                         char *str);
-void set_attack(attack_t *attack, sfIntRect rect);
+void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i);
 void fireball_animation(attack_t *fireball);
 bool check_collisions_fireball_player(fight_screen *fight);
+void destroy_attack(attack_t *attack);

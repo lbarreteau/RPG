@@ -27,7 +27,6 @@ void fight_scrn(screens *screen)
         }
         check_collisions_fireball_player(&fight);
         draw_fight_screen(screen, &fight);
-        printf("%d\n", fight.player_fight.life);
     }
     free_fight_screen(&fight);
 }

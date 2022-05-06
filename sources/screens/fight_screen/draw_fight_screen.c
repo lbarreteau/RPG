@@ -29,9 +29,12 @@ void draw_fight_screen(screens *screen, fight_screen *fight)
     }
     sfRenderWindow_drawText(screen->window, fight->key_press, NULL);
     sfRenderWindow_drawText(screen->window, fight->key_to_press, NULL);
-    if (fight->attack[0].is_activ == true) {
-        fireball_animation(&fight->attack[0]);
-        sfRenderWindow_drawSprite(screen->window, fight->attack[0].sprite.sprite, NULL);
+    for (int i = 0; i < 10; i++) {
+        if (fight->attack[i].is_activ == true) {
+            fireball_animation(&fight->attack[i]);
+            sfRenderWindow_drawSprite(screen->window,
+                fight->attack[i].sprite.sprite, NULL);
+        }
     }
     sfRenderWindow_display(screen->window);
 }

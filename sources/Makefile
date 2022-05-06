@@ -84,6 +84,9 @@ $(NAME): 	$(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS)
 	@ mv $(NAME) ../$(NAME)
 
+debug : all
+		$(CC) $(DEBUG) -o $(NAME) $(SRC_MAIN) $(SRC) $(LDFLAGS) $(CFLAGS)
+
 clean:
 	$(RM) $(OBJ)
 

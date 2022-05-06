@@ -44,7 +44,9 @@ void set_fight_screen(fight_screen *fight)
     fight->random = 0;
     fight->bubble.hitbox = (sfIntRect) {0, 0, 208.6, 208.6};
     fight->check_rand = false;
+    fight->attack_clock = sfClock_create();
     init_text_to_display(fight, fight->key_press, (sfVector2f) {500, 500},
                                     "Press key ");
-    set_attack(&fight->attack[0], (sfIntRect){0, 0, 64, 64});
+    for (int i = 0; i < 10; i++)
+        set_attack_ennemy(&fight->attack[i], (sfIntRect){0, 0, 64, 64}, 0);
 }

@@ -25,7 +25,23 @@ void fireball_animation(attack_t *fireball)
     }
 }
 
-void set_attack(attack_t *attack, sfIntRect rect)
+void destroy_attack(attack_t *attack)
+{
+    sfTexture_destroy(attack->sprite.texture);
+    sfSprite_destroy(attack->sprite.sprite);
+    attack->rect.top = 0;
+    attack->rect.left = 0;
+    attack->rect.width = 0;
+    attack->rect.height = 0;
+    attack->pos = (sfVector2f){0, 0};
+    attack->hitbox = (sfIntRect){0, 0, 0, 0};
+    attack->is_activ = false;
+    attack->exist = false;
+    sfClock_destroy(attack->animation);
+    sfClock_destroy(attack->movement);
+}
+
+void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i)
 {
     attack->sprite.texture = sfTexture_createFromFile
         ("assets/pictures/sprite/fireball.png", NULL);
@@ -39,8 +55,9 @@ void set_attack(attack_t *attack, sfIntRect rect)
     sfSprite_setTexture(attack->sprite.sprite, attack->sprite.texture, sfTrue);
     sfSprite_setTextureRect(attack->sprite.sprite, attack->rect);
     sfSprite_setPosition(attack->sprite.sprite, attack->pos);
-    sfSprite_setScale(attack[0].sprite.sprite, (sfVector2f){3, 3});
+    sfSprite_setScale(attack[i].sprite.sprite, (sfVector2f){3, 3});
     attack->is_activ = false;
+    attack->exist = false;
     attack->animation = sfClock_create();
     attack->movement = sfClock_create();
 }
