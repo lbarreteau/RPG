@@ -28,7 +28,7 @@ void fight_scrn(screens *screen)
         }
         exit = check_collisions_fireball_player(&fight);
         if (exit != true)
-            check_collisions_fireball_ennemy(&fight);
+            exit = check_collisions_fireball_ennemy(&fight);
         draw_fight_screen(screen, &fight);
     }
     free_fight_screen(&fight);
