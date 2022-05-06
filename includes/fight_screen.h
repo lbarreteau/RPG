@@ -33,10 +33,14 @@ typedef struct attack_s {
 } attack_t;
 
 typedef struct ennemies_s {
-    struct sprite sprite;
-    sfClock *clock;
-    sfTime time;
-    float seconds;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfIntRect rect;
+    int life;
+    int experience;
+    sfVector2f position;
+    sfIntRect hitbox;
+    sfVector2f scale;
 } ennemies_t;
 
 typedef struct fight_screen
@@ -69,3 +73,4 @@ void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i);
 void fireball_animation(attack_t *fireball);
 bool check_collisions_fireball_player(fight_screen *fight);
 void destroy_attack(attack_t *attack);
+void set_ennemy_fight(fight_screen *fight);

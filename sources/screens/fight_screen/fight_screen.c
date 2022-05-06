@@ -17,6 +17,7 @@ void fight_scrn(screens *screen)
 
     set_fight_screen(&fight);
     set_player_fight(&fight);
+    set_ennemy_fight(&fight);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
             exit = event_management_fight_screen(screen, &fight);
