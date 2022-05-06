@@ -34,6 +34,7 @@ void set_box_condition(int i, inventory *stock, int x, int y)
         set_slot(&stock->spot[i],
             (sfVector2f) {410 , 323 + (i - 24) * 311},
             (sfVector2f) {125, 125}, stock->asset[i - 19]);
+        sfSprite_setScale(stock->spot[i].item.sprite, (sfVector2f){1.25, 1.25});
     }
 }
 
