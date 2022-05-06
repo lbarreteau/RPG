@@ -8,6 +8,7 @@
 #pragma once
 
 #include "global.h"
+#include "player.h"
 
 typedef enum {NOTHING = -1, HELMET, CHESTPLATE, LEGGINGS, BOOTS, WEAPON, ARTEFACT, ALL} TYPE;
 
@@ -37,7 +38,7 @@ typedef struct inventory {
 } inventory;
 
 void event_inventory(screens *screen, inventory *box);
-void draw_inventory(screens *screen, inventory *stock);
+void draw_inventory(screens *screen, inventory *stock, player *player1);
 void init_inventory_struct(inventory *stock);
 void set_inventory(inventory *stock);
 void free_inventory(screens *screen, inventory *stock);
