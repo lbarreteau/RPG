@@ -41,7 +41,7 @@ void level1_screen(screens *screen)
             return;
         }
         sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
-        create_water(buffer);
+        create_snow(buffer);
         move_player(&game, screen, &player1);
         pick_up_item(&game, &player1, &stock);
         draw_level1(screen, &game, &player1, buffer);

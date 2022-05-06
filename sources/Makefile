@@ -65,7 +65,8 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			tools/init_things.c 											\
 			tools/free_things.c												\
 			tools/put_pixel_line.c											\
-			tools/water.c
+			tools/water.c													\
+			tools/snow.c
 
 OBJ			=	$(SRC:%.c=%.o) $(SRC_MAIN:%.c=%.o)
 
