@@ -20,6 +20,7 @@ typedef struct collisions_s {
 } collision_t;
 
 typedef struct level1 {
+    struct items item[1];
     struct sprite map;
     struct player *player1;
     struct collisions_s *collisions;
@@ -64,3 +65,6 @@ void create_water(frame_buffer *buffer);
 void put_pixel_line(sfColor color, frame_buffer *frame, int i);
 void remove_water(frame_buffer *buffer);
 void battle_screen(screens *screen, level1 *game);
+void set_items(level1 *game, inventory *stock);
+void move_items(level1 *game, sfVector2f movement);
+void pick_up_item(level1 *game, player *player1, inventory *stock);

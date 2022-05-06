@@ -44,7 +44,7 @@ static void set_text(screens *global, menus *menu)
     global->list_key[1] = sfKeyD;
     global->list_key[2] = sfKeyZ;
     global->list_key[3] = sfKeyS;
-    global->list_key[4] = sfKeyI;
+    global->list_key[4] = sfKeyE;
 }
 
 void set_menu(screens *global, menus *menu)

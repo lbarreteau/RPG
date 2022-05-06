@@ -16,6 +16,7 @@ typedef struct items {
     sfTexture *texture;
     sfIntRect rect;
     TYPE type;
+    bool is_pick;
 } items;
 
 typedef struct box {

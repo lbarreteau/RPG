@@ -14,28 +14,9 @@ void change_rect(screens *screen, inventory *stock)
     }
 }
 
-void add_item(inventory *stock, sfTexture *texture)
-{
-    int i = 0;
-
-    while (stock->spot[i].is_empty == false) {
-        i++;
-    }
-    if (i > 19)
-        return;
-    sfSprite_setTexture(stock->spot[i].item.sprite, texture, sfFalse);
-    stock->spot[i].item.type = HELMET;
-    stock->spot[i].is_empty = false;
-}
-
 void event_inventory(screens *screen, inventory *stock)
 {
     change_rect(screen, stock);
-    if (screen->event.key.type == sfEvtKeyPressed) {
-        if (sfKeyboard_isKeyPressed(sfKeyP) == true) {
-            add_item(stock, sfTexture_createFromFile(stock->asset[8], NULL));
-        }
-    }
     if (screen->event.type == sfEvtMouseButtonPressed &&
     screen->event.mouseButton.button == sfMouseLeft) {
         stock->nb_slot = mouse_click_slot(screen, stock);

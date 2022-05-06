@@ -18,6 +18,7 @@ void set_all(level1 *game, player *player1, inventory *stock, frame_buffer *buff
     init_all_collisions(game);
     init_inventory_struct(stock);
     set_inventory(stock);
+    set_items(game, stock);
 }
 
 void level1_screen(screens *screen)
@@ -42,6 +43,7 @@ void level1_screen(screens *screen)
         sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
         create_snow(buffer);
         move_player(&game, screen, &player1);
+        pick_up_item(&game, &player1, &stock);
         draw_level1(screen, &game, &player1, buffer);
         if (screen->inv_is_set == true)
             draw_inventory(screen, &stock);
