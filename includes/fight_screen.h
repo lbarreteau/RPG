@@ -77,3 +77,9 @@ bool check_collisions_fireball_player(fight_screen *fight);
 void destroy_attack(attack_t *attack);
 void set_ennemy_fight(fight_screen *fight);
 void set_attack_player(attack_t *attack, sfIntRect rect, int i);
+bool check_collisions_fireball_ennemy(fight_screen *fight);
+char *conv_nbr_into_key(int key);
+void init_key_to_press(fight_screen *fight, sfText *text, sfVector2f pos,
+                            char *str);
+void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
+                            char *str);
