@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** free_fight_screen
 ** File description:
-** free fight screen 
+** free fight screen
 */
 
 #include "fight_screen.h"
