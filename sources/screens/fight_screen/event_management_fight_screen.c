@@ -34,8 +34,7 @@ bool event_management_fight_screen(screens *screen, fight_screen *fight)
                         sfKeyH, sfKeyI, sfKeyJ, sfKeyK, sfKeyL, sfKeyM, sfKeyN,
                         sfKeyO, sfKeyP, sfKeyQ, sfKeyR, sfKeyS, sfKeyT, sfKeyU,
                         sfKeyV, sfKeyW, sfKeyX, sfKeyY, sfKeyZ};
-    if (screen->event.type == sfEvtClosed ||
-        screen->event.key.code == sfKeyEscape) {
+    if (screen->event.type == sfEvtClosed) {
         return (true);
     }
     display_first_key(fight);
