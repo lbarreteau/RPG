@@ -51,7 +51,7 @@ typedef struct fight_screen
     struct protection bubble;
     struct ennemies_s ennemy[3];
     struct attack_s attack_ennemy[10];
-    struct attack_s attack_player[3];
+    struct attack_s attack_player;
     sfFont *font;
     sfText *key_press;
     sfText *key_to_press;

@@ -39,10 +39,14 @@ bool event_management_fight_screen(screens *screen, fight_screen *fight)
     }
     display_first_key(fight);
     if (screen->event.type == sfEvtKeyPressed) {
-        if (screen->event.key.code == sfKeySpace) {
-            fight->attack_player[0].is_activ = true;
-        }
-        if (screen->event.key.code == keytape[fight->random]
+        if (screen->event.key.code == sfKeySpace &&
+            fight->bubble.is_activ == false) {
+            if (fight->attack_player.is_activ == false &&
+                fight->attack_player.exist == false) {
+                fight->attack_player.is_activ = true;
+                fight->attack_player.exist = true;
+            }
+        } else if (screen->event.key.code == keytape[fight->random]
         && fight->bubble.is_activ == false) {
             sfClock_restart(fight->bubble.clock);
             fight->bubble.is_activ = true;

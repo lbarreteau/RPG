@@ -50,23 +50,18 @@ bool check_collisions_fireball_player(fight_screen *fight)
 
 bool check_collisions_fireball_ennemy(fight_screen *fight)
 {
-    for (int i = 0; i < 3; i++) {
-        if (sfIntRect_intersects(&fight->attack_player[i].hitbox,
-        &fight->ennemy[0].hitbox, NULL) == sfTrue &&
-        fight->bubble.is_activ == false) {
-            fight->attack_player[i].is_activ = false;
-            fight->attack_player[i].hitbox = (sfIntRect){0, 0, 0, 0};
-            fight->ennemy[0].life -= 1;
-        }
-        if (sfIntRect_intersects(&fight->attack_player[i].hitbox,
-        &fight->ennemy[0].hitbox, NULL) == sfTrue &&
-        fight->bubble.is_activ == true) {
-            fight->attack_player[i].hitbox = (sfIntRect){0, 0, 0, 0};
-            fight->attack_player[i].is_activ = false;
-        }
-        if (fight->ennemy[0].life == 0) {
-            return (true);
-        }
+    if (sfIntRect_intersects(&fight->attack_player.hitbox,
+    &fight->ennemy[0].hitbox, NULL) == sfTrue) {
+        fight->attack_player.is_activ = false;
+        fight->attack_player.exist = false;
+        fight->attack_player.hitbox = (sfIntRect){700, 300, 64, 64};
+        fight->attack_player.pos = (sfVector2f) {650, 300};
+        sfSprite_setPosition(fight->attack_player.sprite.sprite,
+            fight->attack_player.pos);
+        fight->ennemy[0].life -= 1;
+    }
+    if (fight->ennemy[0].life == 0) {
+        return (true);
     }
     return (false);
 }

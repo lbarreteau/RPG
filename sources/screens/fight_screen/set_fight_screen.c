@@ -36,7 +36,7 @@ static void init_attack_fight(fight_screen *fight)
         set_attack_ennemy(&fight->attack_ennemy[i], (sfIntRect){0, 0, 64, 64},
         0);
     for (int i = 0; i < 3; i++)
-        set_attack_player(&fight->attack_player[i], (sfIntRect){0, 256, 64, 64},
+        set_attack_player(&fight->attack_player, (sfIntRect){0, 256, 64, 64},
         0);
 }
 
