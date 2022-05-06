@@ -70,7 +70,7 @@ static void reset_zoom(level1 *game)
     sfSprite_setScale(game->map.sprite, scale);
 }
 
-bool event_level1(screens *screen, level1 *game, player *player1, inventory *stock)
+bool event_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer)
 {
 
     if (screen->event.type == sfEvtClosed) {
@@ -97,6 +97,6 @@ bool event_level1(screens *screen, level1 *game, player *player1, inventory *sto
         }
     }
     if (screen->inv_is_set == true)
-        event_inventory(screen, stock);
+        event_inventory(screen, &game->stock);
     return (false);
 }
