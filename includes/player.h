@@ -14,6 +14,7 @@ typedef struct stats {
     sfTexture *texture[2];
     sfIntRect rect[2];
     struct text text_dammage;
+    sfBool level1;
     int max_health;
     int health;
     int dammage;
@@ -32,6 +33,5 @@ typedef struct player {
 } player;
 
 void set_player(player *player1);
-void set_health_bar(stats *stat, sfVector2f pos_bar);
-void check_health(player *player1);
-void check_dammage(player *player1);
+void set_stats(stats *stat);
+void check_stats(player *player1);

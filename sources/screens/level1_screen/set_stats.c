@@ -21,14 +21,6 @@ void set_health_rect(stats *stat)
 
 void set_health_bar(stats *stat, sfVector2f pos_bar)
 {
-    stat->health = 3;
-    stat->max_health = 3;
-    stat->dammage = 2;
-    stat->text_dammage.text = sfText_create();
-    stat->text_dammage.font = sfFont_createFromFile("assets/families/global_font.ttf");
-    sfText_setFont(stat->text_dammage.text, stat->text_dammage.font);
-    sfText_setString(stat->text_dammage.text, "2");
-    sfText_setPosition(stat->text_dammage.text, (sfVector2f){735, 740});
     stat->sprite[0] = sfSprite_create();
     stat->sprite[1] = sfSprite_create();
     stat->texture[0] = sfTexture_createFromFile("assets/pictures/inventory/hearth.png", NULL);
@@ -40,4 +32,24 @@ void set_health_bar(stats *stat, sfVector2f pos_bar)
     sfSprite_setTextureRect(stat->sprite[1], stat->rect[1]);
     sfSprite_setPosition(stat->sprite[0], pos_bar);
     sfSprite_setPosition(stat->sprite[1], pos_bar);
+}
+
+void set_text_damage(stats *stat)
+{
+    stat->text_dammage.text = sfText_create();
+    stat->text_dammage.font = sfFont_createFromFile("assets/families/global_font.ttf");
+    sfText_setFont(stat->text_dammage.text, stat->text_dammage.font);
+    sfText_setString(stat->text_dammage.text, "2");
+    sfText_setPosition(stat->text_dammage.text, (sfVector2f){735, 740});
+}
+
+void set_stats(stats *stat)
+{
+    stat->health = 3;
+    stat->max_health = 3;
+    stat->dammage = 2;
+    stat->xp = 0;
+    stat->level1 = false;
+    set_health_bar(stat, (sfVector2f) {50, 50});
+    set_text_damage(stat);
 }

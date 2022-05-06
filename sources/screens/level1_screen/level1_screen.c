@@ -17,7 +17,7 @@ void set_all(level1 *game, player *player1, inventory *stock, frame_buffer *buff
     set_level1(game);
     init_all_collisions(game);
     init_inventory_struct(stock);
-    set_health_bar(&player1->stat, (sfVector2f) {50, 50});
+    set_stats(&player1->stat);
     set_inventory(stock);
     set_items(game, stock);
 }
@@ -44,8 +44,7 @@ void level1_screen(screens *screen)
         // create_snow(buffer);
         move_player(&game, screen, &player1);
         pick_up_item(&game, &player1, &game.stock);
-        check_health(&player1);
-        check_dammage(&player1);
+        check_stats(&player1);
         draw_level1(screen, &game, &player1, buffer);
         sfRenderWindow_display(screen->window);
     }
