@@ -9,6 +9,7 @@
 #include "level1_screen.h"
 #include "player.h"
 #include "inventory.h"
+#include "menu_screen.h"
 
 void set_all(level1 *game, player *player1, inventory *stock)
 {
@@ -21,31 +22,45 @@ void set_all(level1 *game, player *player1, inventory *stock)
     set_items(game, stock);
 }
 
-void level1_screen(screens *screen)
+bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buffer *buffer)
+{
+    while (game->pause_event == true) {
+        while (sfRenderWindow_pollEvent(screen->window, &screen->event))
+            exit = event_menu_pause(screen, menu);
+        draw_menu(screen, menu);
+        if (exit == true) {
+            game->pause_event = false;
+            exit = false;
+        }
+    }
+    if (exit == true) {
+        free_level1(game);
+        // free buffer particules
+        sfSprite_destroy(buffer->sprite);
+        sfTexture_destroy(buffer->texture);
+        free(buffer->pixels);
+        free(buffer);
+    }
+    return (exit);
+}
+
+void level1_screen(screens *screen, menus *menu)
 {
     struct level1 game;
     struct player player1;
     struct frame_buffer *buffer;
     bool exit = false;
 
-    srand(time(NULL));
     set_all(&game, &player1, &game.stock);
     buffer = create_buffer(1920, 1080);
     while (sfRenderWindow_isOpen(screen->window)) {
-        while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
-            exit = event_level1(screen, &game, &player1, buffer);
-        }
-        if (exit == true) {
-            free_level1(&game);
-            // free buffer particules
-            sfSprite_destroy(buffer->sprite);
-            sfTexture_destroy(buffer->texture);
-            free(buffer->pixels);
-            free(buffer);
+        while (sfRenderWindow_pollEvent(screen->window, &screen->event) &&
+        game.pause_event == false)
+            exit = event_level1(screen, &game, &player1, buffer, menu);
+        if (check_exit(&game, screen, menu, exit, buffer) == true || exit == true)
             return;
-        }
-        // sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
-        // create_snow(buffer);
+            // sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
+            // create_snow(buffer);
         move_player(&game, &player1);
         pick_up_item(&game, &player1, &game.stock);
         check_stats(&player1);

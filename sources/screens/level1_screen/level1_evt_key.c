@@ -7,6 +7,7 @@
 
 #include "level1_screen.h"
 #include "fight_screen.h"
+#include "menu_screen.h"
 
 static void movement_redirection(screens *screen, level1 *game)
 {
@@ -27,9 +28,12 @@ static void movement_redirection(screens *screen, level1 *game)
     }
 }
 
-void level1_event_key(screens *screen, level1 *game)
+void level1_event_key(screens *screen, level1 *game, menus *menu)
 {
     if (screen->event.type == sfEvtKeyPressed) {
+        if (screen->event.key.code == sfKeyEscape) {
+            game->pause_event = true;
+        }
         if (screen->event.key.code == screen->list_key[4]) {
             screen->inv_is_set = !screen->inv_is_set;
         }

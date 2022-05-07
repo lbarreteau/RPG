@@ -15,5 +15,6 @@ void set_level1(level1 *game, player *player1)
     game->clock = sfClock_create();
     game->move_direction = 0;
     game->player1 = player1;
+    game->pause_event = false;
     set_enemy(game);
 }

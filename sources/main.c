@@ -9,5 +9,6 @@
 
 int main(void)
 {
+    srand(time(NULL));
     main_screen();
 }
