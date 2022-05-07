@@ -13,6 +13,9 @@
 
 void set_all(level1 *game, player *player1, inventory *stock)
 {
+    game->hitbox_pnj = (sfIntRect) {0, 0, 0, 0};
+    game->hitbox_pnj2 = (sfIntRect) {0, 0, 0, 0};
+
     init_level1_struct(game);
     set_player(player1);
     set_level1(game, player1);
@@ -21,7 +24,7 @@ void set_all(level1 *game, player *player1, inventory *stock)
     set_inventory(stock);
     set_items(game, stock);
     game->dialog_active = false;
-    game->dialog_active_2 = true;
+    game->dialog_active_2 = false;
 }
 
 bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buffer *buffer)
