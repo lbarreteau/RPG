@@ -8,7 +8,7 @@
 #include "global.h"
 #include "menu_screen.h"
 
-static bool redirection_screen(int nb_screen, screens *screen, menus *menu)
+static bool redirection_screen(int nb_screen, screens *screen)
 {
     switch (nb_screen) {
         case 0:
@@ -38,7 +38,7 @@ static bool mouse_clicked_on_button(screens *screen, sfSprite *sign,
         pos_button.y + (116 * real_size / size)) {
         sfMusic_play(screen->music[1]);
         sfSprite_setTexture(sign, menu->texture_dark, sfFalse);
-        return (redirection_screen(i, screen, menu));
+        return (redirection_screen(i, screen));
     }
     return (false);
 }

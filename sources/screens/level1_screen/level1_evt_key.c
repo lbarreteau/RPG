@@ -28,7 +28,7 @@ static void movement_redirection(screens *screen, level1 *game)
     }
 }
 
-void level1_event_key(screens *screen, level1 *game, menus *menu)
+void level1_event_key(screens *screen, level1 *game)
 {
     if (screen->event.type == sfEvtKeyPressed) {
         if (screen->event.key.code == sfKeyEscape) {
