@@ -10,23 +10,28 @@
 
 void create_new_fireball(fight_screen *fight)
 {
+    for (int i = 0; i < 10; i++) {
+        if (fight->attack_ennemy[i].exist == false) {
+            fight->attack_ennemy[i].exist = true;
+            fight->attack_ennemy[i].is_activ = true;
+            break;
+        }
+    }
+}
+
+void create_all_fireballs(fight_screen *fight)
+{
     fight->time = sfClock_getElapsedTime(fight->attack_clock);
     fight->seconds = fight->time.microseconds;
     if (fight->seconds > 2800000) {
-        for (int i = 0; i < 10; i++) {
-            if (fight->attack_ennemy[i].exist == false) {
-                fight->attack_ennemy[i].exist = true;
-                fight->attack_ennemy[i].is_activ = true;
-                break;
-            }
-        }
+        create_new_fireball(fight);
         sfClock_restart(fight->attack_clock);
     }
 }
 
 bool check_collisions_fireball_player(fight_screen *fight)
 {
-    create_new_fireball(fight);
+    create_all_fireballs(fight);
     for (int i = 0; i < 10; i++) {
         if (sfIntRect_intersects(&fight->attack_ennemy[i].hitbox,
         &fight->player_fight.hitbox, NULL) == sfTrue &&
