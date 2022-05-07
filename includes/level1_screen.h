@@ -21,8 +21,8 @@ typedef struct collisions_s {
 } collision_t;
 
 typedef struct level1 {
+    struct items item[2];
     bool pause_event;
-    struct items item[1];
     struct sprite map;
     struct player *player1;
     struct inventory stock;

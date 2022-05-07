@@ -34,6 +34,6 @@ void free_level1(level1 *game)
     sfTexture_destroy(game->player1->texture);
 
     // // free items
-    sfTexture_destroy(game->item[0].texture);
-    sfSprite_destroy(game->item[0].sprite);
+    // sfTexture_destroy(game->item[0].texture);
+    // sfSprite_destroy(game->item[0].sprite);
 }

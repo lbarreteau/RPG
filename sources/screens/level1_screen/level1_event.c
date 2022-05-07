@@ -19,6 +19,6 @@ bool event_level1(screens *screen, level1 *game, player *player1,
     level1_event_mouse(screen, game, player1);
     level1_event_key(screen, game);
     if (screen->inv_is_set == true)
-        event_inventory(screen, &game->stock);
+        event_inventory(screen, &game->stock, player1);
     return (false);
 }

@@ -11,7 +11,7 @@
 #include "inventory.h"
 #include "menu_screen.h"
 
-void set_all(level1 *game, player *player1, inventory *stock)
+void set_all(level1 *game, player *player1)
 {
     game->hitbox_pnj = (sfIntRect) {0, 0, 0, 0};
     game->hitbox_pnj2 = (sfIntRect) {0, 0, 0, 0};
@@ -20,9 +20,9 @@ void set_all(level1 *game, player *player1, inventory *stock)
     set_player(player1);
     set_level1(game, player1);
     init_all_collisions(game);
-    init_inventory_struct(stock);
-    set_inventory(stock);
-    set_items(game, stock);
+    init_inventory_struct(&game->stock);
+    set_inventory(&game->stock);
+    set_items(game, &game->stock);
     game->dialog_active = false;
     game->dialog_active_2 = false;
 }
@@ -56,7 +56,7 @@ void level1_screen(screens *screen, menus *menu)
     struct frame_buffer *buffer;
     bool exit = false;
 
-    set_all(&game, &player1, &game.stock);
+    set_all(&game, &player1);
     buffer = create_buffer(1920, 1080);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event) &&
@@ -68,6 +68,7 @@ void level1_screen(screens *screen, menus *menu)
             // create_snow(buffer);
         move_player(&game, &player1);
         pick_up_item(&game, &player1, &game.stock);
+        check_equipment(&player1, &game.stock);
         check_stats(&player1);
         draw_level1(screen, &game, &player1, buffer);
         sfRenderWindow_display(screen->window);

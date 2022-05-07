@@ -12,7 +12,7 @@ void set_slot(box *spot, sfVector2f pos, sfVector2f size, char *asset)
     spot->pos = pos;
     set_sprite(&spot->item.sprite, &spot->item.texture, spot->pos, asset);
     set_intrect(&spot->rect, spot->pos, size);
-    spot->slot = set_rectagle_shape(spot->slot, size, spot->pos);
+    spot->slot = set_rectangle_shape(spot->slot, size, spot->pos);
     set_intrect(&spot->item.rect, spot->pos, size);
 }
 
@@ -53,8 +53,7 @@ void set_box(inventory *stock)
         }
     }
     for (int i = 0; i < 7; i++) {
-        stock->texture[i] =
-        sfTexture_createFromFile(stock->asset[i + 1], NULL);
+        stock->texture[i] = sfTexture_createFromFile(stock->asset[i + 1], NULL);
     }
     stock->spot[24].type = WEAPON;
     stock->spot[25].type = ARTEFACT;

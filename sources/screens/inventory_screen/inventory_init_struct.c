@@ -26,7 +26,7 @@ void init_inventory_struct(inventory *stock)
 {
     char **array_settings = find_inventory_properties_from_file();
 
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 10; i++) {
         stock->asset[i] = strdup(array_settings[i * 2 + 1]);
     }
     free_array(array_settings);

@@ -50,7 +50,7 @@ void set_stats(stats *stat)
 {
     stat->health = 3;
     stat->max_health = 3;
-    stat->dammage = 2;
+    stat->dammage = 1;
     stat->xp = 0;
     stat->level1 = false;
     set_health_bar(stat, (sfVector2f) {50, 50});
