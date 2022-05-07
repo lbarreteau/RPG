@@ -28,6 +28,7 @@ void draw_level1(screens *screen, level1 *game, player *player1,
     //sfRenderWindow_drawSprite(screen->window, game->enemy.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, player1->stat.sprite[0], NULL);
     sfRenderWindow_drawSprite(screen->window, player1->stat.sprite[1], NULL);
+    sfRenderWindow_drawSprite(screen->window, game->pnj.sprite, NULL);
     if (screen->inv_is_set == true)
         draw_inventory(screen, &game->stock, player1);
     sfRenderWindow_drawSprite(screen->window, buffer->sprite, NULL);

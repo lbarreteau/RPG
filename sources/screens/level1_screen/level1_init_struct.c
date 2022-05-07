@@ -28,5 +28,6 @@ void init_level1_struct(level1 *game)
     char **array_settings = find_menu_properties_from_file();
 
     game->name_screen_background = strdup(array_settings[1]);
+    game->name_pnj = strdup(array_settings[3]);
     free_array(array_settings);
 }

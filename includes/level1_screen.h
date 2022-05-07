@@ -32,6 +32,8 @@ typedef struct level1 {
     int move_direction;
     float seconds;
     char *name_screen_background;
+    struct sprite pnj;
+    char *name_pnj;
     struct enemy_s enemy;
 } level1;
 

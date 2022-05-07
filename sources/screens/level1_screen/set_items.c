@@ -37,4 +37,6 @@ void set_items(level1 *game, inventory *stock)
     game->item[0].rect.left = 2000;
     game->item[0].type = WEAPON;
     game->item[0].is_pick = false;
+    game->pnj = init_sprite(game->name_pnj,
+    (sfVector2f) {1.75, 1.75}, (sfVector2f) {430, 1000});
 }
