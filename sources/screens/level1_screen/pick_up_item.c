@@ -28,7 +28,7 @@ void add_item(inventory *stock, struct items item)
 
 void pick_up_item(level1 *game, player *player1, inventory *stock)
 {
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 2; i++) {
         if (sfIntRect_intersects(&player1->hitbox,
         &game->item[i].rect, NULL) == sfTrue) {
             add_item(stock, game->item[i]);

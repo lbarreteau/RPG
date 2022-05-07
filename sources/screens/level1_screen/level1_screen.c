@@ -10,15 +10,15 @@
 #include "player.h"
 #include "inventory.h"
 
-void set_all(level1 *game, player *player1, inventory *stock)
+void set_all(level1 *game, player *player1)
 {
     init_level1_struct(game);
     set_player(player1);
     set_level1(game, player1);
     init_all_collisions(game);
-    init_inventory_struct(stock);
-    set_inventory(stock);
-    set_items(game, stock);
+    init_inventory_struct(&game->stock);
+    set_inventory(&game->stock);
+    set_items(game, &game->stock);
 }
 
 void level1_screen(screens *screen)
@@ -29,7 +29,7 @@ void level1_screen(screens *screen)
     bool exit = false;
 
     srand(time(NULL));
-    set_all(&game, &player1, &game.stock);
+    set_all(&game, &player1);
     buffer = create_buffer(1920, 1080);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {

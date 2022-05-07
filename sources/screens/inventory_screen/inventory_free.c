@@ -15,8 +15,6 @@ void free_inventory(inventory *stock)
         sfSprite_destroy(stock->spot[i].item.sprite);
     }
     for (int i = 0; i < 9; i++) {
-        if (i < 7)
-            sfTexture_destroy(stock->texture[i]);
         free(stock->asset[i]);
     }
     sfTexture_destroy(stock->background.texture);

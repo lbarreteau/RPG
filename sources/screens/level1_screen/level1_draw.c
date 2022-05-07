@@ -14,10 +14,10 @@ void draw_level1(screens *screen, level1 *game, player *player1,
 {
     sfRenderWindow_clear(screen->window, sfBlack);
     sfRenderWindow_drawSprite(screen->window, game->map.sprite, NULL);
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 2; i++) {
         if (game->item[i].is_pick == false) {
             sfRenderWindow_drawSprite(screen->window,
-            game->item[0].sprite, NULL);
+            game->item[i].sprite, NULL);
         }
     }
     sfSprite_setTexture(player1->sprite, player1->texture, sfFalse);

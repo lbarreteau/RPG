@@ -46,6 +46,7 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			screens/inventory_screen/events/move_items.c 					\
 			screens/inventory_screen/events/mouse_events.c 					\
 			screens/inventory_screen/inventory_set_slot.c 					\
+			screens/inventory_screen/event_health_potion.c 					\
 			screens/level1_screen/init_collisions.c      					\
 			screens/level1_screen/modif_collisions_pos.c 					\
 			screens/level1_screen/collisions_up_and_down.c 					\

@@ -14,12 +14,14 @@ void change_rect(screens *screen, inventory *stock)
     }
 }
 
-void event_inventory(screens *screen, inventory *stock)
+void event_inventory(screens *screen, inventory *stock, player *player1)
 {
     change_rect(screen, stock);
-    if (screen->event.type == sfEvtMouseButtonPressed &&
-    screen->event.mouseButton.button == sfMouseLeft) {
-        stock->nb_slot = mouse_click_slot(screen, stock);
+    if (screen->event.type == sfEvtMouseButtonPressed) {
+        if (screen->event.mouseButton.button == sfMouseLeft)
+            stock->nb_slot = mouse_click_slot(screen, stock);
+        if (screen->event.mouseButton.button == sfMouseRight)
+            check_is_health(screen, stock, player1);
     }
     if (screen->event.type == sfEvtMouseButtonReleased) {
         if (stock->nb_slot != -1)
