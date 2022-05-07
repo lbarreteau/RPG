@@ -9,7 +9,7 @@
 #include "fight_screen.h"
 #include "player.h"
 
-static set_sprite(fight_screen *fight)
+static void set_sprite(fight_screen *fight)
 {
     sfSprite_setScale(fight->player_fight.sprite, fight->player_fight.scale);
     sfSprite_setPosition(fight->player_fight.sprite,
