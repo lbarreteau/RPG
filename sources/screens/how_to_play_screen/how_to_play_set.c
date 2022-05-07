@@ -10,15 +10,12 @@
 
 void set_how_to_play(how_to_play *game)
 {
-    game->player = init_sprite(game->name_player_sprite,
+    game->how_to_play = init_sprite(game->background,
     (sfVector2f) {1, 1}, (sfVector2f) {0, 0});
-    game->how_to_play_sign = init_sprite(game->name_background_sign,
-    (sfVector2f) {2, 2}, (sfVector2f) {130, 40});
-    game->exemple_map = init_sprite(game->name_exemple_map,
-    (sfVector2f) {3, 3}, (sfVector2f) {-500, -450});
-    game->title = init_sprite(game->name_title,
-    (sfVector2f) {1, 1}, (sfVector2f) {1100, 200});
-    game->next_step = init_sprite(game->name_title,
-    (sfVector2f) {1, 1}, (sfVector2f) {1100, 800});
-    game->step = 0;
+    game->exit.texture =
+        sfTexture_createFromFile(
+        "assets/pictures/settings/sliderbar_button.png", NULL);
+    game->exit.sprite = sfSprite_create();
+    sfSprite_setPosition(game->exit.sprite, (sfVector2f){125, 125});
+    sfSprite_setTexture(game->exit.sprite, game->exit.texture, sfFalse);
 }
