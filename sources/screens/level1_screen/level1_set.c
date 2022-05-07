@@ -19,5 +19,5 @@ void set_level1(level1 *game, player *player1)
     set_enemy(game);
     game->background_dialog = init_sprite("assets/pictures/sign/long_sign.png",
     (sfVector2f) {2, 2}, (sfVector2f) {450, 800});
-    game->dialog = init_text(75, (sfVector2f) {275, 125}, sfBlack);
+    game->dialog = init_text(25, (sfVector2f) {540, 860}, sfBlack);
 }
