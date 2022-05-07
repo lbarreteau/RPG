@@ -48,6 +48,8 @@ void free_settings(settings *setting)
     for (int i = 0; i < 6; i++) {
         sfRectangleShape_destroy(setting->color_text.rect[i]);
     }
+    sfSprite_destroy(setting->exit.sprite);
+    sfTexture_destroy(setting->exit.texture);
     sfSprite_destroy(setting->background);
     sfTexture_destroy(setting->background_texture);
     free(setting->asset_btn[10]);

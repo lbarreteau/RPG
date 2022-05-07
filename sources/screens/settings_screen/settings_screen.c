@@ -23,6 +23,7 @@ bool settings_screen(screens *screen)
             return (true);
         }
         if (exit == 2) {
+            free_settings(&setting);
             return (false);
         }
         draw_settings(screen, &setting);
