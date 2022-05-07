@@ -24,7 +24,8 @@ void set_intrect(sfIntRect *rect, sfVector2f pos, sfVector2f size)
     rect->top = pos.y;
 }
 
-sfRectangleShape *set_rectagle_shape(sfRectangleShape *shape ,sfVector2f size, sfVector2f pos)
+sfRectangleShape *set_rectagle_shape(sfRectangleShape *shape,
+    sfVector2f size, sfVector2f pos)
 {
     shape = sfRectangleShape_create();
     sfRectangleShape_setPosition(shape, pos);

@@ -7,8 +7,7 @@
 
 #include "inventory.h"
 
-
-void free_inventory(screens *screen, inventory *stock)
+void free_inventory(inventory *stock)
 {
     for (int i = 0; i < 26; i++) {
         sfRectangleShape_destroy(stock->spot[i].slot);
@@ -22,8 +21,4 @@ void free_inventory(screens *screen, inventory *stock)
     }
     sfTexture_destroy(stock->background.texture);
     sfSprite_destroy(stock->background.sprite);
-    free(screen->name_background);
-    free(screen->name_screen);
-    sfRenderWindow_close(screen->window);
-    sfRenderWindow_destroy(screen->window);
 }

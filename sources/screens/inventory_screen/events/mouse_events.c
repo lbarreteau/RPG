@@ -13,7 +13,7 @@ void mouse_on_rect(screens *screen, sfIntRect *rect, sfRectangleShape *shape)
 
     if (sfIntRect_contains(rect, pos_mouse.x, pos_mouse.y)) {
         sfRectangleShape_setFillColor(shape,
-            sfColor_fromRGBA(254,80,24,175));
+            sfColor_fromRGBA(235,200,167,175));
     } else {
         sfRectangleShape_setFillColor(shape,
             sfColor_fromRGBA(0,0,0,0));
