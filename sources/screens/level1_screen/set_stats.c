@@ -23,8 +23,10 @@ void set_health_bar(stats *stat, sfVector2f pos_bar)
 {
     stat->sprite[0] = sfSprite_create();
     stat->sprite[1] = sfSprite_create();
-    stat->texture[0] = sfTexture_createFromFile("assets/pictures/inventory/hearth.png", NULL);
-    stat->texture[1] = sfTexture_createFromFile("assets/pictures/inventory/no_hearth.png", NULL);
+    stat->texture[0] = sfTexture_createFromFile(
+        "assets/pictures/inventory/hearth.png", NULL);
+    stat->texture[1] = sfTexture_createFromFile(
+        "assets/pictures/inventory/no_hearth.png", NULL);
     set_health_rect(stat);
     sfSprite_setTexture(stat->sprite[0], stat->texture[0], sfFalse);
     sfSprite_setTexture(stat->sprite[1], stat->texture[1], sfFalse);
@@ -37,7 +39,8 @@ void set_health_bar(stats *stat, sfVector2f pos_bar)
 void set_text_damage(stats *stat)
 {
     stat->text_dammage.text = sfText_create();
-    stat->text_dammage.font = sfFont_createFromFile("assets/families/global_font.ttf");
+    stat->text_dammage.font = sfFont_createFromFile(
+        "assets/families/global_font.ttf");
     sfText_setFont(stat->text_dammage.text, stat->text_dammage.font);
     sfText_setString(stat->text_dammage.text, "2");
     sfText_setPosition(stat->text_dammage.text, (sfVector2f){735, 740});

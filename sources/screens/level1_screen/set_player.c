@@ -10,7 +10,8 @@
 
 void set_player(player *player1)
 {
-    player1->texture = sfTexture_createFromFile("assets/pictures/sprite/npc_sprite.png", NULL);
+    player1->texture = sfTexture_createFromFile(
+        "assets/pictures/sprite/npc_sprite.png", NULL);
     player1->sprite = sfSprite_create();
     player1->rect.top = 0;
     player1->rect.left = 0;

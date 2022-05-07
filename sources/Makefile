@@ -54,6 +54,9 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			screens/level1_screen/set_stats.c 								\
 			screens/level1_screen/check_stats.c 							\
       		screens/level1_screen/all_collisions.c 							\
+			screens/level1_screen/level1_evt_key.c 							\
+			screens/level1_screen/level1_evt_mouse.c 						\
+			screens/level1_screen/set_movement.c 							\
 			screens/fight_screen/fight_screen.c 							\
 			screens/fight_screen/set_attack.c 								\
 			screens/fight_screen/check_collisions_fireball.c 				\

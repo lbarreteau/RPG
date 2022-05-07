@@ -13,7 +13,8 @@ static bool verif_collision_y_left_and_right(level1 *game, player *player1)
         if (player1->position.y >
         game->collisions[i].border_pos.y &&
         player1->position.y + player1->rect.height <
-        (game->collisions[i].border_pos.y - 16 + game->collisions->border_size.y)) {
+        (game->collisions[i].border_pos.y - 16 +
+        game->collisions->border_size.y)) {
             return (true);
         }
     }
@@ -37,7 +38,8 @@ static bool verif_collision_x_right(level1 *game, player *player1)
     for (int i = 0; i < 20; i++) {
         if (player1->position.x + player1->rect.width  + 4 > (
             game->collisions[i].border_pos.x) && player1->position.x  + 4 <
-            (game->collisions[i].border_pos.x + game->collisions[i].border_size.x)) {
+            (game->collisions[i].border_pos.x +
+            game->collisions[i].border_size.x)) {
             return (true);
         }
     }
