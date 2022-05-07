@@ -52,7 +52,11 @@ bool there_is_collision_left(level1 *game, player *player1);
 void modif_collisions_pos(level1 game, sfVector2f movement);
 void draw_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
 bool event_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
-void move_player(level1 *game, screens *screen, player *player1);
+void move_player(level1 *game, player *player1);
+void move_down(level1 *game, player *player1);
+void move_up(level1 *game, player *player1);
+void move_left(level1 *game, player *player1);
+void move_right(level1 *game, player *player1);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
 collision_t create_border(level1 *game, sfVector2f size,
@@ -70,3 +74,5 @@ void battle_screen(screens *screen, level1 *game);
 void set_items(level1 *game, inventory *stock);
 void move_items(level1 *game, sfVector2f movement);
 void pick_up_item(level1 *game, player *player1, inventory *stock);
+void level1_event_mouse(screens *screen, level1 *game, player *player1);
+void level1_event_key(screens *screen, level1 *game);

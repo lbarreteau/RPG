@@ -9,7 +9,8 @@
 #include "level1_screen.h"
 #include "player.h"
 
-void draw_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer)
+void draw_level1(screens *screen, level1 *game, player *player1,
+                frame_buffer *buffer)
 {
     sfRenderWindow_clear(screen->window, sfBlack);
     sfRenderWindow_drawSprite(screen->window, game->map.sprite, NULL);

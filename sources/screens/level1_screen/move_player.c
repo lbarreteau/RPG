@@ -8,106 +8,15 @@
 #include "level1_screen.h"
 #include "player.h"
 
-void static_position(level1 *game, screens *screen, player *player1)
+void static_position(level1 *game, player *player1)
 {
+    (void) game;
     player1->rect.left = 52;
 }
 
-void move_right(level1 *game, screens *screen, player *player1)
+void move_player(level1 *game, player *player1)
 {
-    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
-    sfBool coll = sfFalse;
-
-    player1->hitbox.width += 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
-            NULL) == sfTrue) {
-            coll = sfTrue;
-            break;
-        }
-    }
-    if (coll == sfFalse) {
-        modif_collisions_pos(game[0], (sfVector2f){-4, 0});
-        move_items(game, (sfVector2f){-4, 0});
-        pos_player.x -= 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
-    }
-    player1->hitbox.width -= 4;
-    player1->rect.top = 144;
-}
-
-void move_left(level1 *game, screens *screen, player *player1)
-{
-    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
-    sfBool coll = sfFalse;
-
-    player1->hitbox.left -= 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
-            NULL) == sfTrue) {
-                coll = sfTrue;
-                break;
-        }
-    }
-    if (coll == sfFalse) {
-        modif_collisions_pos(game[0], (sfVector2f){4, 0});
-        move_items(game, (sfVector2f){4, 0});
-        pos_player.x += 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
-    }
-    player1->hitbox.left += 4;
-    player1->rect.top = 72;
-}
-
-void move_up(level1 *game, screens *screen, player *player1)
-{
-    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
-    sfBool coll = sfFalse;
-
-    player1->hitbox.top -= 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
-            NULL) == sfTrue) {
-            coll = sfTrue;
-            break;
-        }
-    }
-    if (coll == sfFalse) {
-        modif_collisions_pos(game[0], (sfVector2f){0, 4});
-        move_items(game, (sfVector2f){0, 4});
-        pos_player.y += 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
-    }
-    player1->hitbox.top += 4;
-    player1->rect.top = 216;
-}
-
-void move_down(level1 *game, screens *screen, player *player1)
-{
-    sfVector2f pos_player = sfSprite_getPosition(game->map.sprite);
-    sfBool coll = sfFalse;
-
-    player1->hitbox.height += 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox, &game->collisions[i].border_rect,
-            NULL) == sfTrue) {
-            coll = sfTrue;
-            break;
-        }
-    }
-    if (coll == sfFalse) {
-        modif_collisions_pos(game[0], (sfVector2f){0, -4});
-        move_items(game, (sfVector2f){0, -4});
-        pos_player.y -= 4;
-        sfSprite_setPosition(game->map.sprite, pos_player);
-    }
-    player1->hitbox.height -= 4;
-    player1->rect.top = 0;
-}
-
-void move_player(level1 *game, screens *screen, player *player1)
-{
-    void (*orientation[5])(level1 *, screens *, player *) = {&static_position,
+    void (*orientation[5])(level1 *, player *) = {&static_position,
         &move_right, &move_left, &move_up, &move_down};
 
     game->time = sfClock_getElapsedTime(game->clock);
@@ -122,5 +31,5 @@ void move_player(level1 *game, screens *screen, player *player1)
         player1->rect.left += 52 * player1->status;
         sfClock_restart(game->clock);
     }
-    orientation[game->move_direction](game, screen, player1);
+    orientation[game->move_direction](game, player1);
 }
