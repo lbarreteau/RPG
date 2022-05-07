@@ -37,6 +37,11 @@ void level1_screen(screens *screen)
         }
         if (exit == true) {
             free_level1(&game);
+            // free buffer particules
+            sfSprite_destroy(buffer->sprite);
+            sfTexture_destroy(buffer->texture);
+            free(buffer->pixels);
+            free(buffer);
             return;
         }
         // sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
