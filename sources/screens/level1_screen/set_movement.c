@@ -22,12 +22,18 @@ void move_right(level1 *game, player *player1)
         }
     }
     if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue || sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        printf("coll");
+    sfTrue) {
         coll = sfTrue;
+        game->dialog_active_2 = true;
+    }
+    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
+    == sfTrue) {
+        coll = sfTrue;
+        game->dialog_active = true;
     }
     if (coll == sfFalse) {
+        game->dialog_active = false;
+        game->dialog_active_2 = false;
         modif_collisions_pos(game, (sfVector2f){-4, 0});
         move_items(game, (sfVector2f){-4, 0});
         pos_player.x -= 4;
@@ -51,12 +57,18 @@ void move_left(level1 *game, player *player1)
         }
     }
     if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue || sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        printf("coll");
+    sfTrue) {
         coll = sfTrue;
+        game->dialog_active_2 = true;
+    }
+    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
+    == sfTrue) {
+        coll = sfTrue;
+        game->dialog_active = true;
     }
     if (coll == sfFalse) {
+        game->dialog_active_2 = false;
+        game->dialog_active = false;
         modif_collisions_pos(game, (sfVector2f){4, 0});
         move_items(game, (sfVector2f){4, 0});
         pos_player.x += 4;
@@ -80,20 +92,23 @@ void move_up(level1 *game, player *player1)
         }
     }
     if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue || sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        printf("coll");
+    sfTrue) {
         coll = sfTrue;
+        game->dialog_active_2 = true;
+    }
+    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
+    == sfTrue) {
+        coll = sfTrue;
+        game->dialog_active = true;
     }
     if (coll == sfFalse) {
+        game->dialog_active_2 = false;
+        game->dialog_active = false;
         modif_collisions_pos(game, (sfVector2f){0, 4});
         move_items(game, (sfVector2f){0, 4});
         pos_player.y += 4;
         sfSprite_setPosition(game->map.sprite, pos_player);
     }
-    printf("pos_player y = %i  x = %i\n", player1->hitbox.top, player1->hitbox.left);
-    printf("pos_coll_pnj y = %i  x = %i\n", game->hitbox_pnj.top , game->hitbox_pnj2.top);
-
     player1->hitbox.top += 4;
     player1->rect.top = 216;
 }
@@ -112,12 +127,18 @@ void move_down(level1 *game, player *player1)
         }
     }
     if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue || sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        printf("coll");
+    sfTrue) {
         coll = sfTrue;
+        game->dialog_active_2 = true;
+    }
+    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
+    == sfTrue) {
+        coll = sfTrue;
+        game->dialog_active = true;
     }
     if (coll == sfFalse) {
+        game->dialog_active = false;
+        game->dialog_active_2 = false;
         modif_collisions_pos(game, (sfVector2f){0, -4});
         move_items(game, (sfVector2f){0, -4});
         pos_player.y -= 4;
