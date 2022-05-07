@@ -17,5 +17,6 @@ void draw_inventory(screens *screen, inventory *stock, player *player1)
         sfRenderWindow_drawRectangleShape(screen->window,
             stock->spot[i].slot, NULL);
     }
-    sfRenderWindow_drawText(screen->window, player1->stat.text_dammage.text, NULL);
+    sfRenderWindow_drawText(screen->window,
+        player1->stat.text_dammage.text, NULL);
 }

@@ -41,7 +41,7 @@ void event_inventory(screens *screen, inventory *box);
 void draw_inventory(screens *screen, inventory *stock, player *player1);
 void init_inventory_struct(inventory *stock);
 void set_inventory(inventory *stock);
-void free_inventory(screens *screen, inventory *stock);
+void free_inventory(inventory *stock);
 void check_good_move(screens *screen, inventory *stock);
 void set_box(inventory *stock);
 void set_sprite(sfSprite **sprite, sfTexture **texture, sfVector2f pos, char *asset);
