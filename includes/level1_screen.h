@@ -20,6 +20,7 @@ typedef struct collisions_s {
 } collision_t;
 
 typedef struct level1 {
+    bool pause_event;
     struct items item[1];
     struct sprite map;
     struct player *player1;
@@ -51,7 +52,7 @@ bool there_is_collision_right(level1 *game, player *player1);
 bool there_is_collision_left(level1 *game, player *player1);
 void modif_collisions_pos(level1 game, sfVector2f movement);
 void draw_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
-bool event_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
+bool event_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer, menus *menu);
 void move_player(level1 *game, player *player1);
 void move_down(level1 *game, player *player1);
 void move_up(level1 *game, player *player1);
@@ -75,4 +76,5 @@ void set_items(level1 *game, inventory *stock);
 void move_items(level1 *game, sfVector2f movement);
 void pick_up_item(level1 *game, player *player1, inventory *stock);
 void level1_event_mouse(screens *screen, level1 *game, player *player1);
-void level1_event_key(screens *screen, level1 *game);
+void level1_event_key(screens *screen, level1 *game, menus *menu);
+bool event_menu_pause(screens *screen, menus *menu);

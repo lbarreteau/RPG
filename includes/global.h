@@ -17,8 +17,11 @@
 #include <SFML/Window.h>
 #include <SFML/System.h>
 #include <SFML/Audio.h>
+#include <time.h>
+
 
 typedef enum {LEFT, RIGHT, DOWN, UP, INVENTORY} key_name;
+
 
 struct sprite {
     sfSprite *sprite;
@@ -29,6 +32,19 @@ struct text {
     sfText *text;
     sfFont *font;
 };
+
+typedef struct menus {
+    time_t ltime;
+    bool display_time;
+    char *name_sign;
+    char *name_sign_dark;
+    sfVector2u size_screen;
+    struct sprite signs[4];
+    struct text name_options[4];
+    struct text title;
+    sfTexture *texture_dark;
+    sfTexture *texture_click;
+} menus;
 
 typedef struct screens {
     unsigned int size_screen_length;
@@ -60,6 +76,6 @@ void free_array(char **array);
 void init_screen_struct(screens *screen);
 void set_screen(screens *screen);
 void main_screen(void);
-void level1_screen(screens *screen);
+void level1_screen(screens *screen, menus *menu);
 void how_to_play_screen(screens *screen);
 bool settings_screen(screens *screen);
