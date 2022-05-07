@@ -20,7 +20,8 @@ void set_all(level1 *game, player *player1, inventory *stock)
     init_inventory_struct(stock);
     set_inventory(stock);
     set_items(game, stock);
-    game->dialog_active = true;
+    game->dialog_active = false;
+    game->dialog_active_2 = true;
 }
 
 bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buffer *buffer)

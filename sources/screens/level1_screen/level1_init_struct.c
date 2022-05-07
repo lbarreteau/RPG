@@ -29,5 +29,6 @@ void init_level1_struct(level1 *game)
 
     game->name_screen_background = strdup(array_settings[1]);
     game->name_pnj = strdup(array_settings[3]);
+    game->name_pnj_2 = strdup(array_settings[5]);
     free_array(array_settings);
 }
