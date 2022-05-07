@@ -69,8 +69,6 @@ void init_fight_screen_struct(fight_screen *fight);
 bool event_management_fight_screen(screens *screen, fight_screen *fight);
 void draw_fight_screen(screens *screen, fight_screen *fight);
 void set_player_fight(fight_screen *fight, player *player1);
-void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
-                        char *str);
 void set_attack_ennemy(attack_t *attack, sfIntRect rect, int i);
 void fireball_animation(attack_t *fireball, int movement);
 bool check_collisions_fireball_player(fight_screen *fight);
@@ -79,7 +77,7 @@ void set_ennemy_fight(fight_screen *fight);
 void set_attack_player(attack_t *attack, sfIntRect rect, int i);
 bool check_collisions_fireball_ennemy(fight_screen *fight);
 char *conv_nbr_into_key(int key);
-void init_key_to_press(fight_screen *fight, sfText *text, sfVector2f pos,
+void init_key_to_press(fight_screen *fight, sfVector2f pos,
                             char *str);
-void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
+void init_text_to_display(fight_screen *fight, sfVector2f pos,
                             char *str);

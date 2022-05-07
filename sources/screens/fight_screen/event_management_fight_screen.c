@@ -23,7 +23,7 @@ void display_first_key(fight_screen *fight)
     if (fight->check_rand == false) {
     fight->random = rand() % 26;
     fight->check_rand = true;
-    init_key_to_press(fight, fight->key_to_press, (sfVector2f) {1100, 500},
+    init_key_to_press(fight, (sfVector2f) {1100, 500},
                             conv_nbr_into_key(fight->random + 97));
     }
 }
@@ -51,7 +51,7 @@ static void check_display_bubble(fight_screen *fight, screens *screen,
     if (fight->bubble.is_activ == false && screen->event.key.code !=
                                                         sfKeySpace) {
         fight->random = rand() % 26;
-        init_key_to_press(fight, fight->key_to_press,
+        init_key_to_press(fight,
         (sfVector2f) {1100, 500}, conv_nbr_into_key(fight->random + 97));
     }
 }

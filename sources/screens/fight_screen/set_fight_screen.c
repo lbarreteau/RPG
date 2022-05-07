@@ -8,7 +8,7 @@
 #include "fight_screen.h"
 #include "global.h"
 
-void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
+void init_text_to_display(fight_screen *fight, sfVector2f pos,
                             char *str)
 {
     sfText_setFont(fight->key_press, fight->font);
@@ -19,7 +19,7 @@ void init_text_to_display(fight_screen *fight, sfText *text, sfVector2f pos,
     sfText_setPosition(fight->key_press, pos);
 }
 
-void init_key_to_press(fight_screen *fight, sfText *text, sfVector2f pos,
+void init_key_to_press(fight_screen *fight, sfVector2f pos,
                             char *str)
 {
     sfText_setFont(fight->key_to_press, fight->font);
@@ -55,7 +55,7 @@ void set_fight_screen(fight_screen *fight)
     fight->bubble.hitbox = (sfIntRect) {0, 0, 208.6, 208.6};
     fight->check_rand = false;
     fight->attack_clock = sfClock_create();
-    init_text_to_display(fight, fight->key_press, (sfVector2f) {500, 500},
+    init_text_to_display(fight, (sfVector2f) {500, 500},
                                     "Press key ");
     init_attack_fight(fight);
 }

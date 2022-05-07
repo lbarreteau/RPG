@@ -16,7 +16,7 @@ static void check_display_of_bubble(fight_screen *fight, screens *screen)
     if (fight->bubble.seconds > 1.8 && fight->bubble.seconds < 1.82 &&
         fight->bubble.is_activ == true) {
         fight->random = rand() % 26;
-        init_key_to_press(fight, fight->key_to_press,
+        init_key_to_press(fight,
             (sfVector2f) {1100, 500}, conv_nbr_into_key(fight->random + 97));
     }
     if (fight->bubble.is_activ == true && fight->bubble.seconds < 2) {
