@@ -6,6 +6,7 @@
 */
 
 #include "player.h"
+#include "fight_screen.h"
 
 void check_health(player *player1)
 {
@@ -16,6 +17,17 @@ void check_health(player *player1)
     sfSprite_setTextureRect(player1->stat.sprite[1], player1->stat.rect[1]);
     sfSprite_setPosition(player1->stat.sprite[1],
     (sfVector2f) {50 + 60 * player1->stat.health, 50});
+}
+
+void check_health_ennemy(ennemies_t *ennemy)
+{
+    ennemy->stat.rect[0].width = 60 * ennemy->stat.health;
+    sfSprite_setTextureRect(ennemy->stat.sprite[0], ennemy->stat.rect[0]);
+    ennemy->stat.rect[1].width =
+        60 * (ennemy->stat.max_health - ennemy->stat.health);
+    sfSprite_setTextureRect(ennemy->stat.sprite[1], ennemy->stat.rect[1]);
+    sfSprite_setPosition(ennemy->stat.sprite[1],
+    (sfVector2f) {1600 + 60 * ennemy->stat.health, 50});
 }
 
 void check_dammage(player *player1)
