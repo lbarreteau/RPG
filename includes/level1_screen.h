@@ -34,6 +34,9 @@ typedef struct level1 {
     char *name_screen_background;
     struct sprite pnj;
     char *name_pnj;
+    struct sprite background_dialog;
+    struct text dialog;
+    bool dialog_active;
     struct enemy_s enemy;
 } level1;
 

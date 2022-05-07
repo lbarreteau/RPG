@@ -32,4 +32,8 @@ void draw_level1(screens *screen, level1 *game, player *player1,
     if (screen->inv_is_set == true)
         draw_inventory(screen, &game->stock, player1);
     sfRenderWindow_drawSprite(screen->window, buffer->sprite, NULL);
+    sfRenderWindow_drawText(screen->window, game->dialog.text, NULL);
+    if (game->dialog_active == true) {
+        sfRenderWindow_drawSprite(screen->window, game->background_dialog.sprite, NULL);
+    }
 }

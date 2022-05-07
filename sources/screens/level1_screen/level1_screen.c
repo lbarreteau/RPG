@@ -20,6 +20,7 @@ void set_all(level1 *game, player *player1, inventory *stock)
     init_inventory_struct(stock);
     set_inventory(stock);
     set_items(game, stock);
+    game->dialog_active = true;
 }
 
 bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buffer *buffer)
@@ -44,6 +45,11 @@ bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buf
     return (exit);
 }
 
+void start_dialog(level1 *game, screens *screen)
+{
+    
+}
+
 void level1_screen(screens *screen, menus *menu)
 {
     struct level1 game;
@@ -61,6 +67,7 @@ void level1_screen(screens *screen, menus *menu)
             return;
             // sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
             // create_snow(buffer);
+        start_dialog(&game, screen);
         move_player(&game, &player1);
         pick_up_item(&game, &player1, &game.stock);
         check_stats(&player1);
