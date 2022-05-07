@@ -48,6 +48,7 @@ void level1_screen(screens *screen)
         // create_snow(buffer);
         move_player(&game, &player1);
         pick_up_item(&game, &player1, &game.stock);
+        check_equipment(&player1, &game.stock);
         check_stats(&player1);
         draw_level1(screen, &game, &player1, buffer);
         sfRenderWindow_display(screen->window);

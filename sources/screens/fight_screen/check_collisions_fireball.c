@@ -63,9 +63,9 @@ bool check_collisions_fireball_ennemy(fight_screen *fight)
         fight->attack_player.pos = (sfVector2f) {650, 300};
         sfSprite_setPosition(fight->attack_player.sprite.sprite,
             fight->attack_player.pos);
-        fight->ennemy[0].life -= 1;
+        fight->ennemy[0].life -= fight->player_fight.stat.dammage;
     }
-    if (fight->ennemy[0].life == 0) {
+    if (fight->ennemy[0].life <= 0) {
         return (true);
     }
     return (false);

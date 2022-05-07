@@ -51,3 +51,4 @@ void mouse_on_rect(screens *screen, sfIntRect *rect, sfRectangleShape *shape);
 int mouse_click_slot(screens *screen, inventory *stock);
 void move_in_inventory(screens *screen, inventory *stock);
 void check_is_health(screens *screen, inventory *stock, player *player1);
+void check_equipment(player *player1, inventory *stock);
