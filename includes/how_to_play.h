@@ -16,8 +16,7 @@ typedef struct how_to_play {
 } how_to_play;
 
 void init_how_to_play_struct(how_to_play *game);
-void how_to_play_screen(screens *screen);
 void set_how_to_play(how_to_play *game);
 void draw_how_to_play(screens *screen, how_to_play *game);
 void free_how_to_play(how_to_play *game);
-bool event_how_to_play(screens *screen, how_to_play *game);
+int event_how_to_play(screens *screen, how_to_play *game);

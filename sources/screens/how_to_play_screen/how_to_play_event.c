@@ -9,10 +9,10 @@
 #include "how_to_play.h"
 #include "settings_screen.h"
 
-bool event_how_to_play(screens *screen, how_to_play *game)
+int event_how_to_play(screens *screen, how_to_play *game)
 {
     if (screen->event.type == sfEvtClosed) {
-        return (true);
+        return (1);
     }
     if (screen->event.type == sfEvtMouseButtonPressed &&
         screen->event.mouseButton.button == sfMouseLeft) {
@@ -21,5 +21,5 @@ bool event_how_to_play(screens *screen, how_to_play *game)
             return (2);
         }
     }
-    return (false);
+    return (0);
 }

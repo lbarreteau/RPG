@@ -77,5 +77,5 @@ void init_screen_struct(screens *screen);
 void set_screen(screens *screen);
 void main_screen(void);
 void level1_screen(screens *screen, menus *menu);
-void how_to_play_screen(screens *screen);
+bool how_to_play_screen(screens *screen);
 bool settings_screen(screens *screen);
