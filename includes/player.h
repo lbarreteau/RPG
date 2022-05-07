@@ -35,3 +35,5 @@ typedef struct player {
 void set_player(player *player1);
 void set_stats(stats *stat);
 void check_stats(player *player1);
+void check_health(player *player1);
+void set_health_bar(stats *stat, sfVector2f pos_bar);

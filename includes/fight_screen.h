@@ -37,7 +37,7 @@ typedef struct ennemies_s {
     sfSprite *sprite;
     sfTexture *texture;
     sfIntRect rect;
-    int life;
+    struct stats stat;
     int experience;
     sfVector2f position;
     sfIntRect hitbox;
@@ -81,3 +81,4 @@ void init_key_to_press(fight_screen *fight, sfVector2f pos,
                             char *str);
 void init_text_to_display(fight_screen *fight, sfVector2f pos,
                             char *str);
+void check_health_ennemy(ennemies_t *ennemy);

@@ -1,18 +1,17 @@
 /*
 ** EPITECH PROJECT, 2022
-** Check_error
+** menu_pause_event.c
 ** File description:
-** to complete
+** menu_pause_event
 */
 
 #include "global.h"
 #include "menu_screen.h"
 
-static bool redirection_screen(int nb_screen, screens *screen, menus *menu)
+static bool redirection_screen(int nb_screen, screens *screen)
 {
     switch (nb_screen) {
         case 0:
-            level1_screen(screen, menu);
             return (true);
         case 1:
             return (settings_screen(screen));
@@ -39,7 +38,7 @@ static bool mouse_clicked_on_button(screens *screen, sfSprite *sign,
         pos_button.y + (116 * real_size / size)) {
         sfMusic_play(screen->music[1]);
         sfSprite_setTexture(sign, menu->texture_dark, sfFalse);
-        return (redirection_screen(i, screen, menu));
+        return (redirection_screen(i, screen));
     }
     return (false);
 }
@@ -61,7 +60,7 @@ static void mouse_on_button(screens *screen, sfSprite *sign, menus *menu, int i)
     }
 }
 
-bool event_menu(screens *screen, menus *menu)
+bool event_menu_pause(screens *screen, menus *menu)
 {
     bool exit = false;
 

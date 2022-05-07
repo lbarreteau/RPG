@@ -22,6 +22,7 @@ typedef struct collisions_s {
 
 typedef struct level1 {
     struct items item[2];
+    bool pause_event;
     struct sprite map;
     struct player *player1;
     struct inventory stock;
@@ -31,6 +32,18 @@ typedef struct level1 {
     int move_direction;
     float seconds;
     char *name_screen_background;
+    struct sprite pnj;
+    sfIntRect hitbox_pnj;
+    char *name_pnj;
+    struct sprite pnj_2;
+    sfIntRect hitbox_pnj2;
+    char *name_pnj_2;
+    struct sprite background_dialog;
+    struct text dialog;
+    struct sprite background_dialog_2;
+    struct text dialog_2;
+    bool dialog_active;
+    bool dialog_active_2;
     struct enemy_s enemy;
 } level1;
 
@@ -51,9 +64,9 @@ bool there_is_collision_up(level1 *game, player *player1);
 bool there_is_collision_down(level1 *game, player *player1);
 bool there_is_collision_right(level1 *game, player *player1);
 bool there_is_collision_left(level1 *game, player *player1);
-void modif_collisions_pos(level1 game, sfVector2f movement);
+void modif_collisions_pos(level1 *game, sfVector2f movement);
 void draw_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
-bool event_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer);
+bool event_level1(screens *screen, level1 *game, player *player1, frame_buffer *buffer, menus *menu);
 void move_player(level1 *game, player *player1);
 void move_down(level1 *game, player *player1);
 void move_up(level1 *game, player *player1);
@@ -77,5 +90,6 @@ void set_items(level1 *game, inventory *stock);
 void move_items(level1 *game, sfVector2f movement);
 void pick_up_item(level1 *game, player *player1, inventory *stock);
 void level1_event_mouse(screens *screen, level1 *game, player *player1);
+bool event_menu_pause(screens *screen, menus *menu);
 void level1_event_key(screens *screen, level1 *game);
 void set_enemy(level1 *game);
