@@ -10,6 +10,7 @@
 #include "global.h"
 #include "player.h"
 #include "inventory.h"
+#include "enemy.h"
 
 typedef struct collisions_s {
     sfRectangleShape *border;
@@ -30,6 +31,7 @@ typedef struct level1 {
     int move_direction;
     float seconds;
     char *name_screen_background;
+    struct enemy_s enemy;
 } level1;
 
 typedef struct frame_buffer {
@@ -76,3 +78,4 @@ void move_items(level1 *game, sfVector2f movement);
 void pick_up_item(level1 *game, player *player1, inventory *stock);
 void level1_event_mouse(screens *screen, level1 *game, player *player1);
 void level1_event_key(screens *screen, level1 *game);
+void set_enemy(level1 *game);
