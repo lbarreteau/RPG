@@ -26,5 +26,4 @@ void set_enemy(level1 *game)
     game->enemy.hitbox.height = 72;
 
     sfSprite_setScale(game->enemy.sprite, game->enemy.scale);
-    sfSprite_setPosition(game->enemy.sprite, game->enemy.position);
 }
