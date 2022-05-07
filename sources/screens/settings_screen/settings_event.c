@@ -17,8 +17,7 @@ sfVector2f set_pos_mouse_f(screens *screen)
     return (pos_mousef);
 }
 
-bool mouse_clicked_button(screens *screen,
-    sfSprite *sprite, sfVector2f size)
+bool mouse_clicked_button(screens *screen, sfSprite *sprite, sfVector2f size)
 {
     sfVector2f pos_mouse = set_pos_mouse_f(screen);
     sfVector2f pos_button = sfSprite_getPosition(sprite);
@@ -32,9 +31,8 @@ bool mouse_clicked_button(screens *screen,
 
 int event_settings(screens *screen, settings *setting)
 {
-    if (screen->event.type == sfEvtClosed) {
+    if (screen->event.type == sfEvtClosed)
         return (1);
-    }
     if (screen->event.type == sfEvtMouseButtonPressed &&
         screen->event.mouseButton.button == sfMouseLeft) {
         if (mouse_clicked_button(screen, setting->exit.sprite,

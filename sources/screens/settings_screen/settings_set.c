@@ -48,13 +48,17 @@ void set_fps_settings(settings *setting, unsigned short fps_nb)
 void set_controls_settings(screens *screen, settings *setting)
 {
     for (int i = 0; i < 5; i++) {
-        setting->controls.text[i].font = sfFont_createFromFile(setting->asset_btn[7]);
+        setting->controls.text[i].font =
+        sfFont_createFromFile(setting->asset_btn[7]);
         setting->controls.text[i].text = sfText_create();
-        sfText_setFont(setting->controls.text[i].text, setting->controls.text->font);
+        sfText_setFont(setting->controls.text[i].text,
+            setting->controls.text->font);
         sfText_setPosition(setting->controls.text[i].text,
-        (sfVector2f){540 - strlen(keycode[screen->list_key[i]]) * 20 / 2, 490 + i * 100});
+            (sfVector2f){540 - strlen(keycode[screen->list_key[i]])
+            * 20 / 2, 490 + i * 100});
         sfText_setCharacterSize(setting->controls.text[i].text, 20);
-        sfText_setString(setting->controls.text[i].text, keycode[screen->list_key[i]]);
+        sfText_setString(setting->controls.text[i].text,
+            keycode[screen->list_key[i]]);
         setting->controls.sprite[i * 2] = init_sprite(setting->asset_btn[8],
             (sfVector2f) {1, 1}, (sfVector2f) {650, 450 + i * 100});
         setting->controls.sprite[i * 2 + 1] = init_sprite(setting->asset_btn[9],
@@ -89,14 +93,17 @@ void set_color_text(settings *setting)
 
 void set_settings(screens *screen, settings *setting)
 {
-    setting->exit.texture = sfTexture_createFromFile(setting->asset_btn[1], NULL);
+    setting->exit.texture =
+        sfTexture_createFromFile(setting->asset_btn[1], NULL);
     setting->exit.sprite = sfSprite_create();
     sfSprite_setPosition(setting->exit.sprite, (sfVector2f){125, 125});
     sfSprite_setTexture(setting->exit.sprite, setting->exit.texture, sfFalse);
-    setting->background_texture = sfTexture_createFromFile(setting->asset_btn[10], NULL);
+    setting->background_texture =
+        sfTexture_createFromFile(setting->asset_btn[10], NULL);
     setting->background = sfSprite_create();
     sfSprite_setPosition(setting->background, (sfVector2f){0, 0});
-    sfSprite_setTexture(setting->background, setting->background_texture, sfFalse);
+    sfSprite_setTexture(setting->background,
+        setting->background_texture, sfFalse);
     set_volume_settings(screen, setting);
     set_fps_settings(setting, screen->fps);
     set_controls_settings(screen, setting);
