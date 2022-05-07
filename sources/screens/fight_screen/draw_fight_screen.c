@@ -52,6 +52,10 @@ void draw_fight_screen(screens *screen, fight_screen *fight)
     check_display_of_bubble(fight, screen);
     sfRenderWindow_drawText(screen->window, fight->key_press, NULL);
     sfRenderWindow_drawText(screen->window, fight->key_to_press, NULL);
+    sfRenderWindow_drawSprite(screen->window, fight->player_fight.stat.sprite[0], NULL);
+    sfRenderWindow_drawSprite(screen->window, fight->player_fight.stat.sprite[1], NULL);
+    sfRenderWindow_drawSprite(screen->window, fight->ennemy[0].stat.sprite[0], NULL);
+    sfRenderWindow_drawSprite(screen->window, fight->ennemy[0].stat.sprite[1], NULL);
     check_draw_fireballs(fight, screen);
     sfRenderWindow_display(screen->window);
 }

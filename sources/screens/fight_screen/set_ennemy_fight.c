@@ -32,7 +32,9 @@ void set_ennemy_fight(fight_screen *fight)
     fight->ennemy[0].position.y = 335;
     fight->ennemy[0].scale.x = 1.7;
     fight->ennemy[0].scale.y = 1.7;
-    fight->ennemy[0].life = 3;
+    fight->ennemy[0].stat.health = 3;
+    fight->ennemy[0].stat.max_health = 3;
+    set_health_bar(&fight->ennemy[0].stat, (sfVector2f) {1600, 50});
     fight->ennemy[0].hitbox.left = 1246;
     fight->ennemy[0].hitbox.top = 335;
     fight->ennemy[0].hitbox.width = 86.7;
