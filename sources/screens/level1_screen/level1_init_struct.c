@@ -27,8 +27,8 @@ void init_level1_struct(level1 *game)
 {
     char **array_settings = find_level1_properties_from_file();
 
-    game->name_screen_background = strdup(array_settings[1]);
-    game->name_pnj = strdup(array_settings[3]);
-    game->name_pnj_2 = strdup(array_settings[5]);
+    game->name_screen_background = my_strdup(array_settings[1]);
+    game->name_pnj = my_strdup(array_settings[3]);
+    game->name_pnj_2 = my_strdup(array_settings[5]);
     free_array(array_settings);
 }

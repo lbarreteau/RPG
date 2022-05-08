@@ -27,6 +27,6 @@ void init_how_to_play_struct(how_to_play *game)
 {
     char **array_settings = find_how_to_play_properties_from_file();
 
-    game->background = strdup(array_settings[1]);
+    game->background = my_strdup(array_settings[1]);
     free_array(array_settings);
 }

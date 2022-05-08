@@ -39,7 +39,7 @@ void change_controls(screens *screen, settings *setting, int i)
     if (screen->event.type == sfEvtKeyPressed) {
         if (screen->event.key.code != -1 &&
         check_other_key(setting, keycode[screen->event.key.code]) == false) {
-            temp = strdup(keycode[screen->event.key.code]);
+            temp = my_strdup(keycode[screen->event.key.code]);
             sfText_setString(setting->controls.text[i].text, temp);
             sfText_setPosition(setting->controls.text[i].text,
                 (sfVector2f){540 - my_strlen(temp) * 20 / 2, 490 + i * 100});

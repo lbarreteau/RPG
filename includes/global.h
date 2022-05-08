@@ -75,6 +75,7 @@ void free_array(char **array);
 int my_getnbr(char const *str);
 int my_strcmp(const char *s1, const char *s2);
 int my_strlen(char const *str);
+char *my_strdup(char const *src);
 char *my_strncpy(char *dest, char const *src, int n);
 void init_screen_struct(screens *screen);
 void set_screen(screens *screen);

@@ -27,9 +27,9 @@ void init_menu_struct(screens *global, menus *menu)
 {
     char **array_settings = find_menu_properties_from_file();
 
-    menu->name_sign = strdup(array_settings[1]);
-    menu->name_sign_dark = strdup(array_settings[5]);
-    global->name_music[0] = strdup(array_settings[7]);
-    global->name_music[1] = strdup(array_settings[9]);
+    menu->name_sign = my_strdup(array_settings[1]);
+    menu->name_sign_dark = my_strdup(array_settings[5]);
+    global->name_music[0] = my_strdup(array_settings[7]);
+    global->name_music[1] = my_strdup(array_settings[9]);
     free_array(array_settings);
 }
