@@ -56,6 +56,7 @@ void move_player(level1 *game, player *player1)
     }
     if (game->seconds > 0.14) {
         player1->rect.left += 52 * player1->status;
+        wether_gestion(game);
         sfClock_restart(game->clock);
     }
     orientation[game->move_direction](game, player1);
