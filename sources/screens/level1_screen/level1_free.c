@@ -39,8 +39,10 @@ void free_all_sprite(level1 *game)
 
 void free_all_text(level1 *game)
 {
-    free_text(game->player1->stat.text_dammage.text,
-        game->player1->stat.text_dammage.font);
+    free_text(game->player1->stat.text_stat[0].text,
+        game->player1->stat.text_stat[0].font);
+    free_text(game->player1->stat.text_stat[1].text,
+        game->player1->stat.text_stat[1].font);
     free_text(game->dialog.text, game->dialog.font);
     free_text(game->dialog_2.text, game->dialog_2.font);
 }

@@ -18,5 +18,7 @@ void draw_inventory(screens *screen, inventory *stock, player *player1)
             stock->spot[i].slot, NULL);
     }
     sfRenderWindow_drawText(screen->window,
-        player1->stat.text_dammage.text, NULL);
+        player1->stat.text_stat[0].text, NULL);
+    sfRenderWindow_drawText(screen->window,
+        player1->stat.text_stat[1].text, NULL);
 }

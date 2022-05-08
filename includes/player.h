@@ -13,7 +13,7 @@ typedef struct stats {
     sfSprite *sprite[2];
     sfTexture *texture[2];
     sfIntRect rect[2];
-    struct text text_dammage;
+    struct text text_stat[2];
     sfBool level1;
     int max_health;
     int health;

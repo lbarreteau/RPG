@@ -36,14 +36,16 @@ void check_dammage(player *player1)
 
     number[0] = '0' + player1->stat.dammage;
     number[1] = '\0';
-    sfText_setString(player1->stat.text_dammage.text, number);
+    sfText_setString(player1->stat.text_stat[0].text, number);
 }
 
 void check_xp(player *player1)
 {
     if (player1->stat.xp > 10 && player1->stat.level1 == false) {
+        sfText_setString(player1->stat.text_stat[1].text, "level : 2");
         player1->stat.max_health += 1;
-        player1->stat.dammage *= 2;
+        player1->stat.health = player1->stat.max_health;
+        player1->stat.dammage += 1;
         player1->stat.level1 = true;
     }
 }

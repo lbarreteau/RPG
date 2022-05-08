@@ -36,14 +36,21 @@ void set_health_bar(stats *stat, sfVector2f pos_bar)
     sfSprite_setPosition(stat->sprite[1], pos_bar);
 }
 
-void set_text_damage(stats *stat)
+void set_text_stat(stats *stat)
 {
-    stat->text_dammage.text = sfText_create();
-    stat->text_dammage.font = sfFont_createFromFile(
+    stat->text_stat[0].text = sfText_create();
+    stat->text_stat[0].font = sfFont_createFromFile(
         "assets/families/global_font.ttf");
-    sfText_setFont(stat->text_dammage.text, stat->text_dammage.font);
-    sfText_setString(stat->text_dammage.text, "2");
-    sfText_setPosition(stat->text_dammage.text, (sfVector2f){735, 740});
+    sfText_setFont(stat->text_stat[0].text, stat->text_stat[0].font);
+    sfText_setString(stat->text_stat[0].text, "2");
+    sfText_setPosition(stat->text_stat[0].text, (sfVector2f){735, 740});
+    stat->text_stat[1].text = sfText_create();
+    stat->text_stat[1].font = sfFont_createFromFile(
+        "assets/families/global_font.ttf");
+    sfText_setFont(stat->text_stat[1].text, stat->text_stat[1].font);
+    sfText_setString(stat->text_stat[1].text, "level : 1");
+    sfText_setPosition(stat->text_stat[1].text, (sfVector2f){735, 805});
+    sfText_setScale(stat->text_stat[1].text, (sfVector2f){0.5, 0.5});
 }
 
 void set_stats(stats *stat)
@@ -54,5 +61,5 @@ void set_stats(stats *stat)
     stat->xp = 0;
     stat->level1 = false;
     set_health_bar(stat, (sfVector2f) {50, 50});
-    set_text_damage(stat);
+    set_text_stat(stat);
 }
