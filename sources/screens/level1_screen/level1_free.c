@@ -30,7 +30,8 @@ void free_all_sprite(level1 *game)
         game->background_dialog.texture);
     free_sprite(game->background_dialog_2.sprite,
         game->background_dialog_2.texture);
-    free_sprite(game->enemy.sprite, game->enemy.texture);
+    free_sprite(game->enemy[0].sprite, game->enemy[0].texture);
+    free_sprite(game->enemy[1].sprite, game->enemy[1].texture);
     for (int i = 0; i < 2; i++) {
         free_sprite(game->player1->stat.sprite[i],
             game->player1->stat.texture[i]);

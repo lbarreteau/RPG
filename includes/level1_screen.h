@@ -46,7 +46,7 @@ typedef struct level1 {
     struct text dialog_2;
     bool dialog_active;
     bool dialog_active_2;
-    struct enemy_s enemy;
+    struct enemy_s enemy[2];
 } level1;
 
 typedef struct frame_buffer {

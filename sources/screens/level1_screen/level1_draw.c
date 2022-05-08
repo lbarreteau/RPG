@@ -38,10 +38,14 @@ void draw_entity(screens *screen, level1 *game, player *player1)
     sfRenderWindow_drawSprite(screen->window, game->pnj.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, game->pnj_2.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, player1->sprite, NULL);
-    sfSprite_setTexture(game->enemy.sprite, game->enemy.texture, sfFalse);
-    sfSprite_setTextureRect(game->enemy.sprite, game->enemy.rect);
-    if (game->enemy.is_alive == true) {
-        sfRenderWindow_drawSprite(screen->window, game->enemy.sprite, NULL);
+    for (int i = 0; i < 2; i++) {
+        sfSprite_setTexture(game->enemy[i].sprite,
+            game->enemy[i].texture, sfFalse);
+        sfSprite_setTextureRect(game->enemy[i].sprite, game->enemy[i].rect);
+        if (game->enemy[i].is_alive == true) {
+            sfRenderWindow_drawSprite(screen->window,
+                game->enemy[i].sprite, NULL);
+        }
     }
 }
 
