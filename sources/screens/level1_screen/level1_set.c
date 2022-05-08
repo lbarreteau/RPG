@@ -8,6 +8,12 @@
 #include "global.h"
 #include "level1_screen.h"
 
+void set_clock(level1 *game)
+{
+    game->win = false;
+    game->font = sfFont_createFromFile("assets/families/global_font.ttf");
+}
+
 void set_level1(level1 *game, player *player1)
 {
     game->map = init_sprite("assets/pictures/map/map_spawn.png",
@@ -29,4 +35,5 @@ void set_level1(level1 *game, player *player1)
     (sfVector2f) {1.75, 1.75}, (sfVector2f) {1300, 40});
     game->hitbox_pnj2 = (sfIntRect) {1300, 40, 51, 122};
     set_enemy(game->enemy);
+    set_clock(game);
 }

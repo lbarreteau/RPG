@@ -36,6 +36,9 @@ typedef struct level1 {
     char *name_screen_background;
     struct sprite pnj;
     sfIntRect hitbox_pnj;
+    bool win;
+    sfClock *win_screen_clock;
+    sfFont *font;
     char *name_pnj;
     struct sprite pnj_2;
     sfIntRect hitbox_pnj2;

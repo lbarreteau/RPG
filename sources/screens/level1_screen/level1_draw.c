@@ -49,6 +49,28 @@ void draw_entity(screens *screen, level1 *game, player *player1)
     }
 }
 
+void draw_win_screen(screens *screen, level1 *game)
+{
+    sfText *win = sfText_create();
+    sfTime time;
+    game->win_screen_clock = sfClock_create();
+
+    time = sfClock_getElapsedTime(game->win_screen_clock);
+    sfRenderWindow_clear(screen->window, sfBlack);
+    sfText_setFont(win, game->font);
+    sfText_setString(win, "Congratulations, You win :)");
+    sfText_setOutlineColor(win, sfYellow);
+    sfText_setCharacterSize(win, 50);
+    sfText_setColor(win, sfRed);
+    sfText_setPosition(win, (sfVector2f) {550, 500});
+    while (time.microseconds <= 5000000) {
+        sfRenderWindow_drawText(screen->window, win, NULL);
+        sfRenderWindow_display(screen->window);
+        time = sfClock_getElapsedTime(game->win_screen_clock);
+    }
+    screen->is_dead = true;
+}
+
 void draw_level1(screens *screen, level1 *game, player *player1)
 {
     sfRenderWindow_clear(screen->window, sfBlack);
@@ -66,4 +88,9 @@ void draw_level1(screens *screen, level1 *game, player *player1)
     draw_water(game, game->buffer->water_active, game->buffer->snow_active);
     draw_snow(game, game->buffer->snow_active, game->buffer->water_active);
     draw_dialog(screen, game);
+    sfRenderWindow_display(screen->window);
+    if (game->enemy[0].is_alive == false && game->enemy[1].is_alive == false) {
+        draw_win_screen(screen, game);
+        screen->is_dead = true;
+    }
 }
