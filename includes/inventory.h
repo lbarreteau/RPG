@@ -10,7 +10,8 @@
 #include "global.h"
 #include "player.h"
 
-typedef enum {NOTHING = -1, HELMET, CHESTPLATE, LEGGINGS, BOOTS, WEAPON, ARTEFACT, ALL} TYPE;
+typedef enum {NOTHING = -1, HELMET, CHESTPLATE,
+LEGGINGS, BOOTS, WEAPON, ARTEFACT, ALL} TYPE;
 
 typedef struct items {
     sfSprite *sprite;
@@ -46,7 +47,8 @@ void check_good_move(screens *screen, inventory *stock);
 void set_box(inventory *stock);
 void set_sprite(sfSprite **sprite, sfTexture **texture, sfVector2f pos, char *asset);
 void set_intrect(sfIntRect *rect, sfVector2f pos, sfVector2f size);
-sfRectangleShape *set_rectangle_shape(sfRectangleShape *shape ,sfVector2f size, sfVector2f pos);
+sfRectangleShape *set_rectangle_shape(sfRectangleShape *shape,
+sfVector2f size, sfVector2f pos);
 void mouse_on_rect(screens *screen, sfIntRect *rect, sfRectangleShape *shape);
 int mouse_click_slot(screens *screen, inventory *stock);
 void move_in_inventory(screens *screen, inventory *stock);

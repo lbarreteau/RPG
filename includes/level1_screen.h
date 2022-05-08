@@ -58,7 +58,6 @@ typedef struct frame_buffer {
     bool water_active;
 } frame_buffer;
 
-
 void init_level1_struct(level1 *game);
 void set_level1(level1 *game, player *player1);
 void free_level1(level1 *game);
@@ -77,8 +76,8 @@ void move_left(level1 *game, player *player1);
 void move_right(level1 *game, player *player1);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
 sfIntRect create_border_intrect(level1 *game, sfIntRect params, int i);
-collision_t create_border(level1 *game, sfVector2f size,
-                sfVector2f pos, int i);
+collision_t create_border(level1 *game,
+sfVector2f size, sfVector2f pos, int i);
 void create_map_border_collisions(level1 *game);
 void create_first_five_collisions(level1 *game);
 void create_ten_collisions(level1 *game);

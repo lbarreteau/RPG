@@ -44,8 +44,7 @@ typedef struct ennemies_s {
     sfVector2f scale;
 } ennemies_t;
 
-typedef struct fight_screen
-{
+typedef struct fight_screen {
     struct player player_fight;
     struct sprite map;
     struct protection bubble;
@@ -79,8 +78,6 @@ void set_ennemy_fight(fight_screen *fight);
 void set_attack_player(attack_t *attack, sfIntRect rect, int i);
 bool check_collisions_fireball_ennemy(fight_screen *fight);
 char *conv_nbr_into_key(int key);
-void init_key_to_press(fight_screen *fight, sfVector2f pos,
-                            char *str);
-void init_text_to_display(fight_screen *fight, sfVector2f pos,
-                            char *str);
+void init_key_to_press(fight_screen *fight, sfVector2f pos, char *str);
+void init_text_to_display(fight_screen *fight, sfVector2f pos, char *str);
 void check_health_ennemy(ennemies_t *ennemy);

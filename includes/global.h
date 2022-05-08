@@ -19,9 +19,7 @@
 #include <SFML/Audio.h>
 #include <time.h>
 
-
 typedef enum {LEFT, RIGHT, DOWN, UP, INVENTORY} key_name;
-
 
 struct sprite {
     sfSprite *sprite;
@@ -70,7 +68,6 @@ typedef struct screens {
 struct sprite init_sprite(char *filepath, sfVector2f size, sfVector2f pos);
 struct text init_text(int size, sfVector2f pos, sfColor theme_color);
 sfMusic *init_music(sfMusic *background_music, char *filepath);
-
 char *open_and_read_file(char *filepath);
 char **str_to_word_array(char *str);
 sfColor recognition_color(char *color);
@@ -78,7 +75,6 @@ void free_array(char **array);
 int my_getnbr(char const *str);
 int my_strcmp(char *s1, char *s2);
 int my_strlen(char const *str);
-
 void init_screen_struct(screens *screen);
 void set_screen(screens *screen);
 void main_screen(screens *screen, menus *menu);

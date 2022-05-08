@@ -9,8 +9,7 @@
 
 #include "global.h"
 
-typedef struct enemy_s
-{
+typedef struct enemy_s {
     sfSprite *sprite;
     sfTexture *texture;
     sfIntRect rect;

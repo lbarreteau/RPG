@@ -53,7 +53,6 @@ void volume_events(screens *screen, settings *setting);
 sfVector2f set_pos_mouse_f(screens *screen);
 void check_volume_box(settings *setting, sfVector2f set_pos_sprite);
 bool mouse_clicked_button(screens *screen, sfSprite *sprite, sfVector2f size);
-
 void fps_events(screens *screen, settings *setting);
 void controls_events(screens *screen, settings *setting);
 void color_text_events(screens *screen, settings *setting);
