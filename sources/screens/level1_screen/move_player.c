@@ -8,9 +8,10 @@
 #include "level1_screen.h"
 #include "player.h"
 
-void static_position(level1 *game, player *player1)
+void static_position(level1 *game, player *player1, screens *screen)
 {
     (void) game;
+    (void) screen;
     player1->rect.left = 52;
 }
 

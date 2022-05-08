@@ -6,6 +6,7 @@
 */
 
 #include <stddef.h>
+#include "global.h"
 
 char *my_strdup(char const *src)
 {

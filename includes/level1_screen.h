@@ -11,6 +11,7 @@
 #include "player.h"
 #include "inventory.h"
 #include "enemy.h"
+#include "fight_screen.h"
 
 typedef struct collisions_s {
     sfRectangleShape *border;
