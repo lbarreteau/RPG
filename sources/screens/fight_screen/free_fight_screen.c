@@ -45,4 +45,8 @@ void free_fight_screen(fight_screen *fight)
     sfText_destroy(fight->key_to_press);
     sfSprite_destroy(fight->map.sprite);
     sfTexture_destroy(fight->map.texture);
+    sfSprite_destroy(fight->ennemy[0].stat.sprite[0]);
+    sfSprite_destroy(fight->ennemy[0].stat.sprite[1]);
+    sfTexture_destroy(fight->ennemy[0].stat.texture[0]);
+    sfTexture_destroy(fight->ennemy[0].stat.texture[1]);
 }

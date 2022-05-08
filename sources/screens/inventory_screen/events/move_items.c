@@ -7,12 +7,12 @@
 
 #include "inventory.h"
 
-void set_scale_item(int i, sfSprite **sprite)
+void set_scale_item(int i, sfSprite *sprite)
 {
     if (i > 23) {
-        sfSprite_setScale((*sprite), (sfVector2f){1.25, 1.25});
+        sfSprite_setScale(sprite, (sfVector2f){1.25, 1.25});
     } else {
-        sfSprite_setScale((*sprite), (sfVector2f){1, 1});
+        sfSprite_setScale(sprite, (sfVector2f){1, 1});
     }
 }
 
@@ -34,7 +34,7 @@ int set_item_in_new_slot(int i, inventory *stock)
     if (stock->spot[i].type == stock->spot[stock->nb_slot].item.type ||
     stock->spot[i].type == ALL) {
         set_texture_item(i, stock);
-        set_scale_item(i, &stock->spot[i].item.sprite);
+        set_scale_item(i, stock->spot[i].item.sprite);
         sfSprite_setPosition(stock->spot[stock->nb_slot].item.sprite,
         (sfVector2f){stock->spot[stock->nb_slot].item.rect.left,
         stock->spot[stock->nb_slot].item.rect.top});
