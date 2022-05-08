@@ -73,6 +73,9 @@ char *open_and_read_file(char *filepath);
 char **str_to_word_array(char *str);
 sfColor recognition_color(char *color);
 void free_array(char **array);
+int my_getnbr(char const *str);
+int my_strcmp(char *s1, char *s2);
+int my_strlen(char const *str);
 
 void init_screen_struct(screens *screen);
 void set_screen(screens *screen);

@@ -54,7 +54,7 @@ void set_controls_settings(screens *screen, settings *setting)
         sfText_setFont(setting->controls.text[i].text,
             setting->controls.text->font);
         sfText_setPosition(setting->controls.text[i].text,
-            (sfVector2f){540 - strlen(keycode[screen->list_key[i]])
+            (sfVector2f){540 - my_strlen(keycode[screen->list_key[i]])
             * 20 / 2, 490 + i * 100});
         sfText_setCharacterSize(setting->controls.text[i].text, 20);
         sfText_setString(setting->controls.text[i].text,

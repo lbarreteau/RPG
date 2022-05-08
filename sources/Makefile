@@ -74,6 +74,10 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			tools/color_gestion.c 											\
 			tools/set_screen.c 												\
 			tools/open_and_read_file.c										\
+			tools/my_getnbr.c 												\
+			tools/my_strcmp.c 												\
+			tools/my_strlen.c 												\
+			tools/my_strncpy.c 												\
 			tools/str_to_word_array.c										\
 			tools/init_things.c 											\
 			tools/free_things.c												\

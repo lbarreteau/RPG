@@ -25,7 +25,7 @@ const char *keycode[] = {
 bool check_other_key(settings *setting, const char *str_keycode)
 {
     for (int i = 0; i < 5; i++) {
-        if (strcmp(sfText_getString(setting->controls.text[i].text),
+        if (my_strcmp(sfText_getString(setting->controls.text[i].text),
             str_keycode) == 0)
             return (true);
     }
@@ -42,7 +42,7 @@ void change_controls(screens *screen, settings *setting, int i)
             temp = strdup(keycode[screen->event.key.code]);
             sfText_setString(setting->controls.text[i].text, temp);
             sfText_setPosition(setting->controls.text[i].text,
-                (sfVector2f){540 - strlen(temp) * 20 / 2, 490 + i * 100});
+                (sfVector2f){540 - my_strlen(temp) * 20 / 2, 490 + i * 100});
             screen->list_key[i] = screen->event.key.code;
             setting->controls.wait_key[i] = false;
         }

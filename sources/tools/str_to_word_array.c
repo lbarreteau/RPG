@@ -44,7 +44,7 @@ char **str_to_word_array(char *str)
             len = len + 1;
         if (is_alnum(str[i]) == 1 && is_alnum(str[i + 1]) == 0) {
             wordtab[j] = malloc(len + 1);
-            strncpy(wordtab[j], &str[i - len + 1], len);
+            my_strncpy(wordtab[j], &str[i - len + 1], len);
             wordtab[j][len] = '\0';
             len = 0;
             j++;
