@@ -41,7 +41,7 @@ static void check_display_fireball(fight_screen *fight, screens *screen)
 }
 
 static void check_display_bubble(fight_screen *fight, screens *screen,
-                                                        int *keytape)
+int *keytape)
 {
     if (screen->event.key.code == keytape[fight->random]
         && fight->bubble.is_activ == false) {

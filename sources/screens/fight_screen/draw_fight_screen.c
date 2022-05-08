@@ -43,7 +43,7 @@ static void check_draw_fireballs(fight_screen *fight, screens *screen)
 
 static void draw_dead_screen(screens *screen, fight_screen *fight)
 {
-    sfText *dead= sfText_create();
+    sfText *dead = sfText_create();
     sfTime time = sfClock_getElapsedTime(fight->dead_screen_clock);
 
     sfRenderWindow_clear(screen->window, sfBlack);
@@ -60,7 +60,6 @@ static void draw_dead_screen(screens *screen, fight_screen *fight)
     }
     free_fight_screen(fight);
     fight->dead_player = false;
-    // main_screen(screen, screen->menu);
 }
 
 void draw_stat_fight(screens *screen, fight_screen *fight)

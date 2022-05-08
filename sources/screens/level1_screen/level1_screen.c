@@ -44,7 +44,6 @@ bool check_exit(level1 *game, screens *screen, menus *menu, bool exit)
         return (true);
     if (exit == true) {
         free_level1(game);
-        // free buffer particules
         sfSprite_destroy(game->buffer->sprite);
         sfTexture_destroy(game->buffer->texture);
         free(game->buffer->pixels);

@@ -53,7 +53,6 @@ void draw_level1(screens *screen, level1 *game, player *player1)
     draw_entity(screen, game, player1);
     sfSprite_setTexture(game->enemy.sprite, game->enemy.texture, sfFalse);
     sfSprite_setTextureRect(game->enemy.sprite, game->enemy.rect);
-    //sfRenderWindow_drawSprite(screen->window, game->enemy.sprite, NULL);
     if (screen->inv_is_set == true)
         draw_inventory(screen, &game->stock, player1);
     sfRenderWindow_drawSprite(screen->window, game->buffer->sprite, NULL);
