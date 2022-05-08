@@ -66,7 +66,7 @@ bool level1_screen(screens *screen, menus *menu)
         if (check_exit(&game, screen, menu, exit) == true || exit == true) {
             return (true);
         }
-        move_player(&game, &player1);
+        move_player(&game, &player1, screen);
         pick_up_item(&game, &player1, &game.stock);
         check_equipment(&player1, &game.stock);
         check_stats(&player1);

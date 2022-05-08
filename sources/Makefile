@@ -28,6 +28,7 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			screens/how_to_play_screen/how_to_play_init_struct.c 			\
 			screens/how_to_play_screen/how_to_play_event.c 					\
 			screens/how_to_play_screen/how_to_play_draw.c 					\
+			screens/level1_screen/detect_enemy_collision.c					\
 			screens/settings_screen/settings_screen.c 						\
 			screens/settings_screen/settings_set.c 							\
 			screens/settings_screen/settings_draw.c 						\

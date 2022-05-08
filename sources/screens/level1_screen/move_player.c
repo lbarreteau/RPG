@@ -41,9 +41,9 @@ sfBool check_colisions_border(sfBool coll, level1 *game, player *player1)
     return (coll);
 }
 
-void move_player(level1 *game, player *player1)
+void move_player(level1 *game, player *player1, screens *screen)
 {
-    void (*orientation[5])(level1 *, player *) = {&static_position,
+    void (*orientation[5])(level1 *, player *, screens *) = {&static_position,
         &move_right, &move_left, &move_up, &move_down};
 
     game->time = sfClock_getElapsedTime(game->clock);
@@ -59,5 +59,5 @@ void move_player(level1 *game, player *player1)
         wether_gestion(game);
         sfClock_restart(game->clock);
     }
-    orientation[game->move_direction](game, player1);
+    orientation[game->move_direction](game, player1, screen);
 }

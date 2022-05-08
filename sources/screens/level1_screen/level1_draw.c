@@ -38,6 +38,11 @@ void draw_entity(screens *screen, level1 *game, player *player1)
     sfRenderWindow_drawSprite(screen->window, game->pnj.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, game->pnj_2.sprite, NULL);
     sfRenderWindow_drawSprite(screen->window, player1->sprite, NULL);
+    sfSprite_setTexture(game->enemy.sprite, game->enemy.texture, sfFalse);
+    sfSprite_setTextureRect(game->enemy.sprite, game->enemy.rect);
+    if (game->enemy.is_alive == true) {
+        sfRenderWindow_drawSprite(screen->window, game->enemy.sprite, NULL);
+    }
 }
 
 void draw_level1(screens *screen, level1 *game, player *player1)
@@ -51,8 +56,6 @@ void draw_level1(screens *screen, level1 *game, player *player1)
         }
     }
     draw_entity(screen, game, player1);
-    sfSprite_setTexture(game->enemy.sprite, game->enemy.texture, sfFalse);
-    sfSprite_setTextureRect(game->enemy.sprite, game->enemy.rect);
     if (screen->inv_is_set == true)
         draw_inventory(screen, &game->stock, player1);
     sfRenderWindow_drawSprite(screen->window, game->buffer->sprite, NULL);

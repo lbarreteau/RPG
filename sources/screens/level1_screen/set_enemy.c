@@ -7,23 +7,24 @@
 
 #include "level1_screen.h"
 
-void set_enemy(level1 *game)
+void set_enemy(enemy_t *enemy)
 {
-    game->enemy.texture = sfTexture_createFromFile(
+    enemy->texture = sfTexture_createFromFile(
         "assets/pictures/sprite/npc_sprite.png", NULL);
-    game->enemy.sprite = sfSprite_create();
-    game->enemy.rect.top = 0;
-    game->enemy.rect.left = 0;
-    game->enemy.rect.width = 51;
-    game->enemy.rect.height = 72;
-    game->enemy.position.x = 1035;
-    game->enemy.position.y = 580;
-    game->enemy.is_alive = true;
-    game->enemy.scale.x = 1.7;
-    game->enemy.scale.y = 1.7;
-    game->enemy.hitbox.left = 1035;
-    game->enemy.hitbox.top = 580;
-    game->enemy.hitbox.width = 51;
-    game->enemy.hitbox.height = 72;
-    sfSprite_setScale(game->enemy.sprite, game->enemy.scale);
+    enemy->sprite = sfSprite_create();
+    enemy->rect.top = 288;
+    enemy->rect.left = 306;
+    enemy->rect.width = 51;
+    enemy->rect.height = 72;
+    enemy->position.x = 550;
+    enemy->position.y = 180;
+    enemy->is_alive = true;
+    enemy->scale.x = 1.7;
+    enemy->scale.y = 1.7;
+    enemy->hitbox.left = 550;
+    enemy->hitbox.top = 180;
+    enemy->hitbox.width = 51;
+    enemy->hitbox.height = 72;
+    sfSprite_setPosition(enemy->sprite, enemy->position);
+    sfSprite_setScale(enemy->sprite, enemy->scale);
 }
