@@ -28,7 +28,6 @@ static bool check_exit(screens *screen, fight_screen *fight, bool exit,
         exit = check_collisions_fireball_ennemy(fight);
     if (exit == true && fight->dead_player == false) {
         player1->stat.health = fight->player_fight.stat.health;
-        printf("%i\n", player1->stat.health);
         free_fight_screen(fight);
     }
     return (exit);
