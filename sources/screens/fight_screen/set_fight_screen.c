@@ -53,6 +53,7 @@ void set_fight_screen(fight_screen *fight)
     fight->random = 0;
     fight->bubble.hitbox = (sfIntRect) {0, 0, 208.6, 208.6};
     fight->check_rand = false;
+    fight->dead_player = false;
     fight->attack_clock = sfClock_create();
     init_text_to_display(fight, (sfVector2f) {500, 500},
                                     "Press key ");

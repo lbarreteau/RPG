@@ -18,26 +18,32 @@ void update_background_pos(screens *screen)
     sfSprite_setPosition(screen->background.sprite, pos_bkd);
 }
 
-void main_screen(void)
+void set_up_screen(void)
 {
     struct screens screen;
     struct menus menu;
-    bool exit = false;
 
     init_screen_struct(&screen);
     init_menu_struct(&screen, &menu);
     set_screen(&screen);
     set_menu(&screen, &menu);
-    menu.size_screen = sfRenderWindow_getSize(screen.window);
-    while (sfRenderWindow_isOpen(screen.window)) {
-        while (sfRenderWindow_pollEvent(screen.window, &screen.event)) {
-            exit = event_menu(&screen, &menu);
+    main_screen(&screen, &menu);
+}
+
+void main_screen(screens *screen, menus *menu)
+{
+    bool exit = false;
+
+    menu->size_screen = sfRenderWindow_getSize(screen->window);
+    while (sfRenderWindow_isOpen(screen->window)) {
+        while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
+            exit = event_menu(screen, menu);
         }
         if (exit == true) {
-            free_menu(&screen, &menu);
+            free_menu(screen, menu);
             return;
         }
-        update_background_pos(&screen);
-        draw_menu(&screen, &menu);
+        update_background_pos(screen);
+        draw_menu(screen, menu);
     }
 }

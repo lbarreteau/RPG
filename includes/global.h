@@ -51,6 +51,8 @@ typedef struct screens {
     unsigned int size_screen_width;
     unsigned short bits_per_pixel;
     unsigned short fps;
+    menus *menu;
+    bool is_dead;
     sfKeyCode list_key[5];
     bool quit_game;
     char *name_screen;
@@ -76,7 +78,8 @@ void free_array(char **array);
 
 void init_screen_struct(screens *screen);
 void set_screen(screens *screen);
-void main_screen(void);
-void level1_screen(screens *screen, menus *menu);
+void main_screen(screens *screen, menus *menu);
+void set_up_screen(void);
+bool level1_screen(screens *screen, menus *menu);
 bool how_to_play_screen(screens *screen);
 bool settings_screen(screens *screen);

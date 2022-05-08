@@ -51,7 +51,7 @@ bool check_exit(level1 *game, screens *screen, menus *menu, bool exit)
     return (exit);
 }
 
-void level1_screen(screens *screen, menus *menu)
+bool level1_screen(screens *screen, menus *menu)
 {
     struct level1 game;
     struct player player1;
@@ -62,8 +62,9 @@ void level1_screen(screens *screen, menus *menu)
         while (sfRenderWindow_pollEvent(screen->window, &screen->event) &&
         game.pause_event == false)
             exit = event_level1(screen, &game, &player1);
-        if (check_exit(&game, screen, menu, exit) == true || exit == true)
-            return;
+        if (check_exit(&game, screen, menu, exit) == true || exit == true) {
+            return (true);
+        }
             // sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
             // create_snow(buffer);
         move_player(&game, &player1);
@@ -72,6 +73,11 @@ void level1_screen(screens *screen, menus *menu)
         check_stats(&player1);
         draw_level1(screen, &game, &player1);
         sfRenderWindow_display(screen->window);
+        if (screen->is_dead == true) {
+            screen->is_dead = false;
+            return (false);
+        }
     }
     free_level1(&game);
+    return (true);
 }

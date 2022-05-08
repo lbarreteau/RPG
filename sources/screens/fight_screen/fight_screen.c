@@ -17,6 +17,23 @@ void set_all_fight(fight_screen *fight, player *player1)
     set_ennemy_fight(fight);
 }
 
+static bool check_exit(screens *screen, fight_screen *fight, bool exit,
+    player *player1)
+{
+    while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
+            exit = event_management_fight_screen(screen, fight);
+        }
+    exit = check_collisions_fireball_player(fight);
+    if (exit != true)
+        exit = check_collisions_fireball_ennemy(fight);
+    if (exit == true && fight->dead_player == false) {
+        player1->stat.health = fight->player_fight.stat.health;
+        printf("%i\n", player1->stat.health);
+        free_fight_screen(fight);
+    }
+    return (exit);
+}
+
 void fight_scrn(screens *screen, player *player1)
 {
     struct fight_screen fight;
@@ -24,19 +41,13 @@ void fight_scrn(screens *screen, player *player1)
 
     set_all_fight(&fight, player1);
     while (sfRenderWindow_isOpen(screen->window)) {
-        while (sfRenderWindow_pollEvent(screen->window, &screen->event)) {
-            exit = event_management_fight_screen(screen, &fight);
-        }
-        if (exit == true) {
-            player1->stat.health = fight.player_fight.stat.health;
-            free_fight_screen(&fight);
+        if (check_exit(screen, &fight, exit, player1) == true &&
+        fight.dead_player == false)
             return;
-        }
-        exit = check_collisions_fireball_player(&fight);
-        if (exit != true)
-            exit = check_collisions_fireball_ennemy(&fight);
         check_health(&fight.player_fight);
         check_health_ennemy(&fight.ennemy[0]);
         draw_fight_screen(screen, &fight);
+    if (screen->is_dead == true)
+        return;
     }
 }

@@ -35,6 +35,7 @@ void init_screen_struct(screens *screen)
     screen->mode.bitsPerPixel = screen->bits_per_pixel;
     screen->fps = atoi(array_settings[9]);
     screen->name_background = strdup(array_settings[11]);
+    screen->is_dead = false;
     screen->theme_color = recognition_color(array_settings[13]);
     free_array(array_settings);
 }

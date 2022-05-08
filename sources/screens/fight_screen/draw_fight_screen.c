@@ -41,6 +41,28 @@ static void check_draw_fireballs(fight_screen *fight, screens *screen)
     }
 }
 
+static void draw_dead_screen(screens *screen, fight_screen *fight)
+{
+    sfText *dead= sfText_create();
+    sfTime time = sfClock_getElapsedTime(fight->dead_screen_clock);
+
+    sfRenderWindow_clear(screen->window, sfBlack);
+    sfText_setFont(dead, fight->font);
+    sfText_setString(dead, "You are Dead :(");
+    sfText_setOutlineColor(dead, sfRed);
+    sfText_setCharacterSize(dead, 50);
+    sfText_setColor(dead, sfRed);
+    sfText_setPosition(dead, (sfVector2f) {600, 500});
+    while (time.microseconds <= 5000000) {
+        sfRenderWindow_drawText(screen->window, dead, NULL);
+        sfRenderWindow_display(screen->window);
+        time = sfClock_getElapsedTime(fight->dead_screen_clock);
+    }
+    free_fight_screen(fight);
+    fight->dead_player = false;
+    // main_screen(screen, screen->menu);
+}
+
 void draw_stat_fight(screens *screen, fight_screen *fight)
 {
     sfRenderWindow_drawSprite(screen->window,
@@ -67,4 +89,9 @@ void draw_fight_screen(screens *screen, fight_screen *fight)
     draw_stat_fight(screen, fight);
     check_draw_fireballs(fight, screen);
     sfRenderWindow_display(screen->window);
+    if (fight->dead_player == true) {
+        fight->dead_screen_clock = sfClock_create();
+        draw_dead_screen(screen, fight);
+        screen->is_dead = true;
+    }
 }

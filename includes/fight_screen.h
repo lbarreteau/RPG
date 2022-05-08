@@ -59,6 +59,8 @@ typedef struct fight_screen
     bool check_rand;
     sfClock *attack_clock;
     sfTime time;
+    bool dead_player;
+    sfClock *dead_screen_clock;
     float seconds;
 } fight_screen;
 

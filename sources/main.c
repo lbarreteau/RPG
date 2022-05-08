@@ -10,5 +10,5 @@
 int main(void)
 {
     srand(time(NULL));
-    main_screen();
+    set_up_screen();
 }

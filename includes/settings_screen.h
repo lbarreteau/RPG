@@ -8,6 +8,7 @@
 #pragma once
 
 #include "global.h"
+#include "menu_screen.h"
 
 typedef struct color_text {
     sfRectangleShape *rect[6];
