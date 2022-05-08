@@ -9,6 +9,9 @@
 
 int main(void)
 {
+    if (check_assets() == 84)
+        return (84);
     srand(time(NULL));
     set_up_screen();
+    return (0);
 }

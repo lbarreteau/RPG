@@ -72,6 +72,8 @@ SRC		=	screens/main_screen/menu_screen.c								\
 			screens/fight_screen/event_management_fight_screen.c 			\
 			screens/fight_screen/draw_fight_screen.c 						\
 			tools/init_screen_struct.c 										\
+			tools/check_assets.c 											\
+			tools/check_each_scene_assets.c 								\
 			tools/color_gestion.c 											\
 			tools/set_screen.c 												\
 			tools/open_and_read_file.c										\

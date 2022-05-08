@@ -8,7 +8,7 @@
 #include "global.h"
 #include "settings_screen.h"
 
-static char **find_settings_properties_from_file(void)
+char **find_settings_properties_from_file(void)
 {
     char *buffer;
     char **array;

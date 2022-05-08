@@ -8,7 +8,7 @@
 #include "global.h"
 #include "how_to_play.h"
 
-static char **find_how_to_play_properties_from_file(void)
+char **find_how_to_play_properties_from_file(void)
 {
     char *buffer;
     char **array;

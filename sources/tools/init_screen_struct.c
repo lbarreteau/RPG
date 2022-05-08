@@ -7,7 +7,7 @@
 
 #include "global.h"
 
-static char **find_screen_properties_from_file(void)
+char **find_screen_properties_from_file(void)
 {
     char *buffer;
     char **array;
