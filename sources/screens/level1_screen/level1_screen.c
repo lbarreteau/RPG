@@ -13,9 +13,9 @@
 
 void set_all(level1 *game, player *player1)
 {
+    game->buffer = create_buffer(1920, 1080);
     game->hitbox_pnj = (sfIntRect) {0, 0, 0, 0};
     game->hitbox_pnj2 = (sfIntRect) {0, 0, 0, 0};
-
     init_level1_struct(game);
     set_player(player1);
     set_level1(game, player1);
@@ -27,7 +27,7 @@ void set_all(level1 *game, player *player1)
     game->dialog_active_2 = false;
 }
 
-bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buffer *buffer)
+bool check_exit(level1 *game, screens *screen, menus *menu, bool exit)
 {
     while (game->pause_event == true) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event))
@@ -41,10 +41,10 @@ bool check_exit(level1 *game, screens *screen, menus *menu, bool exit, frame_buf
     if (exit == true) {
         free_level1(game);
         // free buffer particules
-        sfSprite_destroy(buffer->sprite);
-        sfTexture_destroy(buffer->texture);
-        free(buffer->pixels);
-        free(buffer);
+        sfSprite_destroy(game->buffer->sprite);
+        sfTexture_destroy(game->buffer->texture);
+        free(game->buffer->pixels);
+        free(game->buffer);
     }
     return (exit);
 }
@@ -53,16 +53,14 @@ void level1_screen(screens *screen, menus *menu)
 {
     struct level1 game;
     struct player player1;
-    struct frame_buffer *buffer;
     bool exit = false;
 
     set_all(&game, &player1);
-    buffer = create_buffer(1920, 1080);
     while (sfRenderWindow_isOpen(screen->window)) {
         while (sfRenderWindow_pollEvent(screen->window, &screen->event) &&
         game.pause_event == false)
-            exit = event_level1(screen, &game, &player1, buffer, menu);
-        if (check_exit(&game, screen, menu, exit, buffer) == true || exit == true)
+            exit = event_level1(screen, &game, &player1);
+        if (check_exit(&game, screen, menu, exit) == true || exit == true)
             return;
             // sfSprite_setTexture(buffer->sprite, buffer->texture, sfFalse);
             // create_snow(buffer);
@@ -70,7 +68,7 @@ void level1_screen(screens *screen, menus *menu)
         pick_up_item(&game, &player1, &game.stock);
         check_equipment(&player1, &game.stock);
         check_stats(&player1);
-        draw_level1(screen, &game, &player1, buffer);
+        draw_level1(screen, &game, &player1);
         sfRenderWindow_display(screen->window);
     }
     free_level1(&game);

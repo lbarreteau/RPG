@@ -14,23 +14,8 @@ void move_right(level1 *game, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.width += 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox,
-            &game->collisions[i].border_rect, NULL) == sfTrue) {
-            coll = sfTrue;
-            break;
-        }
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue) {
-        coll = sfTrue;
-        game->dialog_active_2 = true;
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        coll = sfTrue;
-        game->dialog_active = true;
-    }
+    coll = check_colisions_border(coll, game, player1);
+    coll = check_hitbox_pnj(coll, game, player1);
     if (coll == sfFalse) {
         game->dialog_active = false;
         game->dialog_active_2 = false;
@@ -49,23 +34,8 @@ void move_left(level1 *game, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.left -= 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox,
-            &game->collisions[i].border_rect, NULL) == sfTrue) {
-                coll = sfTrue;
-                break;
-        }
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue) {
-        coll = sfTrue;
-        game->dialog_active_2 = true;
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        coll = sfTrue;
-        game->dialog_active = true;
-    }
+    coll = check_colisions_border(coll, game, player1);
+    coll = check_hitbox_pnj(coll, game, player1);
     if (coll == sfFalse) {
         game->dialog_active_2 = false;
         game->dialog_active = false;
@@ -84,23 +54,8 @@ void move_up(level1 *game, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.top -= 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox,
-            &game->collisions[i].border_rect, NULL) == sfTrue) {
-            coll = sfTrue;
-            break;
-        }
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue) {
-        coll = sfTrue;
-        game->dialog_active_2 = true;
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        coll = sfTrue;
-        game->dialog_active = true;
-    }
+    coll = check_colisions_border(coll, game, player1);
+    coll = check_hitbox_pnj(coll, game, player1);
     if (coll == sfFalse) {
         game->dialog_active_2 = false;
         game->dialog_active = false;
@@ -119,23 +74,8 @@ void move_down(level1 *game, player *player1)
     sfBool coll = sfFalse;
 
     player1->hitbox.height += 4;
-    for (int i = 0; i < 21; i++) {
-        if (sfIntRect_intersects(&player1->hitbox,
-            &game->collisions[i].border_rect, NULL) == sfTrue) {
-            coll = sfTrue;
-            break;
-        }
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
-    sfTrue) {
-        coll = sfTrue;
-        game->dialog_active_2 = true;
-    }
-    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
-    == sfTrue) {
-        coll = sfTrue;
-        game->dialog_active = true;
-    }
+    coll = check_colisions_border(coll, game, player1);
+    coll = check_hitbox_pnj(coll, game, player1);
     if (coll == sfFalse) {
         game->dialog_active = false;
         game->dialog_active_2 = false;

@@ -21,5 +21,4 @@ void free_inventory(inventory *stock)
     }
     sfTexture_destroy(stock->background.texture);
     sfSprite_destroy(stock->background.sprite);
-
 }

@@ -10,8 +10,7 @@
 #include "fight_screen.h"
 #include "menu_screen.h"
 
-bool event_level1(screens *screen, level1 *game, player *player1,
-                frame_buffer *buffer, menus *menu)
+bool event_level1(screens *screen, level1 *game, player *player1)
 {
     if (screen->event.type == sfEvtClosed) {
         return (true);

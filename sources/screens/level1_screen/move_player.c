@@ -14,6 +14,33 @@ void static_position(level1 *game, player *player1)
     player1->rect.left = 52;
 }
 
+sfBool check_hitbox_pnj(sfBool coll, level1 *game, player *player1)
+{
+    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj, NULL) ==
+    sfTrue) {
+        coll = sfTrue;
+        game->dialog_active_2 = true;
+    }
+    if (sfIntRect_intersects(&player1->hitbox, &game->hitbox_pnj2, NULL)
+    == sfTrue) {
+        coll = sfTrue;
+        game->dialog_active = true;
+    }
+    return (coll);
+}
+
+sfBool check_colisions_border(sfBool coll, level1 *game, player *player1)
+{
+    for (int i = 0; i < 21; i++) {
+        if (sfIntRect_intersects(&player1->hitbox,
+            &game->collisions[i].border_rect, NULL) == sfTrue) {
+            coll = sfTrue;
+            return (coll);
+        }
+    }
+    return (coll);
+}
+
 void move_player(level1 *game, player *player1)
 {
     void (*orientation[5])(level1 *, player *) = {&static_position,

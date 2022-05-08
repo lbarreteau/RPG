@@ -9,7 +9,8 @@
 
 void set_enemy(level1 *game)
 {
-    game->enemy.texture = sfTexture_createFromFile("assets/pictures/sprite/npc_sprite.png", NULL);
+    game->enemy.texture = sfTexture_createFromFile(
+        "assets/pictures/sprite/npc_sprite.png", NULL);
     game->enemy.sprite = sfSprite_create();
     game->enemy.rect.top = 0;
     game->enemy.rect.left = 0;
@@ -24,6 +25,5 @@ void set_enemy(level1 *game)
     game->enemy.hitbox.top = 580;
     game->enemy.hitbox.width = 51;
     game->enemy.hitbox.height = 72;
-
     sfSprite_setScale(game->enemy.sprite, game->enemy.scale);
 }

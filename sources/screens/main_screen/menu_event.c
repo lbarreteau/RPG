@@ -43,7 +43,8 @@ static bool mouse_clicked_on_button(screens *screen, sfSprite *sign,
     return (false);
 }
 
-static void mouse_on_button(screens *screen, sfSprite *sign, menus *menu, int i)
+static void mouse_on_button(screens *screen, sfSprite *sign,
+                            menus *menu, int i)
 {
     sfVector2i pos_mouse = sfMouse_getPositionRenderWindow(screen->window);
     sfVector2f pos_button = sfSprite_getPosition(sign);
