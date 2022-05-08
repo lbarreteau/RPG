@@ -42,7 +42,7 @@ void init_item(items *item, char *asset, sfVector2f pos, TYPE type)
 void set_items(level1 *game, inventory *stock)
 {
     init_item(&game->item[0], stock->asset[8],
-        (sfVector2f){600, 2000}, WEAPON);
+        (sfVector2f){300, 2250}, WEAPON);
     init_item(&game->item[1], stock->asset[9],
-        (sfVector2f){800, 2000}, NOTHING);
+        (sfVector2f){3050, 1750}, NOTHING);
 }
