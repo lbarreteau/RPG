@@ -7,7 +7,7 @@
 
 #include "level1_screen.h"
 
-void remove_water(frame_buffer *frame)
+void remove_particules(frame_buffer *frame)
 {
     static float e = 0;
 

@@ -7,36 +7,33 @@
 
 #include "level1_screen.h"
 
-static void water_gestion(level1 *game, bool water_active)
+void draw_water(level1 *game, bool water_active, bool snow_active)
 {
-    if (rand() % 500 == 0) {
-        water_active = !water_active;
-    }
-    if (water_active == true) {
+    if (water_active == true && snow_active == false) {
         create_water(game->buffer);
-    } else {
-        remove_water(game->buffer);
+    }
+    if (water_active == false) {
+        remove_particules(game->buffer);
     }
 }
 
-static void snow_gestion(level1 *game, bool snow_active)
+void draw_snow(level1 *game, bool snow_active, bool water_active)
 {
-    if (rand() % 500 == 0) {
-        snow_active = !snow_active;
-    }
-    if (snow_active == true) {
+    if (snow_active == true && water_active == false) {
         create_snow(game->buffer);
-    } else {
-        remove_snow(game->buffer);
+    }
+    if (snow_active == false) {
+        remove_particules(game->buffer);
     }
 }
 
 void wether_gestion(level1 *game)
 {
-    static bool snow_active = false;
-    static bool water_active = false;
-
     sfSprite_setTexture(game->buffer->sprite, game->buffer->texture, sfFalse);
-    water_gestion(game, water_active);
-    snow_gestion(game, snow_active);
+    if (rand() % 50 == 0) {
+        game->buffer->water_active = !game->buffer->water_active;
+    }
+    if (rand() % 100 == 0) {
+        game->buffer->snow_active = !game->buffer->snow_active;
+    }
 }

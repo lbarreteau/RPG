@@ -57,5 +57,7 @@ void draw_level1(screens *screen, level1 *game, player *player1)
     if (screen->inv_is_set == true)
         draw_inventory(screen, &game->stock, player1);
     sfRenderWindow_drawSprite(screen->window, game->buffer->sprite, NULL);
+    draw_water(game, game->buffer->water_active, game->buffer->snow_active);
+    draw_snow(game, game->buffer->snow_active, game->buffer->water_active);
     draw_dialog(screen, game);
 }

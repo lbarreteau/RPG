@@ -25,6 +25,8 @@ void set_all(level1 *game, player *player1)
     set_items(game, &game->stock);
     game->dialog_active = false;
     game->dialog_active_2 = false;
+    game->buffer->water_active = false;
+    game->buffer->snow_active = false;
 }
 
 bool check_exit(level1 *game, screens *screen, menus *menu, bool exit)

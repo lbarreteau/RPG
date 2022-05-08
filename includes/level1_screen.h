@@ -54,6 +54,8 @@ typedef struct frame_buffer {
     sfUint8 *pixels;
     sfTexture *texture;
     sfSprite *sprite;
+    bool snow_active;
+    bool water_active;
 } frame_buffer;
 
 
