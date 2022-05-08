@@ -46,7 +46,8 @@ bool check_collisions_fireball_player(fight_screen *fight)
             fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
             fight->attack_ennemy[i].is_activ = false;
         }
-        if (fight->player_fight.stat.health == 0) {
+        if (fight->player_fight.stat.health <= 0) {
+            fight->dead_player = true;
             return (true);
         }
     }

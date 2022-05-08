@@ -54,4 +54,5 @@ void set_menu(screens *global, menus *menu)
     set_text(global, menu);
     global->quit_game = false;
     global->inv_is_set = false;
+    global->menu = menu;
 }

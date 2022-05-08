@@ -12,8 +12,7 @@ static bool redirection_screen(int nb_screen, screens *screen, menus *menu)
 {
     switch (nb_screen) {
         case 0:
-            level1_screen(screen, menu);
-            return (true);
+            return (level1_screen(screen, menu));
         case 1:
             return (settings_screen(screen));
         case 2:
