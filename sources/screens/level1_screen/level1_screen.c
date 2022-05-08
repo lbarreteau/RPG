@@ -52,6 +52,21 @@ bool check_exit(level1 *game, screens *screen, menus *menu, bool exit)
     return (exit);
 }
 
+bool check_event(level1 *game, player *player1, screens *screen)
+{
+    move_player(game, player1, screen);
+    pick_up_item(game, player1, &game->stock);
+    check_equipment(player1, &game->stock);
+    check_stats(player1);
+    draw_level1(screen, game, player1);
+    sfRenderWindow_display(screen->window);
+    if (screen->is_dead == true) {
+        screen->is_dead = false;
+        return (false);
+    }
+    return (true);
+}
+
 bool level1_screen(screens *screen, menus *menu)
 {
     struct level1 game;
@@ -66,16 +81,8 @@ bool level1_screen(screens *screen, menus *menu)
         if (check_exit(&game, screen, menu, exit) == true || exit == true) {
             return (true);
         }
-        move_player(&game, &player1, screen);
-        pick_up_item(&game, &player1, &game.stock);
-        check_equipment(&player1, &game.stock);
-        check_stats(&player1);
-        draw_level1(screen, &game, &player1);
-        sfRenderWindow_display(screen->window);
-        if (screen->is_dead == true) {
-            screen->is_dead = false;
+        if (check_event(&game, &player1, screen) == false)
             return (false);
-        }
     }
     free_level1(&game);
     return (true);
