@@ -18,6 +18,7 @@ static bool redirection_screen(int nb_screen, screens *screen)
         case 2:
             return (how_to_play_screen(screen));
         case 3:
+            screen->quit_game = true;
             return (true);
         default:
             return (false);

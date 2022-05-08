@@ -38,6 +38,8 @@ bool check_exit(level1 *game, screens *screen, menus *menu, bool exit)
             exit = false;
         }
     }
+    if (screen->quit_game == true)
+        return (true);
     if (exit == true) {
         free_level1(game);
         // free buffer particules

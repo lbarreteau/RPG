@@ -52,6 +52,7 @@ typedef struct screens {
     unsigned short bits_per_pixel;
     unsigned short fps;
     sfKeyCode list_key[5];
+    bool quit_game;
     char *name_screen;
     char *name_background;
     char *name_music[2];
