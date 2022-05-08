@@ -97,3 +97,8 @@ void level1_event_key(screens *screen, level1 *game);
 void set_enemy(level1 *game);
 sfBool check_hitbox_pnj(sfBool coll, level1 *game, player *player1);
 sfBool check_colisions_border(sfBool coll, level1 *game, player *player1);
+void create_snow(frame_buffer *frame);
+void remove_particules(frame_buffer *frame);
+void draw_snow(level1 *game, bool snow_active, bool water_active);
+void draw_water(level1 *game, bool water_active, bool snow_active);
+void wether_gestion(level1 *game);

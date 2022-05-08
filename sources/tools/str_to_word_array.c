@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include "global.h"
 
 int is_alnum(char c)
 {

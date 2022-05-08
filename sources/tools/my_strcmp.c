@@ -5,7 +5,7 @@
 ** to complete.
 */
 
-int my_strcmp(char *s1, char *s2)
+int my_strcmp(const char *s1, const char *s2)
 {
     int i = 0;
 
