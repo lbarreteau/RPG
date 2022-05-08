@@ -8,7 +8,7 @@
 #include "global.h"
 #include "menu_screen.h"
 
-static char **find_menu_properties_from_file(void)
+char **find_menu_properties_from_file(void)
 {
     char *buffer;
     char **array;

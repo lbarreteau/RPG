@@ -8,7 +8,7 @@
 #include "global.h"
 #include "level1_screen.h"
 
-static char **find_menu_properties_from_file(void)
+char **find_level1_properties_from_file(void)
 {
     char *buffer;
     char **array;
@@ -25,7 +25,7 @@ static char **find_menu_properties_from_file(void)
 
 void init_level1_struct(level1 *game)
 {
-    char **array_settings = find_menu_properties_from_file();
+    char **array_settings = find_level1_properties_from_file();
 
     game->name_screen_background = strdup(array_settings[1]);
     game->name_pnj = strdup(array_settings[3]);
