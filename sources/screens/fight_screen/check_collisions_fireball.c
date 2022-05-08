@@ -29,22 +29,22 @@ void create_all_fireballs(fight_screen *fight)
     }
 }
 
+void check_damage_player(fight_screen *fight, int i)
+{
+    if (fight->bubble.is_activ == false) {
+        fight->player_fight.stat.health -= 1;
+    }
+    fight->attack_ennemy[i].is_activ = false;
+    fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
+}
+
 bool check_collisions_fireball_player(fight_screen *fight)
 {
     create_all_fireballs(fight);
     for (int i = 0; i < 10; i++) {
         if (sfIntRect_intersects(&fight->attack_ennemy[i].hitbox,
-        &fight->player_fight.hitbox, NULL) == sfTrue &&
-        fight->bubble.is_activ == false) {
-            fight->attack_ennemy[i].is_activ = false;
-            fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
-            fight->player_fight.stat.health -= 1;
-        }
-        if (sfIntRect_intersects(&fight->attack_ennemy[i].hitbox,
-        &fight->player_fight.hitbox, NULL) == sfTrue &&
-        fight->bubble.is_activ == true) {
-            fight->attack_ennemy[i].hitbox = (sfIntRect){0, 0, 0, 0};
-            fight->attack_ennemy[i].is_activ = false;
+        &fight->player_fight.hitbox, NULL) == sfTrue) {
+            check_damage_player(fight, i);
         }
         if (fight->player_fight.stat.health <= 0) {
             fight->dead_player = true;

@@ -11,9 +11,6 @@
 
 static void movement_redirection(screens *screen, level1 *game)
 {
-    if (screen->event.key.code == sfKeyI) {
-        fight_scrn(screen, game->player1);
-    }
     if (screen->event.key.code == screen->list_key[1]) {
         game->move_direction = 1;
     }

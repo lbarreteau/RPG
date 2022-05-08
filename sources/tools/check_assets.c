@@ -42,7 +42,8 @@ int check_second_part_assets(void)
     if ((fd = fopen("assets/pictures/map/map_fight.png", "r")) == NULL)
         return (84);
     fclose(fd);
-    if ((fd = fopen("assets/pictures/settings/sliderbar_button.png", "r")) == NULL)
+    if ((fd = fopen(
+        "assets/pictures/settings/sliderbar_button.png", "r")) == NULL)
         return (84);
     fclose(fd);
     return (0);
