@@ -12,17 +12,17 @@
 void draw_dialog(screens *screen, level1 *game)
 {
     if (game->dialog_active == true) {
-        sfText_setString(game->dialog.text, "\t\tOnce upon a time there was"
-        " a calm\nand peaceful dungeon but a villain has taken it\n\t\t  over"
-        " and will fight it to deliver.");
+        sfText_setString(game->dialog.text, "\t\tPlease, help me. My twins"
+        " brothers\nare possessed by the dungeon and are crazy.\n\t\t"
+        " You must give them back please.");
         sfRenderWindow_drawSprite(screen->window,
             game->background_dialog.sprite, NULL);
         sfRenderWindow_drawText(screen->window, game->dialog.text, NULL);
     }
     if (game->dialog_active_2 == true) {
         sfText_setString(game->dialog_2.text,
-        "ezregfksqdvniklabacbvpsdonbacmzaeepjdio\n"
-        "aoeziruqsdfghfklqosdfgkldgghkluiydfsdffdb");
+        "\tI can control the dungeaon for a while but\n"
+        "\t\tmy brothers under are submerged, \n\t\t\t\t\t\tplease help them");
         sfRenderWindow_drawSprite(screen->window,
             game->background_dialog_2.sprite, NULL);
         sfRenderWindow_drawText(screen->window, game->dialog_2.text, NULL);

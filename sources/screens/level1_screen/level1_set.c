@@ -18,7 +18,7 @@ void set_level1(level1 *game, player *player1)
     game->pause_event = false;
     game->background_dialog = init_sprite("assets/pictures/sign/long_sign.png",
     (sfVector2f) {2, 2}, (sfVector2f) {450, 800});
-    game->dialog_2 = init_text(25, (sfVector2f) {550, 875}, sfBlack);
+    game->dialog_2 = init_text(25, (sfVector2f) {550, 860}, sfBlack);
     game->background_dialog_2 = init_sprite("assets/pictures/sign/long_sign.png",
     (sfVector2f) {2, 2}, (sfVector2f) {450, 800});
     game->dialog = init_text(25, (sfVector2f) {540, 860}, sfBlack);
